@@ -1,0 +1,34 @@
+{
+    "name": "BFPortalUnleashed",
+    "version": "0.0.1",
+    "description": "A Battlefield Portal scripting tool",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ludonope/BFPortalUnleashed"
+    },
+    "author": {
+        "name": "Ludonope",
+        "email": "ludonope@nopestudio.fr",
+        "url": "https://github.com/Ludonope"
+    },
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/Ludonope/BFPortalUnleashed/issues"
+    },
+    "homepage": "https://github.com/Ludonope/BFPortalUnleashed#readme",
+    "dependencies": {
+        "monaco-editor": "~0.20.0",
+        "requirejs": "^2.3.6"
+    },
+    "devDependencies": {
+        "del": "^6.0.0",
+        "gulp": "^4.0.2",
+        "gulp-eslint": "^6.0.0",
+        "gulp-minify": "^3.1.0",
+        "gulp-open": "^3.0.1",
+        "gulp-prettier": "^3.0.0",
+        "gulp-zip": "^5.0.2",
+        "jasmine": "^3.6.1",
+        "sinon-chrome": "^3.0.1"
+    }
+}
