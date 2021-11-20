@@ -1,5 +1,5 @@
 {
-    "name": "BFPortalUnleashed",
+    "name": "bfportal-unleashed-extension",
     "version": "0.0.1",
     "description": "A Battlefield Portal scripting tool",
     "repository": {
@@ -18,6 +18,8 @@
     "homepage": "https://github.com/Ludonope/BFPortalUnleashed#readme",
     "dependencies": {
         "monaco-editor": "~0.20.0",
+        "portal-unleashed": "../portal-unleashed-generator/portal-unleashed/",
+        "portal-unleashed-generator": "../portal-unleashed-generator/",
         "requirejs": "^2.3.6"
     },
     "devDependencies": {

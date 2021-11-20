@@ -10,7 +10,9 @@ const zip = require('gulp-zip');
 const included_modules = [
     'node_modules/monaco-editor/min/**/*',
     'node_modules/monaco-editor/LICENSE',
-    'node_modules/requirejs/require.js'
+    'node_modules/requirejs/require.js',
+    'node_modules/portal-unleashed/dist/unleash.js',
+    'node_modules/portal-unleashed/dist/unleash.d.ts'
 ];
 const test_modules = [
     'node_modules/jasmine-core/lib/jasmine-core/boot.js',
