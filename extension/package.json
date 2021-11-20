@@ -18,8 +18,7 @@
     "homepage": "https://github.com/Ludonope/BFPortalUnleashed#readme",
     "dependencies": {
         "monaco-editor": "~0.20.0",
-        "portal-unleashed": "../portal-unleashed-generator/portal-unleashed/",
-        "portal-unleashed-generator": "../portal-unleashed-generator/",
+        "portal-unleashed": "../generator/portal-unleashed/",
         "requirejs": "^2.3.6"
     },
     "devDependencies": {

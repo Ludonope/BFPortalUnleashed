@@ -3238,10 +3238,7 @@ plugin-log@^0.1.0:
     chalk "^1.1.1"
     dateformat "^1.0.11"
 
-portal-unleashed-generator@../portal-unleashed-generator/:
-  version "1.0.0"
-
-portal-unleashed@../portal-unleashed-generator/portal-unleashed/:
+portal-unleashed@../generator/portal-unleashed/:
   version "1.0.0"
   dependencies:
     "@babel/core" "^7.16.0"
