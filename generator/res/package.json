@@ -10,24 +10,21 @@
         "@babel/core": "^7.16.0",
         "@babel/generator": "^7.16.0",
         "@babel/parser": "^7.16.3",
-        "@babel/polyfill": "^7.12.1",
-        "@babel/register": "^7.16.0",
         "@babel/traverse": "^7.16.3",
         "@babel/types": "^7.16.0",
         "assert": "^2.0.0",
         "babel-prettier-parser": "^0.10.5",
-        "os": "^0.1.2",
-        "os-browserify": "^0.3.0",
         "prettier": "^2.4.1",
         "xmlbuilder2": "^3.0.2"
     },
     "scripts": {
-        "build": "webpack && mv src/unleash.d.ts dist",
-        "clean": "rm -r dist"
+        "build": "webpack && shx cp src/unleash.d.ts dist",
+        "clean": "shx rm -r dist"
     },
     "devDependencies": {
         "buffer": "^6.0.3",
         "process": "^0.11.10",
+        "shx": "^0.3.3",
         "ts-loader": "^9.2.6",
         "typescript": "^4.4.4",
         "webpack": "^5.64.0",
