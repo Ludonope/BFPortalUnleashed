@@ -19,7 +19,7 @@
             "content/content.js"
         ],
         "matches": [
-            "<all_urls>"
+            "https://portal.battlefield.com/*"
         ],
         "run_at": "document_end"
     }],
@@ -30,8 +30,7 @@
         "storage",
         "webRequest",
         "tabs",
-        "<all_urls>",
-        "https://y7mfvajmhh.execute-api.us-east-1.amazonaws.com/*"
+        "<all_urls>"
     ],
     "icons": {
         "128": "images/portal_unchained_logo.png"

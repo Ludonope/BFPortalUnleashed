@@ -3,9 +3,10 @@
 if (shouldLaunchEditor(document.body)) {
     const interval = setInterval(() => {
         const app = document.getElementsByClassName('app')[0];
-        if (app) {
+        const rules = document.getElementsByClassName('rules');
+        if (app && rules.length > 0) {
             clearInterval(interval);
-            prepareEditorLaunch(app);
+            prepareEditorLaunch(app, rules);
         }
     }, 100);
 }
@@ -14,7 +15,7 @@ const req = document.createElement('script')
 req.src = 'require.js'
 document.body.appendChild(req)
 
-function prepareEditorLaunch(app) {
+function prepareEditorLaunch(app, rules) {
     // Hide contents to avoid flickering while the rest of the script loads
     // asynchronously.
     // element.style.setProperty('display', 'none', '');
@@ -30,6 +31,16 @@ function prepareEditorLaunch(app) {
     chrome.runtime.sendMessage({
         action: 'show_page_action'
     });
+
+    let rulesLen = rules.length;
+    setInterval(() => {
+        const rules = document.getElementsByClassName('rules');
+        if (rules.length != rulesLen) {
+            const app = document.getElementsByClassName('app')[0];
+            toggleEditor(app);
+            rulesLen = rules.length;
+        }
+    }, 100);
 }
 
 function shouldLaunchEditor(body) {
@@ -49,7 +60,7 @@ function listenToEditorMessages(element) {
 // Always call mod.init before anything else
 mod.init()
 
-mod.onPlayerJoinGame('New Rule', (eventPlayer) => ({
+mod.onPlayerJoinGame('Welcome new player', (eventPlayer) => ({
     conditions: [],
     actions: () => {
         ui.ShowEventGameModeMessage(ui.Message("Welcome", eventPlayer))
@@ -58,6 +69,8 @@ mod.onPlayerJoinGame('New Rule', (eventPlayer) => ({
                 filename: 'main.ts'
             };
             message.source.postMessage(response, chrome.runtime.getURL(''));
+        } else if (message.data === 'toggleEditor') {
+            toggleEditor(app);
         } else if (message.data.startsWith('run+')) {
             console.log(message)
             let source = `import * as __portal from '${chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js')}'\n` +
@@ -131,3 +144,22 @@ function toggleEditor(app) {
         app.appendChild(iframe);
     }
 }
+
+// (function(history) {
+//     var pushState = history.pushState;
+//     history.pushState = function(state) {
+//         if (typeof history.onpushstate == "function") {
+//             history.onpushstate({ state: state });
+//         }
+//         // ... whatever else you want to do
+//         // maybe call onhashchange e.handler
+//         return pushState.apply(history, arguments);
+//     };
+// })(window.history);
+
+// window.onpopstate = history.onpushstate = function(event) {
+//     console.log(event)
+// };
+browser.webNavigation.onHistoryStateUpdated.addListener((e) => {
+    console.log(e)
+})
