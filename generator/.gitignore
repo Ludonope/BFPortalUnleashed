@@ -105,5 +105,5 @@ typings/
 
 # Typescript output
 out/
-generator/
+intermediate/
 portal-unleashed/

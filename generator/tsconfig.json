@@ -3,7 +3,7 @@
     "target": "es6",
     "module": "commonjs",
     "rootDir": "src",
-    "outDir": "generator"
+    "outDir": "intermediate"
   },
   "include": [
     "src",
