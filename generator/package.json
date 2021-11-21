@@ -13,9 +13,12 @@
         "ts-morph": "^12.2.0"
     },
     "scripts": {
-        "generate": "tsc && node intermediate/main.js && cp res/package.json res/tsconfig.json res/webpack.config.js portal-unleashed",
+        "generate": "tsc && node intermediate/main.js && shx cp res/package.json res/tsconfig.json res/webpack.config.js portal-unleashed",
         "build": "yarn generate && cd portal-unleashed && yarn install && yarn build",
         "test": "yarn build && node test/test.js",
-        "clean": "rm -r generator portal-unleashed"
+        "clean": "shx rm -r generator portal-unleashed"
+    },
+    "dependencies": {
+        "cp-cli": "^2.0.0"
     }
 }
