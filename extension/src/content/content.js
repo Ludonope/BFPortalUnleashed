@@ -1,15 +1,13 @@
 'use strict';
 
-if (shouldLaunchEditor(document.body)) {
-    const interval = setInterval(() => {
-        const app = document.getElementsByClassName('app')[0];
-        const rules = document.getElementsByClassName('rules');
-        if (app && rules.length > 0) {
-            clearInterval(interval);
-            prepareEditorLaunch(app, rules);
-        }
-    }, 100);
-}
+const interval = setInterval(() => {
+    const app = document.getElementsByClassName('app')[0];
+    const rules = document.getElementsByClassName('rules');
+    if (app && rules.length > 0) {
+        clearInterval(interval);
+        prepareEditorLaunch(app, rules);
+    }
+}, 100);
 
 const req = document.createElement('script')
 req.src = 'require.js'
@@ -24,7 +22,7 @@ function prepareEditorLaunch(app, rules) {
             // element.style.removeProperty('display');
         } else {
             listenToEditorMessages(app);
-            toggleEditor(app);
+            createEditor(app);
         }
     });
     // Notify the background to show the page action for the current tab.
@@ -37,16 +35,10 @@ function prepareEditorLaunch(app, rules) {
         const rules = document.getElementsByClassName('rules');
         if (rules.length != rulesLen) {
             const app = document.getElementsByClassName('app')[0];
-            toggleEditor(app);
+            toggleEditor(app, rules.length != 0);
             rulesLen = rules.length;
         }
     }, 100);
-}
-
-function shouldLaunchEditor(body) {
-    // Only handle documents with a unique <pre> element.
-    return true;
-    // return body && body.getElementsByTagName('pre').length === 1 && body.childNodes.length === 1;
 }
 
 function listenToEditorMessages(element) {
@@ -72,7 +64,6 @@ mod.onPlayerJoinGame('Welcome new player', (eventPlayer) => ({
         } else if (message.data === 'toggleEditor') {
             toggleEditor(app);
         } else if (message.data.startsWith('run+')) {
-            console.log(message)
             let source = `import * as __portal from '${chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js')}'\n` +
                 message.data.substring(4).replaceAll("portal-unleashed", chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js'))
             var s = document.createElement('script');
@@ -127,39 +118,82 @@ function getFilename() {
     return filename;
 }
 
-function toggleEditor(app) {
-    const checkMonaco = document.getElementById('unleashed-editor');
-    console.log(`app ${app}`);
-    console.log(`checkMonaco ${checkMonaco}`);
-    if (checkMonaco) {
-        app.style.gridTemplateColumns = '1fr';
-        app.removeChild(checkMonaco);
-    } else {
-        app.style.gridTemplateColumns = '1fr 1fr';
 
-        const iframe = document.createElement('iframe');
-        iframe.id = 'unleashed-editor';
-        iframe.setAttribute('src', chrome.runtime.getURL('editor/editor.html'));
-        iframe.setAttribute('style', 'border: 0px none; width: 100%; height: 100%; grid-row: 1;');
-        app.appendChild(iframe);
+function createEditor(app) {
+    app.style.gridTemplateRows = '1fr';
+    app.children[0].style.gridArea = 'blocks'
+
+    // Create the editor with the middle resize bar 
+    let dragbarWidth = 3;
+    const width = app.clientWidth - dragbarWidth
+    let cols = [width / 2, dragbarWidth, width / 2];
+
+    let newColDefn = cols.map(c => c.toString() + "px").join(" ");
+    app.style.gridTemplateColumns = newColDefn;
+    app.style.gridTemplateAreas = '"blocks bar editor"'
+
+    let isDragging = false;
+    const bar = document.createElement('div')
+    bar.id = 'resize-bar'
+    bar.setAttribute('style', 'width: 3px; height: 100%; cursor: col-resize; grid-area: bar;');
+    bar.onmousedown = function(e) {
+        isDragging = true;
+        // When dragging add an invisible overlay on top of the editor iframe to prevent it
+        // from capture mouse events
+        const overlay = document.createElement('div')
+        overlay.innerHTML = '&nbsp;'
+        overlay.id = 'editor-resize-overlay'
+        overlay.setAttribute('style', 'z-index: 1; width: 100%; height: 100%; grid-area: editor;');
+        app.appendChild(overlay)
+    }
+    app.appendChild(bar)
+
+    // Create the iframe containing the editor
+    const iframe = document.createElement('iframe');
+    iframe.id = 'unleashed-editor';
+    iframe.setAttribute('src', chrome.runtime.getURL('editor/editor.html'));
+    iframe.setAttribute('style', 'z-index: 0; border: 0px none; width: 100%; height: 100%; grid-area: editor;');
+    app.appendChild(iframe);
+
+    // Disable dragging, remove overlay if needed
+    app.onmouseup = iframe.onmouseup = function(e) {
+        isDragging = false;
+        const overlay = document.getElementById('editor-resize-overlay')
+        if (overlay) {
+            app.removeChild(overlay)
+        }
+    }
+
+    // On mouse movement apply changes if dragging
+    app.onmousemove = iframe.onmousemove = function(e) {
+        if (isDragging) {
+            let cols = [
+                e.clientX,
+                dragbarWidth,
+                app.clientWidth - e.clientX
+            ];
+            let newColDefn = cols.map(c => c.toString() + "px").join(" ");
+            app.style.gridTemplateColumns = newColDefn;
+            e.preventDefault()
+        }
     }
 }
 
-// (function(history) {
-//     var pushState = history.pushState;
-//     history.pushState = function(state) {
-//         if (typeof history.onpushstate == "function") {
-//             history.onpushstate({ state: state });
-//         }
-//         // ... whatever else you want to do
-//         // maybe call onhashchange e.handler
-//         return pushState.apply(history, arguments);
-//     };
-// })(window.history);
-
-// window.onpopstate = history.onpushstate = function(event) {
-//     console.log(event)
-// };
-browser.webNavigation.onHistoryStateUpdated.addListener((e) => {
-    console.log(e)
-})
+let lastSize;
+// Toggles the editor on/off
+function toggleEditor(app, enable) {
+    const bar = document.getElementById('resize-bar')
+    const iframe = document.getElementById('unleashed-editor')
+    if (enable) {
+        app.style.gridTemplateColumns = lastSize;
+        app.style.gridTemplateAreas = '"blocks bar editor"'
+        bar.style.display = 'block'
+        iframe.style.display = 'block'
+    } else {
+        lastSize = app.style.gridTemplateColumns
+        app.style.gridTemplateColumns = '1fr';
+        app.style.gridTemplateAreas = '"blocks"'
+        bar.style.display = 'none'
+        iframe.style.display = 'none'
+    }
+}
