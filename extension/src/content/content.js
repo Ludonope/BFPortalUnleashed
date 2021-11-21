@@ -12,17 +12,24 @@ const interval = setInterval(() => {
 const req = document.createElement('script')
 req.src = 'require.js'
 document.body.appendChild(req)
+let codeStoreKey;
 
 function prepareEditorLaunch(app, rules) {
     // Hide contents to avoid flickering while the rest of the script loads
     // asynchronously.
     // element.style.setProperty('display', 'none', '');
-    chrome.storage.local.get('disabled', function(state) {
+    let url = window.location.toString();
+    let urlParams = url.split('?')[1].split('&').map(p => p.split('='))
+    let playgroundId = urlParams.find(p => p[0] == 'playgroundId')[1]
+    console.log('playgroundId', playgroundId)
+    codeStoreKey = `code-${playgroundId}`
+        // use `url` here inside the callback because it's asynchronous!
+    chrome.storage.local.get(['disabled', 'editor-ratio', codeStoreKey], function(state) {
         if (state['disabled'] === 'true') {
             // element.style.removeProperty('display');
         } else {
-            listenToEditorMessages(app);
-            createEditor(app);
+            listenToEditorMessages(app, state[codeStoreKey]);
+            createEditor(app, state['editor-ratio'] || 0.5);
         }
     });
     // Notify the background to show the page action for the current tab.
@@ -41,13 +48,13 @@ function prepareEditorLaunch(app, rules) {
     }, 100);
 }
 
-function listenToEditorMessages(element) {
+function listenToEditorMessages(element, initialCode) {
     window.addEventListener('message', function(message) {
         // Wait for editor frame to signal that it has loaded.
         if (message.data === 'loaded') {
             // element.parentNode.removeChild(element);
             const response = {
-                code: `import { mod, gameplay, player, ui } from 'portal-unleashed'
+                code: initialCode || `import { mod, gameplay, player, ui } from 'portal-unleashed'
 
 // Always call mod.init before anything else
 mod.init()
@@ -64,8 +71,12 @@ mod.onPlayerJoinGame('Welcome new player', (eventPlayer) => ({
         } else if (message.data === 'toggleEditor') {
             toggleEditor(app);
         } else if (message.data.startsWith('run+')) {
+            let original = message.data.substring(4)
+            let storeData = {}
+            storeData[codeStoreKey] = original
+            chrome.storage.local.set(storeData);
             let source = `import * as __portal from '${chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js')}'\n` +
-                message.data.substring(4).replaceAll("portal-unleashed", chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js'))
+                original.replaceAll("portal-unleashed", chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js'))
             var s = document.createElement('script');
             s.type = 'module'
             s.innerHTML = `
@@ -119,14 +130,14 @@ function getFilename() {
 }
 
 
-function createEditor(app) {
+function createEditor(app, editorRatio) {
     app.style.gridTemplateRows = '1fr';
     app.children[0].style.gridArea = 'blocks'
 
     // Create the editor with the middle resize bar 
     let dragbarWidth = 3;
     const width = app.clientWidth - dragbarWidth
-    let cols = [width / 2, dragbarWidth, width / 2];
+    let cols = [width * (1.0 - editorRatio), dragbarWidth, width * editorRatio];
 
     let newColDefn = cols.map(c => c.toString() + "px").join(" ");
     app.style.gridTemplateColumns = newColDefn;
@@ -161,6 +172,9 @@ function createEditor(app) {
         const overlay = document.getElementById('editor-resize-overlay')
         if (overlay) {
             app.removeChild(overlay)
+            chrome.storage.local.set({
+                'editor-ratio': editorRatio,
+            });
         }
     }
 
@@ -172,6 +186,7 @@ function createEditor(app) {
                 dragbarWidth,
                 app.clientWidth - e.clientX
             ];
+            editorRatio = 1.0 - e.clientX / app.clientWidth
             let newColDefn = cols.map(c => c.toString() + "px").join(" ");
             app.style.gridTemplateColumns = newColDefn;
             e.preventDefault()

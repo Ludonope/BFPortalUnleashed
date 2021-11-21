@@ -19,7 +19,7 @@
             "content/content.js"
         ],
         "matches": [
-            "https://portal.battlefield.com/experience/*"
+            "https://portal.battlefield.com/*"
         ],
         "run_at": "document_end"
     }],
