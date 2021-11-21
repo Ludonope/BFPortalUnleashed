@@ -16,7 +16,7 @@
         "generate": "tsc && node intermediate/main.js && shx cp res/package.json res/tsconfig.json res/webpack.config.js portal-unleashed",
         "build": "npm generate && cd portal-unleashed && npm install && npm build",
         "test": "npm build && node test/test.js",
-        "clean": "shx rm -r generator portal-unleashed"
+        "clean": "shx rm -r intermediate portal-unleashed"
     },
     "dependencies": {
         "cp-cli": "^2.0.0"
