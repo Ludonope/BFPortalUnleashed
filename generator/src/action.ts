@@ -34,6 +34,7 @@ export class BAction extends Named {
                 }
                 return s
             })
+        this.functionSignatures.sort((a, b) => a.parameterTypes.length - b.parameterTypes.length)
     }
 
     definition() : morph.FunctionDeclarationStructure[] {
@@ -89,11 +90,12 @@ export class BAction extends Named {
                     const p = sig.parameterTypes.map(v => v.anyType ? 'IBlock' : v.parameterTypes.map(t => t.wrapped).join(' | '))
                     writer.write('if (')
                     for (let n = 0; n < transposed.length; n++) {
+                        const pList = (p[n] || 'undefined').split(' | ').map(v => `"${v}"`).join(', ')
                         if (n > 0) {
                             writer.write(' && \n')
                         }
                         if (p[n]) {
-                            writer.indent(n > 0 ? 1 : 0).write(`(param${n}.isAny || param${n}.valueType == '${p[n]}')`)
+                            writer.indent(n > 0 ? 1 : 0).write(`(param${n}.isAny || [${pList}].includes(param${n}.valueType))`)
                         } else {
                             writer.indent(n > 0 ? 1 : 0).write(`(typeof param${n} == 'undefined')`)
                         }

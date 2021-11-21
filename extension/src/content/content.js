@@ -44,28 +44,17 @@ function listenToEditorMessages(element) {
         if (message.data === 'loaded') {
             // element.parentNode.removeChild(element);
             const response = {
-                code: `import * as portal from 'portal-unleashed'
-import { logic, eventPayloads, gameplay } from 'portal-unleashed'
+                code: `import { mod, gameplay, player, ui } from 'portal-unleashed'
 
-const mod = new portal.Mod()
+// Always call mod.init before anything else
+mod.init()
 
-mod.onPlayerDied({
-    name: 'New Rule',
-    conditions: [
-        logic.Equals(portal.MeleeAlexandria.Knife_BF3, eventPayloads.EventPlayer()),
-        logic.Equals(portal.Factions.Alexandria_RU, eventPayloads.EventPlayer()),
-    ],
-    actions: (player, otherPlayer) => {
-        return [
-            portal.player.EnableAllInputRestrictions(player, new portal.BBoolean(true)),
-            gameplay.UnspawnPlayer(otherPlayer),
-            logic.While(portal.logic.Equals(portal.Factions.Alexandria_RU, player), [
-                portal.player.EnableAllInputRestrictions(player, new portal.BBoolean(false)),
-                gameplay.UnspawnPlayer(otherPlayer)
-            ])
-        ]
+mod.onPlayerJoinGame('New Rule', (eventPlayer) => ({
+    conditions: [],
+    actions: () => {
+        ui.ShowEventGameModeMessage(ui.Message("Welcome", eventPlayer))
     }
-})`,
+}))`,
                 filename: 'main.ts'
             };
             message.source.postMessage(response, chrome.runtime.getURL(''));

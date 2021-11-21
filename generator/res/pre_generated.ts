@@ -157,7 +157,7 @@ class Next implements IBlock {
 
 export class BMessage extends Block {
     constructor(name: string, children: IBlock[]) {
-        super(name, "Message", children)
+        super(name, "BMessage", children)
     }
 }
 

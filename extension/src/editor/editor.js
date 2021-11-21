@@ -12,6 +12,15 @@ chrome.runtime.onMessage.addListener(function(call) {
     }
 });
 
+
+document.onkeydown = function(e) {
+    if ((window.navigator.userAgentData.platform.match("macOS") ? e.metaKey : e.ctrlKey) && e.key == "s") {
+        e.preventDefault();
+        let code = editor.getValue()
+        window.parent.postMessage("run+" + code, "*");
+    }
+}
+
 function handleLaunchEvent(event) {
     const message = event.data;
     if (typeof message.code !== "undefined") {
@@ -98,7 +107,6 @@ function launchEditor(code, inferredLanguage, theme) {
         theme: theme,
     });
     addExportAction();
-    addRunAction();
     monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
         allowNonTsExtensions: true
     });
@@ -127,20 +135,6 @@ function addExportAction() {
                 action: "download_content",
                 content: editor.getValue(),
             });
-        },
-    });
-}
-
-function addRunAction() {
-    editor.addAction({
-        id: "run",
-        label: "Run",
-        contextMenuGroupId: "1_menu",
-        contextMenuOrder: 2,
-        run: function() {
-            let code = editor.getValue()
-                // TODO: pre-process code here
-            window.parent.postMessage("run+" + code, "*");
         },
     });
 }
