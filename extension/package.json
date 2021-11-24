@@ -31,5 +31,8 @@
         "gulp-zip": "^5.0.2",
         "jasmine": "^3.6.1",
         "sinon-chrome": "^3.0.1"
+    },
+    "scripts": {
+        "build": "gulp"
     }
 }
