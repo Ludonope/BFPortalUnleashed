@@ -1,214 +1,310 @@
-'use strict';
+// eslint-disable-next-line no-unused-vars
+const PortalUnleashed = (function () {
+    const pluginName = "portal-unleashed";
 
-const interval = setInterval(() => {
-    const app = document.getElementsByClassName('app')[0];
-    const rules = document.getElementsByClassName('rules');
-    if (app && rules.length > 0) {
-        clearInterval(interval);
-        prepareEditorLaunch(app, rules);
-    }
-}, 100);
-
-const req = document.createElement('script')
-req.src = 'require.js'
-document.body.appendChild(req)
-let codeStoreKey;
-
-function prepareEditorLaunch(app, rules) {
-    // Hide contents to avoid flickering while the rest of the script loads
-    // asynchronously.
-    // element.style.setProperty('display', 'none', '');
-    let url = window.location.toString();
-    let urlParams = url.split('?')[1].split('&').map(p => p.split('='))
-    let playgroundId = urlParams.find(p => p[0] == 'playgroundId')[1]
-    console.log('playgroundId', playgroundId)
-    codeStoreKey = `code-${playgroundId}`
-        // use `url` here inside the callback because it's asynchronous!
-    chrome.storage.local.get(['disabled', 'editor-ratio', codeStoreKey], function(state) {
-        if (state['disabled'] === 'true') {
-            // element.style.removeProperty('display');
-        } else {
-            listenToEditorMessages(app, state[codeStoreKey]);
-            createEditor(app, state['editor-ratio'] || 0.5);
-        }
-    });
-    // Notify the background to show the page action for the current tab.
-    chrome.runtime.sendMessage({
-        action: 'show_page_action'
-    });
-
-    let rulesLen = rules.length;
-    setInterval(() => {
-        const rules = document.getElementsByClassName('rules');
-        if (rules.length != rulesLen) {
-            const app = document.getElementsByClassName('app')[0];
-            toggleEditor(app, rules.length != 0);
-            rulesLen = rules.length;
-        }
-    }, 100);
-}
-
-function listenToEditorMessages(element, initialCode) {
-    window.addEventListener('message', function(message) {
-        // Wait for editor frame to signal that it has loaded.
-        if (message.data === 'loaded') {
-            // element.parentNode.removeChild(element);
-            const response = {
-                code: initialCode || `import { mod, gameplay, player, ui } from 'portal-unleashed'
+    const defaultMode = "splitscreen-right";
+    const defaultRatio = 0.5;
+    const defaultTheme = "vs-dark";
+    const defaultCode = `import { mod, gameplay, player, ui } from "portal-unleashed"
 
 // Always call mod.init before anything else
 mod.init()
 
-mod.onPlayerJoinGame('Welcome new player', (eventPlayer) => ({
+mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
     conditions: [],
     actions: () => {
         ui.ShowEventGameModeMessage(ui.Message("Welcome", eventPlayer))
     }
-}))`,
-                filename: 'main.ts'
-            };
-            message.source.postMessage(response, chrome.runtime.getURL(''));
-        } else if (message.data === 'toggleEditor') {
-            toggleEditor(app);
-        } else if (message.data.startsWith('run+')) {
-            let original = message.data.substring(4)
-            let storeData = {}
-            storeData[codeStoreKey] = original
-            chrome.storage.local.set(storeData);
-            let source = `import * as __portal from '${chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js')}'\n` +
-                original.replaceAll("portal-unleashed", chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js'))
-            var s = document.createElement('script');
-            s.type = 'module'
-            s.innerHTML = `
-import prettier from "https://unpkg.com/prettier@2.4.1/esm/standalone.mjs";
-import parserBabel from "https://unpkg.com/prettier@2.4.1/esm/parser-babel.mjs";
-import * as __portal from '${chrome.runtime.getURL('../lib/portal-unleashed/dist/unleash.js')}'
+}))`;
 
-const code = prettier.format(__portal.preprocess(${JSON.stringify(source)}), {
-    parser: "babel",
-    plugins: [parserBabel],
-})
-console.log('generated code:', code)
-var s = document.createElement('script');
-s.type = 'module'
-s.innerHTML = \`\${code}
+    let appElement = undefined;
+    let editorElement = undefined;
+    let dragbarWidth = 6;
+    let currentMode;
+    let currentRatio;
+    let plugin = undefined;
+    let playgroundId = "empty";
+    let debug = false;
 
-setTimeout(function() {
-    _Blockly.Xml.clearWorkspaceAndLoadFromXml(_Blockly.Xml.textToDom(mod.toXML()), _Blockly.mainWorkspace)
-}, 0);\`
-s.onload = function() {
-    this.remove()
-};
-(document.head || document.documentElement).appendChild(s);
-            `;
-            s.onload = function() {
-                this.remove();
-            };
-            (document.head || document.documentElement).appendChild(s);
+    function prepareEditorLaunch() {
+        let url = window.location.toString();
+
+        if (url.indexOf("playgroundId=") != -1) {
+            let urlParams = url.split("?")[1].split("&").map(p => p.split("="));
+            playgroundId = urlParams.find(p => p[0] == "playgroundId")[1];
         }
-    });
-}
 
-function getFilename() {
-    let filename = location.href;
-    // Remove path.
-    let index = filename.lastIndexOf('/');
-    if (index !== -1) {
-        filename = filename.substring(index + 1);
+        debugMessage("playgroundId", playgroundId);
+
+        const storeData = getData();
+
+        listenToEditorMessages(
+            storeData.theme ? (storeData || defaultTheme) : defaultTheme,
+            storeData.code ? (storeData.code[playgroundId] || defaultCode) : defaultCode
+        );
+        
+        currentRatio = storeData.ratio || defaultRatio;
+        
+        createEditor();
+        toggleEditor(storeData.mode || defaultMode);
     }
-    // Remove fragment identifier.
-    index = filename.indexOf('#');
-    if (index !== -1) {
-        filename = filename.substring(0, index);
+
+    function listenToEditorMessages(theme, code) {
+        window.addEventListener("message", function (event) {
+            const message = event.data;
+
+            if (message.plugin !== pluginName) {
+                return;
+            }
+
+            if (message.type === "init") {
+                const response = {
+                    theme: theme,
+                    code: code,
+                    filename: "main.ts"
+                };
+
+                postMessageToEditor("init", response);
+            } else if (message.type === "update-theme") {
+                updateData(function (storeData) {
+                    storeData.theme = message.payload;
+                });
+            } else if (message.type === "update-mode") {
+                updateMode(message.payload);
+            } else if (message.type === "execute") {
+                const code = message.payload;
+
+                updateData(function (storeData) {
+                    storeData.code = storeData.code || {};
+                    storeData.code[playgroundId] = code;
+                });
+
+                let source = `import * as __portal from "${plugin.getUrl("lib/portal-unleashed/dist/unleash.js")}"\n` +
+                code.replaceAll("portal-unleashed", plugin.getUrl("lib/portal-unleashed/dist/unleash.js"));
+                var s = document.createElement("script");
+                s.type = "module";
+                s.innerHTML = `
+    import prettier from "https://unpkg.com/prettier@2.4.1/esm/standalone.mjs";
+    import parserBabel from "https://unpkg.com/prettier@2.4.1/esm/parser-babel.mjs";
+    import * as __portal from "${plugin.getUrl("lib/portal-unleashed/dist/unleash.js")}"
+    
+    const code = prettier.format(__portal.preprocess(${JSON.stringify(source)}, ${debug}), {
+        parser: "babel",
+        plugins: [parserBabel],
+    })
+    PortalUnleashed.debugMessage("generated code:", code)
+    var s = document.createElement("script");
+    s.type = "module"
+    s.innerHTML = \`\${code}
+    
+    setTimeout(function() {
+        _Blockly.Xml.clearWorkspaceAndLoadFromXml(_Blockly.Xml.textToDom(mod.toXML()), _Blockly.mainWorkspace)
+    }, 0);\`
+    s.onload = function() {
+        this.remove()
+    };
+    (document.head || document.documentElement).appendChild(s);
+                `;
+                s.onload = function () {
+                    this.remove();
+                };
+                (document.head || document.documentElement).appendChild(s);
+            }
+        });
     }
-    // Remove query parameters.
-    index = filename.indexOf('?');
-    if (index !== -1) {
-        filename = filename.substring(0, index);
+
+    function createEditor() {
+        appElement.style.gridTemplateRows = "1fr";
+        appElement.children[0].style.gridArea = "blocks";
+
+        let isDragging = false;
+        const bar = document.createElement("div");
+        bar.id = "resize-bar";
+        bar.setAttribute("style", `width: ${dragbarWidth}px; height: 100%; cursor: col-resize; grid-area: bar;`);
+        bar.onmousedown = function () {
+            isDragging = true;
+            // When dragging add an invisible overlay on top of the editor iframe to prevent it
+            // from capture mouse events
+            const overlay = document.createElement("div");
+            overlay.innerHTML = "&nbsp;";
+            overlay.id = "editor-resize-overlay";
+            overlay.setAttribute("style", "z-index: 1; width: 100%; height: 100%; grid-area: editor");
+            appElement.appendChild(overlay);
+        };
+        appElement.appendChild(bar);
+
+        // Create the iframe containing the editor
+        editorElement = document.createElement("iframe");
+        editorElement.id = "unleashed-editor";
+        editorElement.setAttribute("src", plugin.getUrl("editor/editor.html"));
+        editorElement.setAttribute("style", "z-index: 0; border: 0px none; width: 100%; height: 100%; grid-area: editor;");
+        appElement.appendChild(editorElement);
+
+        // Disable dragging, remove overlay if needed
+        appElement.onmouseup = editorElement.onmouseup = function () {
+            isDragging = false;
+            
+            const overlay = document.getElementById("editor-resize-overlay");
+
+            if (overlay) {
+                appElement.removeChild(overlay);
+            }
+        };
+
+        // On mouse movement apply changes if dragging
+        appElement.onmousemove = editorElement.onmousemove = function (e) {
+            if (isDragging) {
+                updateRatio(1.0 - e.clientX / appElement.clientWidth);
+
+                let cols = [
+                    e.clientX - dragbarWidth,
+                    dragbarWidth,
+                    appElement.clientWidth - e.clientX - dragbarWidth
+                ];
+                let newColDefn = cols.map(c => c.toString() + "px").join(" ");
+                appElement.style.gridTemplateColumns = newColDefn;
+                e.preventDefault();
+            }
+        };
     }
-    return filename;
-}
 
+    function toggleEditor(mode) {
+        currentMode = mode;
 
-function createEditor(app, editorRatio) {
-    app.style.gridTemplateRows = '4fr 1fr';
-    app.children[0].style.gridArea = 'blocks'
+        const bar = document.getElementById("resize-bar");
+        const iframe = document.getElementById("unleashed-editor");
 
-    // Create the editor with the middle resize bar 
-    let dragbarWidth = 3;
-    const width = app.clientWidth - dragbarWidth
-    let cols = [width * (1.0 - editorRatio), dragbarWidth, width * editorRatio];
-
-    let newColDefn = cols.map(c => c.toString() + "px").join(" ");
-    app.style.gridTemplateColumns = newColDefn;
-    app.style.gridTemplateAreas = '"blocks bar editor" "blocks bar errors"'
-
-    let isDragging = false;
-    const bar = document.createElement('div')
-    bar.id = 'resize-bar'
-    bar.setAttribute('style', 'width: 3px; height: 100%; cursor: col-resize; grid-area: bar;');
-    bar.onmousedown = function(e) {
-        isDragging = true;
-        // When dragging add an invisible overlay on top of the editor iframe to prevent it
-        // from capture mouse events
-        const overlay = document.createElement('div')
-        overlay.innerHTML = '&nbsp;'
-        overlay.id = 'editor-resize-overlay'
-        overlay.setAttribute('style', 'z-index: 1; width: 100%; height: 100%; grid-area: editor;');
-        app.appendChild(overlay)
-    }
-    app.appendChild(bar)
-
-    // Create the iframe containing the editor
-    const iframe = document.createElement('iframe');
-    iframe.id = 'unleashed-editor';
-    iframe.setAttribute('src', chrome.runtime.getURL('editor/editor.html'));
-    iframe.setAttribute('style', 'z-index: 0; border: 0px none; width: 100%; height: 100%; grid-area: editor / errors;');
-    app.appendChild(iframe);
-
-    // Disable dragging, remove overlay if needed
-    app.onmouseup = iframe.onmouseup = function(e) {
-        isDragging = false;
-        const overlay = document.getElementById('editor-resize-overlay')
-        if (overlay) {
-            app.removeChild(overlay)
-            chrome.storage.local.set({
-                'editor-ratio': editorRatio,
-            });
+        if(mode === "fullscreen") {
+            appElement.style.gridTemplateColumns = "0 0 1fr";
+            appElement.style.gridTemplateAreas = "'blocks bar editor'";
+            bar.style.display = "none";
+            iframe.style.display = "block";
         }
-    }
-
-    // On mouse movement apply changes if dragging
-    app.onmousemove = iframe.onmousemove = function(e) {
-        if (isDragging) {
-            let cols = [
-                e.clientX,
-                dragbarWidth,
-                app.clientWidth - e.clientX
-            ];
-            editorRatio = 1.0 - e.clientX / app.clientWidth
+        else if(mode === "splitscreen-left") {
+            const width = appElement.clientWidth - dragbarWidth;
+            let cols = [width * (1.0 - currentRatio), dragbarWidth, width * currentRatio];
             let newColDefn = cols.map(c => c.toString() + "px").join(" ");
-            app.style.gridTemplateColumns = newColDefn;
-            e.preventDefault()
+
+            appElement.style.gridTemplateColumns = newColDefn;
+            appElement.style.gridTemplateAreas = "'editor bar blocks'";
+            bar.style.display = "block";
+            iframe.style.display = "block";
+        }
+        else if(mode === "splitscreen-right") {
+            const width = appElement.clientWidth - dragbarWidth;
+            let cols = [width * (1.0 - currentRatio), dragbarWidth, width * currentRatio];
+            let newColDefn = cols.map(c => c.toString() + "px").join(" ");
+
+            appElement.style.gridTemplateColumns = newColDefn;
+            appElement.style.gridTemplateAreas = "'blocks bar editor'";
+            bar.style.display = "block";
+            iframe.style.display = "block";
+        }
+        else {
+            appElement.style.gridTemplateColumns = "1fr";
+            appElement.style.gridTemplateAreas = "'blocks'";
+            bar.style.display = "none";
+            iframe.style.display = "none";
         }
     }
-}
 
-let lastSize;
-// Toggles the editor on/off
-function toggleEditor(app, enable) {
-    const bar = document.getElementById('resize-bar')
-    const iframe = document.getElementById('unleashed-editor')
-    if (enable) {
-        app.style.gridTemplateColumns = lastSize;
-        app.style.gridTemplateAreas = '"blocks bar editor"'
-        bar.style.display = 'block'
-        iframe.style.display = 'block'
-    } else {
-        lastSize = app.style.gridTemplateColumns
-        app.style.gridTemplateColumns = '1fr';
-        app.style.gridTemplateAreas = '"blocks"'
-        bar.style.display = 'none'
-        iframe.style.display = 'none'
+    function toggleDebug() {
+        debug = !debug;
     }
-}
+
+    function getData() {
+        const storeData = localStorage.getItem(pluginName);
+
+        if (storeData) {
+            return JSON.parse(storeData);
+        }
+
+        return {};
+    }
+
+    function updateMode(mode) {
+        updateData(function (storeData) {
+            storeData.mode = mode;
+        });
+
+        toggleEditor(mode);
+    }
+
+    function updateRatio(ratio) {
+        updateData(function (storeData) {
+            storeData.ratio = ratio;
+        });
+    }
+
+    function updateData(callback) {
+        const storeData = getData();
+
+        callback(storeData);
+
+        localStorage.setItem(pluginName, JSON.stringify(storeData));
+    }
+
+    function postMessageToEditor(type, payload) {
+        editorElement.contentWindow.postMessage({
+            plugin: pluginName,
+            type: type,
+            payload: payload
+        }, "*");
+    }
+
+    function debugMessage(... args) {
+        if(debug) {
+            console.log.apply(this, args);
+        }
+    }
+
+    const showCodeEditor = (function () {
+        function precondition() {
+            return currentMode === "disable" ? "enabled" : "hidden";
+        }
+
+        function callback() {
+            updateMode("splitscreen-right");
+        }
+
+        return {
+            id: "toggleEditorBlockly",
+            displayText: "Show Code Editor",
+            // eslint-disable-next-line no-undef
+            scopeType: _Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+            weight: 99,
+            preconditionFn: precondition,
+            callback: callback
+        };
+    })();
+
+    function init() {
+        // eslint-disable-next-line no-undef
+        plugin = BF2042Portal.Plugins.getPlugin(pluginName);
+
+        if(!plugin) {
+            // eslint-disable-next-line no-undef
+            BF2042Portal.Shared.logError("Failed to load Portal Unleashed!");
+        }
+
+        // eslint-disable-next-line no-undef
+        _Blockly.ContextMenuRegistry.registry.register(showCodeEditor);
+
+        const interval = setInterval(() => {
+            appElement = document.getElementsByClassName("app")[0];
+            const rules = document.getElementsByClassName("rules");
+
+            if (appElement && rules.length > 0) {
+                clearInterval(interval);
+                prepareEditorLaunch();
+            }
+        }, 100);
+    }
+
+    init();
+
+    return {
+        debugMessage: debugMessage,
+        toggleDebug: toggleDebug
+    };
+})();

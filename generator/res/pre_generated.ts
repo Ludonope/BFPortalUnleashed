@@ -36,6 +36,8 @@ abstract class ABlock implements IBlock {
         out["@"+this.nameAttr] = this.name
         // Filtering children, when conditions are empty it might contain an undefined, no idea why
         for (const child of this.children.filter(c => c)) {
+            debugMessage(child.type)
+            debugMessage(child)
             if (out[child.type]) {
                 out[child.type] = [out[child.type], child.toXML()]
             } else {
@@ -228,7 +230,7 @@ export class BArray extends Block {
         let out = arrays.AppendToArray(this, element)
         for (const el of elements) {
             out = arrays.AppendToArray(out, el)
-        }
+    }
         return out
     }
 
@@ -388,7 +390,7 @@ export class ifLogic {
 
     static Continue(): BVoid {
         return new BVoid('Continue', [])
-    }
+}
 
     static Break(): BVoid {
         return new BVoid('Break', [])
@@ -445,7 +447,7 @@ export interface BVariable {
     get(): IBlock
     set(value: any): IBlock
 }
-
+    
 export class BWrappedVariable implements BVariable {
     type: string
     name: string
@@ -467,14 +469,14 @@ export class BWrappedVariable implements BVariable {
             obj.push(new Value("OBJECT", [this.object]))
         }
         return new Variable("variableReferenceBlock", [
-            new Mutation([{name: "isObjectVar", value: this.object != null}]),
-            new Field("OBJECTTYPE", new RawBString(this.type)),
-            new Field("VAR", new RawBString(this.name), [
-                {name: "id", value: this.id},
-                {name: "variabletype", value: this.type},
-            ]),
-            ...obj,
-        ])
+                        new Mutation([{name: "isObjectVar", value: this.object != null}]),
+                        new Field("OBJECTTYPE", new RawBString(this.type)),
+                        new Field("VAR", new RawBString(this.name), [
+                            {name: "id", value: this.id},
+                            {name: "variabletype", value: this.type},
+                        ]),
+                        ...obj,
+                    ])
     }
 
     get(): IBlock {
@@ -521,13 +523,13 @@ export class BTrackableVariable implements BVariable{
             obj.push(new Value("OBJECT", [this.object]))
         }
         return new Variable("variableReferenceBlock", [
-            new Mutation([{name: "isObjectVar", value: this.object != null}]),
-            new Field("OBJECTTYPE", new RawBString(this.type)),
-            new Field("VAR", new RawBString(this.name), [
-                {name: "id", value: this.id},
-                {name: "variabletype", value: this.type},
-            ]),
-            ...obj,
+                new Mutation([{name: "isObjectVar", value: this.object != null}]),
+                new Field("OBJECTTYPE", new RawBString(this.type)),
+                new Field("VAR", new RawBString(this.name), [
+                    {name: "id", value: this.id},
+                    {name: "variabletype", value: this.type},
+                ]),
+                ...obj,
         ])
     }
 
@@ -592,7 +594,7 @@ class BArrayVariable extends BWrappedVariable {
 
     push(value: IBlock): BVoid {
         return arrays.SetVariableAtIndex(this.var(), new BNumber(this.index), this.get().append(value))
-    }
+}
 
     // insertAt(index: ABNumber, value: IBlock): BVoid {
     //     return other.SetVariable(
@@ -737,7 +739,7 @@ export class Mod {
             ...this.subroutines.map(s => s.toXML()),
         ]
         const xml = create({xml: m})
-        console.log(xml.end({prettyPrint: true, headless: true, allowEmptyTags: true}))
+        debugMessage(xml.end({prettyPrint: true, headless: true, allowEmptyTags: true}))
         return xml.end({headless: true, allowEmptyTags: true})
     }
 
@@ -795,7 +797,7 @@ export class Mod {
     newArrayPlayerVar(): (player?: Player) => BArrayVariable {
         const index = this.playerVarCount++
         return (player) => new BArrayVariable(new BWrappedVariable("playerVar", "Player", this.playerVarId, player || eventPayloads.EventPlayer(), index))
-    }
+}
 
     newTrackableGlobalVar(name: string): BTrackableVariable {
         const id = makeID(20)
@@ -861,6 +863,7 @@ function preprocessSubroutine(ast: any) {
         },
     })
 
+    debugMessage(subroutines)
     traverse(ast, {
         enter(path) {
             if (path.isCallExpression()) {
@@ -1006,13 +1009,13 @@ function preprocessVariables(ast: any) {
                 (path.isMemberExpression() && ['get', 'var', 'set', 'push'].includes(n.property.name)) ||
                 (path.container.type == 'MemberExpression' && ['get', 'var', 'set', 'push'].includes(path.container.property.name))) {
                 return
-            }
+}
             const isGlobal = (path.isIdentifier() && globalVars.includes(n.name))
             const isObjectAlone = (path.isIdentifier() && objectVars.includes(n.name))
             const isObject = (path.isMemberExpression() && objectVars.includes(n.object.name) && n.computed)
-            
+
             if (isGlobal || isObjectAlone || isObject) {
-                // console.log(inspect(path, {depth: 5}))
+                // debugMessage(inspect(path, {depth: 5}))
                 // if (globalVar || bracketOperator && callee == variable) && parent != assignment && parent != call.var()
                 // var => var.get()
                 let node = n
@@ -1051,37 +1054,37 @@ function dispatchPreprocess(n: any): any {
 }
 
 function preprocessIfStatement(n: any): any {
-    const stack = []
-    let p = n.alternate
-    while (p && p.type == 'IfStatement') {
-        stack.push(p)
-        p = p.alternate
-    }
+                const stack = []
+                let p = n.alternate
+                while (p && p.type == 'IfStatement') {
+                    stack.push(p)
+                    p = p.alternate
+                }
 
-    const el = []
-    if (p) {
-        el.push(t.callExpression(
-            t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('Else')),
-            [
+                const el = []
+                if (p) {
+                    el.push(t.callExpression(
+                        t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('Else')),
+                        [
                 t.arrayExpression(p.body.map(s => dispatchPreprocess(s))),
-            ]
-        ))
-    }
+                        ]
+                    ))
+                }
     return t.callExpression(
-        t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('If')),
-        [
-            n.test,
+                    t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('If')),
+                    [
+                        n.test,
             t.arrayExpression(n.consequent.body.map(s => dispatchPreprocess(s))),
-            t.arrayExpression(stack.map((e, i) => t.callExpression(
-                t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('ElseIf')),
-                [
-                    e.test,
-                    t.identifier(`${i + 1}`),
+                        t.arrayExpression(stack.map((e, i) => t.callExpression(
+                            t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('ElseIf')),
+                            [
+                                e.test,
+                                t.identifier(`${i + 1}`),
                     t.arrayExpression(e.consequent.body.map(s => dispatchPreprocess(s))),
-                ]
-            ))),
-            ...el,
-        ]
+                            ]
+                        ))),
+                        ...el,
+                    ]
     )
 }
 
@@ -1113,7 +1116,14 @@ function preprocessBreakContinue(ast: any): any {
     })
 }
 
-export function preprocess(source: string): string {
+export function preprocess(source: string, debug: boolean): string {
+    if(debug) {
+        debugMessage = realDebugMessage;
+    }
+    else {
+        debugMessage = stubDebugMessage;
+    }
+
     const ast = parser.parse(source, {
         sourceType: 'module',
         plugins: ['typescript'],
@@ -1261,3 +1271,14 @@ export function preprocess(source: string): string {
     // return babel.transformSync(code).code
     return generate(ast, {retainLines: true}).code;
 }
+
+function realDebugMessage(... args:any) {
+    console.log.apply(this, args);
+}
+
+function stubDebugMessage(... args:any) {
+    //Do nothing
+}
+
+let debugMessage: (... args: any) => void;
+debugMessage = realDebugMessage;

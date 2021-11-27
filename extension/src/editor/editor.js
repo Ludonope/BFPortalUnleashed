@@ -1,29 +1,30 @@
 "use strict";
 const supportedLocales = ["de", "es", "fr", "hu", "it", "ja", "ko", "pr-br", "ru", "tr", "zh-cn", "zh-tw"];
-var editor;
-var editableActionRegistration;
 
-// Listen to messages from the content script.
-window.addEventListener("message", handleLaunchEvent);
+let editor;
+let theme;
 
-chrome.runtime.onMessage.addListener(function(call) {
-    if (call.action === "set_theme") {
-        monaco.editor.setTheme(call.content);
-    }
-});
-
-
-document.onkeydown = function(e) {
-    if ((window.navigator.userAgentData.platform.match("macOS") ? e.metaKey : e.ctrlKey) && e.key == "s") {
+document.onkeydown = function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key == "s") {
         e.preventDefault();
-        let code = editor.getValue()
-        window.parent.postMessage("run+" + code, "*");
-    }
-}
 
-function handleLaunchEvent(event) {
+        const code = editor.getValue();
+        postMessageToPortal("execute", code);
+    }
+};
+
+window.addEventListener("message", function (event) {
     const message = event.data;
-    if (typeof message.code !== "undefined") {
+
+    if (!message) {
+        return;
+    }
+
+    if (message.type === "init") {
+        if (message.payload.theme) {
+            theme = message.payload.theme;
+        }
+
         require.config({
             paths: {
                 vs: "../lib/monaco-editor/min/vs",
@@ -31,6 +32,7 @@ function handleLaunchEvent(event) {
         });
 
         const userLocale = getUserLocale();
+
         if (userLocale !== null) {
             require.config({
                 "vs/nls": {
@@ -41,44 +43,63 @@ function handleLaunchEvent(event) {
             });
         }
 
-        require(["vs/editor/editor.main"], function() {
+        require(["vs/editor/editor.main"], function () {
             prepareAndLaunchEditor(message);
+
+            //Based on: https://github.com/microsoft/monaco-editor/issues/1567
+            require(["vs/platform/actions/common/actions"], function (actions) {
+                let menus = actions.MenuRegistry._menuItems;
+
+                let contextMenuEntry = [...menus].find(entry => {
+                    return entry[1].find(f => f.group == "navigation");
+                });
+
+                let contextMenuLinks = contextMenuEntry[1];
+
+                let removeIds = [
+                    "editor.action.clipboardCopyAction", 
+                    "editor.action.clipboardCutAction"
+                ];
+
+                for(let i = 0; i < contextMenuLinks.length;) {
+                    const item = contextMenuLinks[i];
+
+                    if(item.command && removeIds.indexOf(item.command.id) !== -1) {
+                        contextMenuLinks.splice(i, 1);
+
+                        continue;
+                    }
+
+                    i++;
+                }
+            });
         });
     }
+});
+
+function init() {
+    postMessageToPortal("init");
 }
 
 function getUserLocale() {
-    const languageTag = chrome.i18n.getUILanguage().toLowerCase();
+    const languageTag = window.navigator.language.toLowerCase();
+
     // Extract ISO 639-1 language abbreviation.
     const languageCode = languageTag.substr(0, languageTag.indexOf("-"));
+
     if (supportedLocales.indexOf(languageCode) >= 0) {
         return languageCode;
     } else if (supportedLocales.indexOf(languageTag) >= 0) {
         return languageTag;
     }
+
     return null;
 }
 
 function prepareAndLaunchEditor(message) {
-    chrome.storage.local.get(["editable", "theme"], function(state) {
-        const mappedLanguage = getLanguageForFilename(message.filename);
-        const theme = state["theme"] || "vs";
+    const mappedLanguage = getLanguageForFilename(message.payload.filename);
 
-        if (mappedLanguage === null) {
-            // Couldn't map a language based on filename, try to use MIME type.
-            chrome.runtime.sendMessage({ action: "get_content_type" }, function(response) {
-                let mimeSubtype;
-                if (typeof response.contentType !== "undefined") {
-                    mimeSubtype = /.*\/([^;]*)/.exec(response.contentType)[1];
-                }
-                // If mimeSubtype undefined, Monaco will use default language
-                // settings.
-                launchEditor(message.code, mimeSubtype, theme);
-            });
-        } else {
-            launchEditor(message.code, mappedLanguage, theme);
-        }
-    });
+    launchEditor(message.payload.code, mappedLanguage, theme);
 }
 
 function getLanguageForFilename(filename) {
@@ -89,11 +110,12 @@ function getLanguageForFilename(filename) {
             }
         }
     }
+
     return null;
 }
 
 function errorHandler(err) {
-    console.error(err)
+    console.error(err);
 }
 
 function launchEditor(code, inferredLanguage, theme) {
@@ -106,49 +128,136 @@ function launchEditor(code, inferredLanguage, theme) {
         mouseWheelZoom: true,
         theme: theme,
     });
-    addExportAction();
+
+    addMenuItems();
+
     monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
         allowNonTsExtensions: true
     });
 
-    var url = chrome.runtime.getURL("lib/portal-unleashed/dist/unleash.d.ts")
+    var url = "../lib/portal-unleashed/dist/unleash.d.ts";
     fetch(url)
         .then((response) => response.text())
         .then((text) => {
-            monaco.languages.typescript.typescriptDefaults.addExtraLib(text, "")
+            monaco.languages.typescript.typescriptDefaults.addExtraLib(text, "");
         }).catch(errorHandler);
 
     // Avoid using Monaco's automaticLayout option for better performance.
-    window.addEventListener("resize", function() {
+    window.addEventListener("resize", function () {
         editor.layout();
     });
+
+    editor._actions = {};
 }
 
-function addExportAction() {
+function addMenuItems() {
     editor.addAction({
         id: "export",
         label: "Export content",
-        contextMenuGroupId: "1_menu",
+        contextMenuGroupId: "portal_0",
+        contextMenuOrder: 1,
+        run: function () {
+            const script = editor.getValue();
+            const dataUri = `data:text/javascript;charset=utf-8,${encodeURIComponent(script)}`;
+
+            const linkElement = document.createElement("a");
+            linkElement.setAttribute("href", dataUri);
+            linkElement.setAttribute("download", "script.js");
+            linkElement.style.display = "none";
+
+            document.body.appendChild(linkElement);
+            linkElement.click();
+            document.body.removeChild(linkElement);
+        }
+    });
+
+    editor.addAction({
+        id: "modeFullscreen",
+        label: "Fullscreen",
+        contextMenuGroupId: "portal_1",
+        contextMenuOrder: 1,
+        run: function () {
+            updateMode("fullscreen");
+        }
+    });
+
+    editor.addAction({
+        id: "modeSplitScreenLeft",
+        label: "Splitscreen (Left)",
+        contextMenuGroupId: "portal_1",
         contextMenuOrder: 2,
-        run: function() {
-            chrome.runtime.sendMessage({
-                action: "download_content",
-                content: editor.getValue(),
-            });
-        },
+        run: function () {
+            updateMode("splitscreen-left");
+        }
+    });
+
+    editor.addAction({
+        id: "modeSplitScreenRight",
+        label: "Splitscreen (Right)",
+        contextMenuGroupId: "portal_1",
+        contextMenuOrder: 3,
+        run: function () {
+            updateMode("splitscreen-right");
+        }
+    });
+
+    editor.addAction({
+        id: "modeDisable",
+        label: "Disable",
+        contextMenuGroupId: "portal_1",
+        contextMenuOrder: 4,
+        run: function () {
+            updateMode("disable");
+        }
+    });
+
+    editor.addAction({
+        id: "themeLight",
+        label: "Light Theme",
+        contextMenuGroupId: "portal_2",
+        contextMenuOrder: 1,
+        run: function () {
+            updateTheme("vs");
+        }
+    });
+
+    editor.addAction({
+        id: "themeDark",
+        label: "Dark Theme",
+        contextMenuGroupId: "portal_2",
+        contextMenuOrder: 2,
+        run: function () {
+            updateTheme("vs-dark");
+        }
+    });
+
+    editor.addAction({
+        id: "themeHighContrast",
+        label: "High Contrast Theme",
+        contextMenuGroupId: "portal_2",
+        contextMenuOrder: 3,
+        run: function () {
+            updateTheme("hc-black");
+        }
     });
 }
 
-function toggleEditable(oldState) {
-    const newState = !oldState;
-    editor.updateOptions({
-        readOnly: !newState,
-    });
-    chrome.storage.local.set({
-        editable: newState ? "true" : "false",
-    });
-    addOrUpdateEditableAction(newState);
+function updateMode(mode) {
+    postMessageToPortal("update-mode", mode);
 }
 
-// Signal to content script that this editor is ready to be launched.
-window.parent.postMessage("loaded", "*");
+function updateTheme(theme) {
+    monaco.editor.setTheme(theme);
+
+    postMessageToPortal("update-theme", theme);
+}
+
+function postMessageToPortal(type, payload) {
+    window.parent.postMessage({
+        plugin: "portal-unleashed",
+        type: type,
+        payload: payload
+    }, "*");
+}
+
+init();
