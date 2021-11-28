@@ -10,8 +10,9 @@
         "@types/node": "^16.11.7",
         "babel-cli": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
+        "shx": "^0.3.3",
         "ts-morph": "^12.2.0",
-        "shx": "^0.3.3"
+        "typescript": "4.5.2"
     },
     "scripts": {
         "generate": "tsc && node intermediate/main.js && shx cp res/package.json res/tsconfig.json res/webpack.config.js portal-unleashed",

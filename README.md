@@ -10,17 +10,17 @@ Auto-completion™️ included.
 This will generate the `generator/portal-unleashed` folder containing the library bundled with Webpack.
 
 ```bash
-cd portal-unleashed-generator
-yarn install
-yarn build
+cd generator
+npm install
+npm run build
 ```
 
 This will build the Chromium extension.
 
 ```bash
 cd extension
-yarn install
-gulp
+npm install
+npm run build
 ```
 
 # Development
@@ -28,7 +28,7 @@ gulp
 In the `generator` you can generate the `portal-unleashed` typescript files without bundling it with Webpack using
 
 ```bash
-yarn generate
+npm run generate
 ```
 
 # Portal experience example
