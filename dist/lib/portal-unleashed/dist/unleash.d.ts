@@ -44,7 +44,7 @@ declare module "portal-unleashed" {
         newTeamVar(): any;
         newArrayTeamVar(): any;
         newPlayerVar(): any;
-        newArrayPlayerVar(): Array;
+        newArrayPlayerVar(): any;
         newTrackableGlobalVar(name: string): any;
         newTrackableArrayGlobalVar(name: string): any;
         newTrackableTeamVar(name: string): any;
