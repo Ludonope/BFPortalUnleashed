@@ -8,10 +8,14 @@ module.exports = {
             test: /\.tsx?$/,
             use: 'ts-loader',
             exclude: /node_modules/,
-        }, ],
+        }]
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        fallback: {
+            // "path": false,
+            // "fs": false,
+        }
     },
     output: {
         filename: 'unleash.js',
@@ -29,5 +33,8 @@ module.exports = {
         new webpack.ProvidePlugin({
             process: 'process/browser',
         }),
+        new webpack.ProvidePlugin({
+            path: false
+        })
     ]
 };

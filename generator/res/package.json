@@ -10,6 +10,7 @@
         "@babel/core": "^7.16.0",
         "@babel/generator": "^7.16.0",
         "@babel/parser": "^7.16.3",
+        "@babel/runtime": "^7.16.3",
         "@babel/traverse": "^7.16.3",
         "@babel/types": "^7.16.0",
         "assert": "^2.0.0",
@@ -22,6 +23,7 @@
         "clean": "shx rm -r dist"
     },
     "devDependencies": {
+        "@babel/plugin-transform-runtime": "^7.16.4",
         "buffer": "^6.0.3",
         "process": "^0.11.10",
         "shx": "^0.3.3",

@@ -3,8 +3,7 @@ import * as parser from '@babel/parser'
 import traverse from '@babel/traverse'
 import generate from '@babel/generator'
 import * as t from '@babel/types'
-// import * as prettier from "prettier";
-// import * as babelParser from "babel-prettier-parser";
+import * as babel from '@babel/core';
 
 export interface IBlock {
     type: string;
@@ -37,8 +36,6 @@ abstract class ABlock implements IBlock {
         out["@"+this.nameAttr] = this.name
         // Filtering children, when conditions are empty it might contain an undefined, no idea why
         for (const child of this.children.filter(c => c)) {
-            console.log(child.type)
-            console.log(child)
             if (out[child.type]) {
                 out[child.type] = [out[child.type], child.toXML()]
             } else {
@@ -227,12 +224,16 @@ export class BArray extends Block {
         super(name, "BArray", children)
     }
 
-    push(element: IBlock): BArray {
-        return arrays.AppendToArray(this, element)
+    append(element: IBlock, ...elements: IBlock[]): BArray {
+        let out = arrays.AppendToArray(this, element)
+        for (const el of elements) {
+            out = arrays.AppendToArray(out, el)
+        }
+        return out
     }
 
-    slice(startIndex: ABNumber, count: ABNumber): BArray {
-        return arrays.ArraySlice(this, startIndex, count)
+    slice(startIndex: ABNumber, count?: ABNumber): BArray {
+        return arrays.ArraySlice(this, startIndex, count || math.Subtract(arrays.CountOf(this), startIndex))
     }
 
     get length(): ABNumber {
@@ -295,21 +296,26 @@ export class BArray extends Block {
         return arrays.SortedArray(this, predicate(arrays.CurrentArrayElement()))
     }
 
-    get(index: ABNumber): IBlock {
+    at(index: ABNumber): IBlock {
         return arrays.ValueInArray(this, index)
     }
 
-    set(index: ABNumber, value: IBlock): BVoid {
-        return arrays.SetVariableAtIndex(this, index, value)
+    forEach(predicate: (v: IBlock, i: ABNumber, a: BArray) => BVoid[]): BVoid {
+        const pred = predicate(
+            arrays.CurrentArrayElement(),
+            convenience.IndexOfArrayValue(this, arrays.CurrentArrayElement()),
+            this
+        )
+        return logic.ForVariable(this, new BNumber(0), arrays.CountOf(this), new BNumber(1), pred)
     }
 }
 
 
-export class Array extends BArray {
-    constructor() {
-        super("Array", [])
-    }
-}
+// export class Array extends BArray {
+//     constructor() {
+//         super("Array", [])
+//     }
+// }
 
 class convenience {
     static IndexOfArrayValue(param0: BArray, param1: IBlock): ABNumber {
@@ -337,7 +343,7 @@ class convenience {
     }
 }
 
-class ifLogic {
+export class ifLogic {
     static If(param0: ABBoolean, param1: BVoid[], param2: BVoid[], param3: BVoid | undefined): BVoid {
         const mut = []
         if (param2.length > 0 || param3) {
@@ -379,16 +385,24 @@ class ifLogic {
             new Statement(`ELSE`, param2),
         ])
     }
+
+    static Continue(): BVoid {
+        return new BVoid('Continue', [])
+    }
+
+    static Break(): BVoid {
+        return new BVoid('Break', [])
+    }
 }
 
-class RuleBody {
+export class RuleBody {
     conditions: BBoolean[];
     actions: () => BVoid[];
 }
 
-type SubroutineBody = RuleBody;
+export type SubroutineBody = RuleBody;
 
-class BRule extends Block {
+export class BRule extends Block {
     constructor(name: string, event: string, objectType: string | undefined, conditions: BBoolean[], actions: BVoid[]) {
         const children: IBlock[] = [
             new Mutation([{
@@ -409,7 +423,7 @@ class BRule extends Block {
     }
 }
 
-class BSubroutine extends Block {
+export class BSubroutine extends Block {
     constructor(name: string, conditions: BBoolean[], actions: BVoid[]) {
         const children: IBlock[] = [
             new Field("SUBROUTINE_NAME", new RawBString(name)),
@@ -423,63 +437,207 @@ class BSubroutine extends Block {
     }
 }
 
-class BVariable {
+export interface BVariable {
     type: string
     name: string
     id: string
     object?: any
-    index: ABNumber
+    get(): IBlock
+    set(value: any): IBlock
+}
+
+export class BWrappedVariable implements BVariable {
+    type: string
+    name: string
+    id: string
+    object?: any
+    index: number
     
     constructor(name: string, type: string, id: string, object: any | null, index: number) {
         this.type = type
         this.name = name
         this.id = id
         this.object = object
-        this.index = new BNumber(index)
+        this.index = index
     }
 
-    get(): IBlock {
+    var(): Variable {
         const obj = []
         if (this.object) {
             obj.push(new Value("OBJECT", [this.object]))
         }
+        return new Variable("variableReferenceBlock", [
+            new Mutation([{name: "isObjectVar", value: this.object != null}]),
+            new Field("OBJECTTYPE", new RawBString(this.type)),
+            new Field("VAR", new RawBString(this.name), [
+                {name: "id", value: this.id},
+                {name: "variabletype", value: this.type},
+            ]),
+            ...obj,
+        ])
+    }
+
+    get(): IBlock {
         return arrays.ValueInArray(
             new BArray("GetVariable", [
                 new Value("VALUE-0", [
-                    new Block("variableReferenceBlock", "variableReferenceBlock", [
-                        new Mutation([{name: "isObjectVar", value: this.object != null}]),
-                        new Field("OBJECTTYPE", new RawBString(this.type)),
-                        new Field("VAR", new RawBString(this.name), [
-                            {name: "id", value: this.id},
-                            {name: "variabletype", value: this.type},
-                        ]),
-                        ...obj,
-                    ])
+                    this.var()
                 ]),
             ]),
-            this.index,
+            new BNumber(this.index),
         )
     }
 
-    set(value: any): IBlock {
+    set(value: any): BVoid {
         const obj = []
         if (this.object) {
             obj.push(new Value("OBJECT", [this.object]))
         }
         return arrays.SetVariableAtIndex(
-            new Block("variableReferenceBlock", "variableReferenceBlock", [
-                new Mutation([{name: "isObjectVar", value: this.object != null}]),
-                new Field("OBJECTTYPE", new RawBString(this.type)),
-                new Field("VAR", new RawBString(this.name), [
-                    {name: "id", value: this.id},
-                    {name: "variabletype", value: this.type},
-                ]),
-                ...obj,
-            ]),
-            this.index,
+            this.var(),
+            new BNumber(this.index),
             value,
         )
     }
+}
+
+
+export class BTrackableVariable implements BVariable{
+    type: string
+    name: string
+    id: string
+    object?: any
+    
+    constructor(name: string, type: string, id: string, object: any | null) {
+        this.type = type
+        this.name = name
+        this.id = id
+        this.object = object
+    }
+
+    var(): Variable {
+        const obj = []
+        if (this.object) {
+            obj.push(new Value("OBJECT", [this.object]))
+        }
+        return new Variable("variableReferenceBlock", [
+            new Mutation([{name: "isObjectVar", value: this.object != null}]),
+            new Field("OBJECTTYPE", new RawBString(this.type)),
+            new Field("VAR", new RawBString(this.name), [
+                {name: "id", value: this.id},
+                {name: "variabletype", value: this.type},
+            ]),
+            ...obj,
+        ])
+    }
+
+    get(): IBlock {
+        return new BAny("GetVariable", [
+            new Value("VALUE-0", [
+                this.var(),                
+            ]),
+        ])
+    }
+
+    set(value: any): BVoid {
+        const obj = []
+        if (this.object) {
+            obj.push(new Value("OBJECT", [this.object]))
+        }
+        return new BVoid("SetVariable", [
+            new Value("VALUE-0", [
+                this.var(),
+            ]),
+            new Value("VALUE-1", [value]),
+        ])
+    }
+}
+
+class BArrayVariable extends BWrappedVariable {
+    constructor(original: BWrappedVariable) {
+        super(original.name, original.type, original.id, original.object, original.index)
+    }
+
+    get(): BArray {
+        return new BArray(
+            'ValueInArray', [
+            new Value("VALUE-0", [
+                new BArray("GetVariable", [
+                    new Value("VALUE-0", [
+                        this.var()
+                    ]),
+                ])
+            ]),
+            new Value("VALUE-1", [
+                new BNumber(this.index)
+            ]),
+        ])
+    }
+
+    set(value: BArray): BVoid {
+        const obj = []
+        if (this.object) {
+            obj.push(new Value("OBJECT", [this.object]))
+        }
+        return arrays.SetVariableAtIndex(
+            this.var(),
+            new BNumber(this.index),
+            value,
+        )
+    }
+
+    // setAt(index: ABNumber, value: IBlock): BVoid {
+    //     return arrays.SetVariableAtIndex(this.var(), index, value)
+    // }
+
+    push(value: IBlock): BVoid {
+        return arrays.SetVariableAtIndex(this.var(), new BNumber(this.index), this.get().append(value))
+    }
+
+    // insertAt(index: ABNumber, value: IBlock): BVoid {
+    //     return other.SetVariable(
+    //         this.var(), this.get().append(value))
+    // }
+}
+
+class BTrackableArrayVariable extends BTrackableVariable {
+    constructor(original: BTrackableVariable) {
+        super(original.name, original.type, original.id, original.object)
+    }
+
+    get(): BArray {
+        return new BArray("GetVariable", [
+            new Value("VALUE-0", [
+                this.var(),                
+            ]),
+        ])
+    }
+
+    set(value: BArray): BVoid {
+        const obj = []
+        if (this.object) {
+            obj.push(new Value("OBJECT", [this.object]))
+        }
+        return new BVoid("SetVariable", [
+            new Value("VALUE-0", [
+                this.var(),
+            ]),
+            new Value("VALUE-1", [value]),
+        ])
+    }
+
+    // setAt(index: ABNumber, value: IBlock): BVoid {
+    //     return arrays.SetVariableAtIndex(this.var(), index, value)
+    // }
+
+    push(value: IBlock): BVoid {
+        return other.SetVariable(this.var(), this.get().append(value))
+    }
+
+    // insertAt(index: ABNumber, value: IBlock): BVoid {
+    //     return other.SetVariable(
+    //         this.var(), this.get().append(value))
+    // }
 }
 
 function makeID(length) {
@@ -490,15 +648,20 @@ function makeID(length) {
     }
     return result;
 }
-class Mod {
+export class Mod {
     rules: BRule[];
     subroutines: BSubroutine[];
+    
     globalVarCount: number;
     globalVarId: string;
     teamVarCount: number;
     teamVarId: string;
     playerVarCount: number;
     playerVarId: string;
+
+    globalVars: Map<string, string>;
+    teamVars: Map<string, string>;
+    playerVars: Map<string, string>;
 
     constructor() {
         this.globalVarId = makeID(20)
@@ -513,6 +676,9 @@ class Mod {
         this.globalVarCount = 0;
         this.teamVarCount = 0;
         this.playerVarCount = 0;
+        this.globalVars = new Map()
+        this.teamVars = new Map()
+        this.playerVars = new Map()
     }
 
     toXML(): string {
@@ -522,26 +688,37 @@ class Mod {
         
         const variables = []
         if (this.globalVarCount > 0) {
-            variables.push({
-                "@type": "Global",
-                "@id": this.globalVarId,
-                "#text": "globalVar",
-            })
+            this.globalVars.set(this.globalVarId, "globalVar")
         }
         if (this.teamVarCount > 0) {
-            variables.push({
-                "@type": "TeamId",
-                "@id": this.teamVarId,
-                "#text": "teamVar",
-            })
+            this.teamVars.set(this.teamVarId, "teamVar")
         }
         if (this.playerVarCount > 0) {
+            this.playerVars.set(this.playerVarId, "playerVar")
+        }
+
+        this.globalVars.forEach((name, id) => {
+            variables.push({
+                "@type": "Global",
+                "@id": id,
+                "#text": name,
+            })
+        })
+        this.teamVars.forEach((name, id) => {
+            variables.push({
+                "@type": "TeamId",
+                "@id": id,
+                "#text": name,
+            })
+        })
+        this.playerVars.forEach((name, id) => {
             variables.push({
                 "@type": "Player",
-                "@id": this.playerVarId,
-                "#text": "playerVar",
+                "@id": id,
+                "#text": name,
             })
-        }
+        })
+
         if (variables.length > 0) {
             m.variables = {
                 variable: variables
@@ -564,9 +741,19 @@ class Mod {
         return xml.end({headless: true, allowEmptyTags: true})
     }
 
-    ongoing(ruleName: string, objectType: string, callback: () => RuleBody) {
+    ongoing(ruleName: string, callback: () => RuleBody) {
         const body = callback()
-        this.rules.push(new BRule(ruleName, 'Ongoing', objectType, body.conditions, body.actions()))
+        this.rules.push(new BRule(ruleName, 'Ongoing', 'Global', body.conditions, body.actions()))
+    }
+
+    ongoingPlayer(ruleName: string, callback: (eventPlayer: Player) => RuleBody) {
+        const body = callback(eventPayloads.EventPlayer())
+        this.rules.push(new BRule(ruleName, 'Ongoing', 'Player', body.conditions, body.actions()))
+    }
+
+    ongoingTeam(ruleName: string, callback: (eventTeam: TeamId) => RuleBody) {
+        const body = callback(eventPayloads.EventTeam())
+        this.rules.push(new BRule(ruleName, 'Ongoing', 'Team', body.conditions, body.actions()))
     }
 
     newSubroutine(name: string, callback: () => SubroutineBody) {
@@ -583,17 +770,67 @@ class Mod {
     }
 
     newGlobalVar(): BVariable {
-        return new BVariable("globalVar", "Global", this.globalVarId, null, this.globalVarCount++)
+        return new BWrappedVariable("globalVar", "Global", this.globalVarId, null, this.globalVarCount++)
     }
 
-    newTeamVar(): (team: TeamId) => BVariable {
+    newArrayGlobalVar(): BArrayVariable {
+        return new BArrayVariable(new BWrappedVariable("globalVar", "Global", this.globalVarId, null, this.globalVarCount++))
+    }
+
+    newTeamVar(): (team?: TeamId) => BVariable {
         const index = this.teamVarCount++
-        return (team) => new BVariable("teamVar", "TeamId", this.teamVarId, team, index)
+        return (team) => new BWrappedVariable("teamVar", "TeamId", this.teamVarId, team || eventPayloads.EventTeam(), index)
     }
 
-    newPlayerVar(): (player: Player) => BVariable {
+    newArrayTeamVar(): (team?: TeamId) => BArrayVariable {
+        const index = this.teamVarCount++
+        return (team) => new BArrayVariable(new BWrappedVariable("teamVar", "TeamId", this.teamVarId, team || eventPayloads.EventTeam(), index))
+    }
+
+    newPlayerVar(): (player?: Player) => BVariable {
         const index = this.playerVarCount++
-        return (player) => new BVariable("playerVar", "Player", this.playerVarId, player, index)
+        return (player) => new BWrappedVariable("playerVar", "Player", this.playerVarId, player || eventPayloads.EventPlayer(), index)
+    }
+
+    newArrayPlayerVar(): (player?: Player) => BArrayVariable {
+        const index = this.playerVarCount++
+        return (player) => new BArrayVariable(new BWrappedVariable("playerVar", "Player", this.playerVarId, player || eventPayloads.EventPlayer(), index))
+    }
+
+    newTrackableGlobalVar(name: string): BTrackableVariable {
+        const id = makeID(20)
+        this.globalVars.set(id, name)
+        return new BTrackableVariable(name, "Global", id, null)
+    }
+
+    newTrackableArrayGlobalVar(name: string): BTrackableArrayVariable {
+        const id = makeID(20)
+        this.globalVars.set(id, name)
+        return new BTrackableArrayVariable(new BTrackableVariable(name, "Global", id, null))
+    }
+
+    newTrackableTeamVar(name: string): (team?: TeamId) => BTrackableVariable {
+        const id = makeID(20)
+        this.teamVars.set(id, name)
+        return (team) => new BTrackableVariable(name, "TeamId", id, team || eventPayloads.EventTeam())
+    }
+
+    newTrackableArrayTeamVar(name: string): (team?: TeamId) => BTrackableArrayVariable {
+        const id = makeID(20)
+        this.teamVars.set(id, name)
+        return (team) => new BTrackableArrayVariable(new BTrackableVariable(name, "TeamId", id, team || eventPayloads.EventTeam()))
+    }
+
+    newTrackablePlayerVar(name: string): (player?: Player) => BTrackableVariable {
+        const id = makeID(20)
+        this.playerVars.set(id, name)
+        return (player) => new BTrackableVariable(name, "Player", id, player || eventPayloads.EventPlayer())
+    }
+    
+    newTrackableArrayPlayerVar(name: string): (player?: Player) => BTrackableArrayVariable {
+        const id = makeID(20)
+        this.playerVars.set(id, name)
+        return (player) => new BTrackableArrayVariable(new BTrackableVariable(name, "Player", id, player || eventPayloads.EventPlayer()))
     }
 }
 
@@ -624,7 +861,6 @@ function preprocessSubroutine(ast: any) {
         },
     })
 
-    console.log(subroutines)
     traverse(ast, {
         enter(path) {
             if (path.isCallExpression()) {
@@ -643,7 +879,6 @@ function preprocessSubroutine(ast: any) {
     })
 }
 
-// Not ready yet, need to revise the syntax, maybe go with bracket instead of function call
 function preprocessVariables(ast: any) {
     const globalVars = []
     const objectVars = []
@@ -655,19 +890,35 @@ function preprocessVariables(ast: any) {
                 if (path.parentPath.node.type != 'Program') {
                     return;
                 }
-                const ctors = ['newGlobalVar', 'newTeamVar', 'newPlayerVar'];
+                const globalCtors = [
+                    'newGlobalVar',
+                    'newArrayGlobalVar',
+                    'newTrackableGlobalVar',
+                    'newTrackableArrayGlobalVar',
+                ]
+                const ctors = [
+                    'newTeamVar',
+                    'newArrayTeamVar',
+                    'newPlayerVar',
+                    'newArrayPlayerVar',
+                    'newTrackableTeamVar',
+                    'newTrackableArrayTeamVar',
+                    'newTrackablePlayerVar',
+                    'newTrackableArrayPlayerVar',
+                ];
                 const init = n.declarations[0].init
                 if (init.type != 'CallExpression' ||
                     init.callee.type != 'MemberExpression' ||
-                    init.callee.object.name != 'mod' ||
-                    !ctors.includes(init.callee.property.name)) {
+                    init.callee.object.name != 'mod') {
                         return
                     }
 
-                if (init.callee.property.name == 'newGlobalVar') {
+                if (globalCtors.includes(init.callee.property.name)) {
                     globalVars.push(n.declarations[0].id.name)
-                } else {
+                } else if (ctors.includes(init.callee.property.name)) {
                     objectVars.push(n.declarations[0].id.name)
+                } else {
+                    return
                 }
             }
         },
@@ -677,7 +928,63 @@ function preprocessVariables(ast: any) {
         enter(path) {
             if (path.isAssignmentExpression()) {
                 const n = path.node
-                console.log(inspect(n, {depth: 7}))
+                const isGlobal = (n.left.type == 'Identifier' && globalVars.includes(n.left.name))
+                const isObjectAlone = (n.left.type == 'Identifier' && objectVars.includes(n.left.name))
+                const isObject = (n.left.type == 'MemberExpression' && objectVars.includes(n.left.object.name) && n.left.computed)
+                if (isGlobal || isObjectAlone || isObject) {
+                        let param
+                        switch (n.operator) {
+                            case '=':
+                                param = n.right
+                                break
+                            case '+=':
+                                param = t.binaryExpression('+', n.left, n.right)
+                                break
+                            case '-=':
+                                param = t.binaryExpression('-', n.left, n.right)
+                                break
+                            case '*=':
+                                param = t.binaryExpression('*', n.left, n.right)
+                                break
+                            case '/=':
+                                param = t.binaryExpression('/', n.left, n.right)
+                                break
+                            case '%=':
+                                param = t.binaryExpression('%', n.left, n.right)
+                                break
+                            case '**=':
+                                param = t.binaryExpression('**', n.left, n.right)
+                                break
+                            default:
+                                return
+                        }
+                        let node = n.left
+                        if (isObjectAlone) {
+                            node = t.callExpression(n.left, [])
+                        } else if (isObject) {
+                            node = t.callExpression(
+                                n.left.object,
+                                [n.left.property],
+                            )
+                        }
+                        path.replaceWith(t.callExpression(
+                            t.memberExpression(
+                                node,
+                                t.identifier("set")
+                            ),
+                            [param]
+                        ))
+                }
+
+                // if globalVar || bracketOperator && callee == variable
+                // var = x => var.set(x)
+                // var += x => var.set(var.get() + x)
+                // var -= x => var.set(var.get() - x)
+                // var *= x => var.set(var.get() * x)
+                // var /= x => var.set(var.get() / x)
+                // var %= x => var.set(var.get() % x)
+                // var **= x => var.set(var.get() ** x)
+
                 // if (n.callee.type != 'Identifier' || !subroutines.includes(n.callee.name)) {
                 //     return;
                 // }
@@ -690,53 +997,140 @@ function preprocessVariables(ast: any) {
             }
         },
     })
+
+    traverse(ast, {
+        exit(path) {
+            const n = path.node
+            if (path.container.type == 'VariableDeclarator' ||
+                path.container.type == 'CallExpression' ||
+                (path.isMemberExpression() && ['get', 'var', 'set', 'push'].includes(n.property.name)) ||
+                (path.container.type == 'MemberExpression' && ['get', 'var', 'set', 'push'].includes(path.container.property.name))) {
+                return
+            }
+            const isGlobal = (path.isIdentifier() && globalVars.includes(n.name))
+            const isObjectAlone = (path.isIdentifier() && objectVars.includes(n.name))
+            const isObject = (path.isMemberExpression() && objectVars.includes(n.object.name) && n.computed)
+            
+            if (isGlobal || isObjectAlone || isObject) {
+                // console.log(inspect(path, {depth: 5}))
+                // if (globalVar || bracketOperator && callee == variable) && parent != assignment && parent != call.var()
+                // var => var.get()
+                let node = n
+                if (isObjectAlone) {
+                    node = t.callExpression(n, [])
+                } else if (isObject) {
+                    node = t.callExpression(
+                        n.object,
+                        [n.property],
+                    )
+                }
+                path.replaceWith(t.callExpression(
+                    t.memberExpression(
+                        node,
+                        t.identifier("get"),
+                    ),
+                    [],
+                ))
+            }
+        }
+    })
+}
+
+function dispatchPreprocess(n: any): any {
+    if (n.type == 'ExpressionStatement') {
+        n = n.expression
+    }
+    switch (n.type) {
+        case 'IfStatement':
+            return preprocessIfStatement(n)
+        case 'WhileStatement':
+            return preprocessWhileStatement(n)
+        default:
+            return n
+    }
+}
+
+function preprocessIfStatement(n: any): any {
+    const stack = []
+    let p = n.alternate
+    while (p && p.type == 'IfStatement') {
+        stack.push(p)
+        p = p.alternate
+    }
+
+    const el = []
+    if (p) {
+        el.push(t.callExpression(
+            t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('Else')),
+            [
+                t.arrayExpression(p.body.map(s => dispatchPreprocess(s))),
+            ]
+        ))
+    }
+    return t.callExpression(
+        t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('If')),
+        [
+            n.test,
+            t.arrayExpression(n.consequent.body.map(s => dispatchPreprocess(s))),
+            t.arrayExpression(stack.map((e, i) => t.callExpression(
+                t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('ElseIf')),
+                [
+                    e.test,
+                    t.identifier(`${i + 1}`),
+                    t.arrayExpression(e.consequent.body.map(s => dispatchPreprocess(s))),
+                ]
+            ))),
+            ...el,
+        ]
+    )
+}
+
+function preprocessWhileStatement(n: any): any {
+    return t.callExpression(
+        t.memberExpression(t.identifier('__portal.logic'), t.identifier('While')),
+        [
+            n.test,
+            t.arrayExpression(n.body.body.map(s => dispatchPreprocess(s))),
+        ]
+    )
+}
+
+function preprocessBreakContinue(ast: any): any {
+    traverse(ast, {
+        enter(path) {
+            if (path.isContinueStatement()) {
+                path.replaceWith(t.callExpression(
+                    t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('Continue')),
+                    [],
+                ))
+            } else if (path.isBreakStatement()) {
+                path.replaceWith(t.callExpression(
+                    t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('Break')),
+                    [],
+                ))
+            }
+        }
+    })
 }
 
 export function preprocess(source: string): string {
     const ast = parser.parse(source, {
         sourceType: 'module',
+        plugins: ['typescript'],
     })
 
+    preprocessBreakContinue(ast)
     preprocessSubroutine(ast)
-    // preprocessVariables(ast)
+    preprocessVariables(ast)
+
 
     const done = []
     traverse(ast, {
         enter(path) {
             if (path.isIfStatement()) { 
-                const n = path.node
-                const stack = []
-                let p = n.alternate
-                while (p && p.type == 'IfStatement') {
-                    stack.push(p)
-                    p = p.alternate
-                }
-
-                const el = []
-                if (p) {
-                    el.push(t.callExpression(
-                        t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('Else')),
-                        [
-                            t.arrayExpression(p.body.map(s => s.expression)),
-                        ]
-                    ))
-                }
-                path.replaceWith(t.callExpression(
-                    t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('If')),
-                    [
-                        n.test,
-                        t.arrayExpression(n.consequent.body.map(s => s.expression)),
-                        t.arrayExpression(stack.map((e, i) => t.callExpression(
-                            t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('ElseIf')),
-                            [
-                                e.test,
-                                t.identifier(`${i + 1}`),
-                                t.arrayExpression(e.consequent.body.map(s => s.expression)),
-                            ]
-                        ))),
-                        ...el,
-                    ]
-                ))
+                path.replaceWith(preprocessIfStatement(path.node))
+            } else if (path.isWhileStatement()) {
+                path.replaceWith(preprocessWhileStatement(path.node))
             }
         },
         exit(path) {
@@ -752,7 +1146,7 @@ export function preprocess(source: string): string {
                     '<': 'logic.LessThan',
                     '<=': 'logic.LessThanEqualTo',
                     '>': 'logic.GreaterThan',
-                    '>=': 'logic.GreaterThenEqualTo',
+                    '>=': 'logic.GreaterThanEqualTo',
                     '+': 'math.Add',
                     '-': 'math.Subtract',
                     '*': 'math.Multiply',
@@ -863,5 +1257,7 @@ export function preprocess(source: string): string {
         },
     })
 
-    return generate(ast, {retainLines: true}).code
+    // const code = generate(ast, {retainLines: true}).code;
+    // return babel.transformSync(code).code
+    return generate(ast, {retainLines: true}).code;
 }

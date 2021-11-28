@@ -19,8 +19,8 @@ export class BAction extends Named {
         this.dataIndex = json.dataIndex
         this.functionSignatures = json.functionSignatures
             .map(s => new BSignature(s, hasBody.includes(this.name)))
-            .map(s => {
-                if (this.category == 'Arrays' &&
+            .map((s: BSignature) => {
+                if ((this.category == 'Arrays' &&
                     (
                         s.parameterTypes.length == 0 ||
                         (
@@ -28,7 +28,7 @@ export class BAction extends Named {
                             s.parameterTypes[0].parameterTypes[0].wrapped == 'BArray'
                         )
                     ) &&
-                    s.returnType.wrapped == 'BVoid') {
+                    s.returnType.wrapped == 'BVoid') || this.name == 'IfThenElse') {
                     s.returnType = new Type('any')
                     s.returnType.wrapped = 'BAny'
                 }

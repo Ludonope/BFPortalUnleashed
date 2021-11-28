@@ -4,18 +4,53 @@ declare module "portal-unleashed" {
         actions: () => void;
     }
 
-    class Variable {
-        get(): any;
-        set(value: any);
-    }
+    // class Variable {
+    //     get(): any;
+    //     set(value: any);
+    //     asArray(): ArrayVariable;
+    // }
+    interface Variable {}
+
+    // class TrackableVariable implements Variable{
+    //     get(): any;
+    //     set(value: any);
+    //     var(): any;
+    //     asArray(): TrackableArrayVariable;
+    // }
+
+    // class ArrayVariable implements Variable{
+    //     get(): Array;
+    //     set(value: Array);
+    //     // setAt(index: number, value: any): Array;
+    //     push(value: any);
+    // }
+
+    // class TrackableArrayVariable implements Variable{
+    //     get(): Array;
+    //     set(value: Array);
+    //     var(): any;
+    //     // setAt(index: number, value: any): Array;
+    //     push(value: any);
+    // }
 
     class Mod {
         constructor();
         init();
-        ongoing(ruleName: string, objectType: string, callback: () => RuleBody);
-        newGlobalVar(): Variable;
-        newTeamVar(): (team: TeamId) => Variable;
-        newPlayerVar(): (player: Player) => Variable;
+        ongoing(ruleName: string, callback: () => RuleBody);
+        ongoingPlayer(ruleName: string, callback: (eventPlayer: Player) => RuleBody);
+        ongoingTeam(ruleName: string, callback: (eventTeam: TeamId) => RuleBody);
+        newGlobalVar(): any;
+        newArrayGlobalVar(): any;
+        newTeamVar(): any;
+        newArrayTeamVar(): any;
+        newPlayerVar(): any;
+        newArrayPlayerVar(): Array;
+        newTrackableGlobalVar(name: string): any;
+        newTrackableArrayGlobalVar(name: string): any;
+        newTrackableTeamVar(name: string): any;
+        newTrackableArrayTeamVar(name: string): any;
+        newTrackablePlayerVar(name: string): any;
+        newTrackableArrayPlayerVar(name: string): any;
     }
 
     export const mod: Mod;
@@ -25,8 +60,8 @@ declare module "portal-unleashed" {
         length: number;
         first: any;
         last: any;
-        push(element: any): Array;
-        slice(startIndex: number, count: number): Array;
+        append(element: any, ...elements: any): Array;
+        slice(startIndex: number, count?: number): Array;
         filter(predicate: (v: any, i: number, a: Array) => boolean): Array;
         every(predicate: (v: any, i: number, a: Array) => boolean): boolean;
         any(predicate: (v: any, i: number, a: Array) => boolean): boolean;
@@ -34,7 +69,7 @@ declare module "portal-unleashed" {
         shuffled(): Array;
         randomValue(): any;
         sorted(predicate: (v: any) => number): Array;
-        get(index: number): any;
-        set(index: number, value: any);
+        at(index: number): any;
+        forEach(predicate: (v: any, i: number, a: Array) => any): void;
     }
 }

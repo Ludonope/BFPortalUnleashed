@@ -131,7 +131,7 @@ function getFilename() {
 
 
 function createEditor(app, editorRatio) {
-    app.style.gridTemplateRows = '1fr';
+    app.style.gridTemplateRows = '4fr 1fr';
     app.children[0].style.gridArea = 'blocks'
 
     // Create the editor with the middle resize bar 
@@ -141,7 +141,7 @@ function createEditor(app, editorRatio) {
 
     let newColDefn = cols.map(c => c.toString() + "px").join(" ");
     app.style.gridTemplateColumns = newColDefn;
-    app.style.gridTemplateAreas = '"blocks bar editor"'
+    app.style.gridTemplateAreas = '"blocks bar editor" "blocks bar errors"'
 
     let isDragging = false;
     const bar = document.createElement('div')
@@ -163,7 +163,7 @@ function createEditor(app, editorRatio) {
     const iframe = document.createElement('iframe');
     iframe.id = 'unleashed-editor';
     iframe.setAttribute('src', chrome.runtime.getURL('editor/editor.html'));
-    iframe.setAttribute('style', 'z-index: 0; border: 0px none; width: 100%; height: 100%; grid-area: editor;');
+    iframe.setAttribute('style', 'z-index: 0; border: 0px none; width: 100%; height: 100%; grid-area: editor / errors;');
     app.appendChild(iframe);
 
     // Disable dragging, remove overlay if needed
