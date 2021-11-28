@@ -21,7 +21,36 @@ https://ludonope.github.io/BFPortalUnleashed/dist/manifest.json
 
 Now when you go to the Battlefield Portal rules editor you should see the text editor popup after a few seconds :)
 
-## I have a problem
+To convert the code into blocks press `Ctrl+S` or `Cmd+S`.
+
+If nothing appens, you can open the browser console with `F12` and check the error, it might be a syntax issue or a problem with Portal Unleashed itself.
+
+## **IMPORTANT**
+
+The files are saved localy in your browser, it is **HIGHLY** encouraged to save your work regularly until cloud saving is setup.
+
+You can save your code by right clicking in the editor and select `Export content`.
+
+You will lose the data if:
+- You delete the extension
+- You uninstall your browser
+- You delete your browser data
+
+> Please be safe, there is no way to recover any of that at all if any of this happen.
+
+## Known issues
+
+### Some Functions have a different name as in the editor
+
+There isn't much I can do about this. The editor is localized so the names will be different depending on your browser's language.
+
+The names used here are the underlying ones.
+
+### Warnings on player state boolean checks
+
+There is a warning for some reasons as the linter seems to get some overloads wrong. The code will still compile tho, you can safely ignore it.
+
+## I still have a problem
 
 Please open an issue, it's the best way to track it for everyone: https://github.com/Ludonope/BFPortalUnleashed/issues
 
@@ -373,18 +402,6 @@ while (...) {
 ```
 
 The `for` loops are not supported for now.
-
-## Known issues
-
-### Some Functions have a different name as in the editor
-
-There isn't much I can do about this. The editor is localized so the names will be different depending on your browser's language.
-
-The names used here are the underlying ones.
-
-### Warnings on player state boolean checks
-
-There is a warning for some reasons as the linter seems to get some overloads wrong. The code will still compile tho, you can safely ignore it.
 
 ## Contributing
 
