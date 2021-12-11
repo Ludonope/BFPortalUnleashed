@@ -36,8 +36,6 @@ abstract class ABlock implements IBlock {
         out["@"+this.nameAttr] = this.name
         // Filtering children, when conditions are empty it might contain an undefined, no idea why
         for (const child of this.children.filter(c => c)) {
-            debugMessage(child.type)
-            debugMessage(child)
             if (out[child.type]) {
                 out[child.type] = [out[child.type], child.toXML()]
             } else {
@@ -342,6 +340,17 @@ class convenience {
             new Value("VALUE-0", [param0]),
             new Value("VALUE-1", [param1]),
         ])
+    }
+}
+
+export namespace logic {
+    export function Minus(param0: BNumber): BNumber {
+         // param0.value = -param0.value
+        // return param0
+        let f = param0.children[0] as Field
+        let n = f.value as RawBNumber
+        n.value *= -1
+        return param0
     }
 }
 
@@ -1194,6 +1203,7 @@ export function preprocess(source: string, debug: boolean): string {
             } else if (path.isUnaryExpression()) {
                 const opMap = {
                     '!': 'Not',
+                    '-': 'Minus'
                 }
                 const n = path.node;
                 path.replaceWith(t.callExpression(
