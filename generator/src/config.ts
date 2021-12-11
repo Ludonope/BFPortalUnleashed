@@ -1,21 +1,24 @@
 import { BAction } from './action.js'
 import { BEvent } from './event.js'
-import { BPayload } from './payload.js'
+import { BObject } from './object.js'
 import { BEnum } from './enum.js'
+import { BPayload } from './payload.js'
 
 const ignoreActions = ['If', 'ElseIf', 'Else']
 export class Config {
     actions: BAction[]
     events: BEvent[]
-    payloads: BPayload[]
+    objects: BObject[]
     values: BAction[]
     enums: BEnum[]
 
     constructor(json: any) {
         this.actions = json.actions.map(a => new BAction(a)).filter(a => !ignoreActions.includes(a.name))
-        this.events = json.events.map(e => new BEvent(e))
-        this.payloads = json.objects.map(o => new BPayload(o))
         this.values = json.values.map(v => new BAction(v))
+        const payloads = json.values.filter(a => a.eventParameter).map(a => new BPayload(a))
+        // console.log(payloads)
+        this.events = json.events.map(e => new BEvent(e, payloads))
+        this.objects = json.objects.map(o => new BObject(o))
         this.enums = json.selectionLists.map(l => new BEnum(l))
     }
 

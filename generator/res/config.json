@@ -14,6 +14,7 @@
             "deprecated": false,
             "dataIndex": 7,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -30,6 +31,7 @@
             "deprecated": false,
             "dataIndex": 23,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -45,6 +47,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -60,6 +63,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -75,6 +79,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -90,6 +95,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -105,6 +111,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -129,6 +136,7 @@
             "deprecated": false,
             "dataIndex": 62,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -159,6 +167,7 @@
             "deprecated": false,
             "dataIndex": 5,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -174,6 +183,7 @@
             "deprecated": false,
             "dataIndex": 1,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -202,6 +212,7 @@
             "deprecated": false,
             "dataIndex": 2,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -231,9 +242,11 @@
             "deprecated": false,
             "dataIndex": 58,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": []
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -242,6 +255,7 @@
                     }]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -259,6 +273,7 @@
             "deprecated": false,
             "dataIndex": 57,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -267,6 +282,7 @@
                     }]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -282,6 +298,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -314,6 +331,7 @@
             "deprecated": false,
             "dataIndex": 56,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -335,6 +353,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -379,6 +398,7 @@
             "deprecated": false,
             "dataIndex": 15,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -395,6 +415,7 @@
             "deprecated": false,
             "dataIndex": 52,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -418,6 +439,7 @@
             "deprecated": false,
             "dataIndex": 26,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -434,6 +456,7 @@
             "deprecated": false,
             "dataIndex": 32,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -450,6 +473,7 @@
             "deprecated": false,
             "dataIndex": 47,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -479,6 +503,7 @@
             "deprecated": false,
             "dataIndex": 36,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -495,6 +520,7 @@
             "deprecated": false,
             "dataIndex": 61,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -519,6 +545,7 @@
             "deprecated": false,
             "dataIndex": 22,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -527,6 +554,7 @@
                     }]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -544,6 +572,7 @@
             "deprecated": false,
             "dataIndex": 38,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -560,6 +589,7 @@
             "deprecated": false,
             "dataIndex": 49,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -585,6 +615,7 @@
             "deprecated": false,
             "dataIndex": 54,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -607,6 +638,7 @@
             "deprecated": false,
             "dataIndex": 19,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -641,6 +673,7 @@
             "deprecated": false,
             "dataIndex": 16,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -657,6 +690,7 @@
             "deprecated": false,
             "dataIndex": 37,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -673,6 +707,7 @@
             "deprecated": false,
             "dataIndex": 28,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -698,6 +733,7 @@
             "deprecated": false,
             "dataIndex": 50,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -721,6 +757,7 @@
             "deprecated": false,
             "dataIndex": 24,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -736,6 +773,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -760,6 +798,7 @@
             "deprecated": false,
             "dataIndex": 39,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -775,6 +814,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -805,6 +845,7 @@
             "deprecated": false,
             "dataIndex": 59,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -834,6 +875,7 @@
             "deprecated": false,
             "dataIndex": 60,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -863,6 +905,7 @@
             "deprecated": false,
             "dataIndex": 40,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -878,6 +921,7 @@
                     ]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -908,6 +952,7 @@
             "deprecated": false,
             "dataIndex": 51,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -931,6 +976,7 @@
             "deprecated": false,
             "dataIndex": 53,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -954,6 +1000,7 @@
             "deprecated": false,
             "dataIndex": 46,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -977,6 +1024,7 @@
             "deprecated": false,
             "dataIndex": 27,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -993,6 +1041,7 @@
             "deprecated": false,
             "dataIndex": 41,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1016,6 +1065,7 @@
             "deprecated": false,
             "dataIndex": 25,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1032,6 +1082,7 @@
             "deprecated": false,
             "dataIndex": 42,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1053,6 +1104,7 @@
             "deprecated": false,
             "dataIndex": 4,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1073,6 +1125,7 @@
             "deprecated": false,
             "dataIndex": 0,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1100,6 +1153,7 @@
             "deprecated": false,
             "dataIndex": 43,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1108,6 +1162,7 @@
                     }]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -1133,6 +1188,7 @@
             "deprecated": false,
             "dataIndex": 44,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1141,6 +1197,7 @@
                     }]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -1166,6 +1223,7 @@
             "deprecated": false,
             "dataIndex": 29,
             "functionSignatures": [{
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1174,6 +1232,7 @@
                     }]
                 },
                 {
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -1198,6 +1257,7 @@
             "deprecated": false,
             "dataIndex": 8,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1213,6 +1273,7 @@
             "deprecated": false,
             "dataIndex": 9,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1236,6 +1297,7 @@
             "deprecated": false,
             "dataIndex": 45,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1259,6 +1321,7 @@
             "deprecated": false,
             "dataIndex": 30,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1281,6 +1344,7 @@
             "deprecated": false,
             "dataIndex": 3,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1297,6 +1361,7 @@
             "deprecated": false,
             "dataIndex": 48,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1335,6 +1400,7 @@
             "deprecated": false,
             "dataIndex": 33,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1351,6 +1417,7 @@
             "deprecated": false,
             "dataIndex": 31,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1366,6 +1433,7 @@
             "deprecated": false,
             "dataIndex": 10,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1381,6 +1449,7 @@
             "deprecated": false,
             "dataIndex": 11,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1403,6 +1472,7 @@
             "deprecated": false,
             "dataIndex": 17,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1446,7 +1516,9 @@
             "displayNameSID": "ID_ARRIVAL_MODBUILDER_EVENT_ONPLAYERDIED",
             "parameters": [
                 "Player",
-                "OtherPlayer"
+                "OtherPlayer",
+                "DeathType",
+                "WeaponUnlock"
             ],
             "deprecated": false
         },
@@ -1455,7 +1527,9 @@
             "displayNameSID": "ID_ARRIVAL_MODBUILDER_EVENT_ONPLAYEREARNEDKILL",
             "parameters": [
                 "Player",
-                "OtherPlayer"
+                "OtherPlayer",
+                "DeathType",
+                "WeaponUnlock"
             ],
             "deprecated": false
         },
@@ -1515,9 +1589,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_ABSOLUTEVALUE",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 41,
+            "dataIndex": 42,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1531,9 +1606,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_ADD",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 37,
+            "dataIndex": 38,
             "functionSignatures": [{
                     "returnType": "Number",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -1550,6 +1626,7 @@
                 },
                 {
                     "returnType": "Vector",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -1572,9 +1649,10 @@
             "category": "Player",
             "subCategory": "General",
             "deprecated": false,
-            "dataIndex": 74,
+            "dataIndex": 75,
             "functionSignatures": [{
                 "returnType": "Array",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -1583,9 +1661,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_AND",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 88,
+            "dataIndex": 89,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1606,9 +1685,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_ANGLEDIFFERENCE",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 42,
+            "dataIndex": 43,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1632,6 +1712,7 @@
             "dataIndex": 0,
             "functionSignatures": [{
                 "returnType": "Array",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1653,6 +1734,7 @@
             "dataIndex": 1,
             "functionSignatures": [{
                 "returnType": "Array",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1679,9 +1761,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_BACKWARDVECTOR",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 43,
+            "dataIndex": 44,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -1692,6 +1775,7 @@
             "dataIndex": 31,
             "functionSignatures": [{
                 "returnType": "Enum_CharacterGadgets",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1713,9 +1797,10 @@
             "category": "Player",
             "subCategory": "General",
             "deprecated": false,
-            "dataIndex": 95,
+            "dataIndex": 96,
             "functionSignatures": [{
                     "returnType": "Player",
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1725,6 +1810,7 @@
                 },
                 {
                     "returnType": "Player",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -1746,9 +1832,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_COSINEFROMDEGREES",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 44,
+            "dataIndex": 45,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1762,9 +1849,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_COSINEFROMRADIANS",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 45,
+            "dataIndex": 46,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1781,6 +1869,7 @@
             "dataIndex": 2,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -1794,9 +1883,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_CREATEVECTOR",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 46,
+            "dataIndex": 47,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1823,9 +1913,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_CROSSPRODUCT",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 47,
+            "dataIndex": 48,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1848,6 +1939,7 @@
             "deprecated": false,
             "dataIndex": 3,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -1858,6 +1950,7 @@
             "dataIndex": 24,
             "functionSignatures": [{
                 "returnType": "Enum_CustomMessages",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1878,9 +1971,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_DIRECTIONFROMANGLES",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 72,
+            "dataIndex": 73,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1901,9 +1995,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_DIRECTIONTOWARDS",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 48,
+            "dataIndex": 49,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1924,9 +2019,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_DISTANCEBETWEEN",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 49,
+            "dataIndex": 50,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -1947,9 +2043,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_DIVIDE",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 50,
+            "dataIndex": 51,
             "functionSignatures": [{
                     "returnType": "Number",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -1966,6 +2063,7 @@
                 },
                 {
                     "returnType": "Vector",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -1987,9 +2085,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_DOTPRODUCT",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 51,
+            "dataIndex": 52,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2010,9 +2109,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_DOWNVECTOR",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 52,
+            "dataIndex": 53,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2024,6 +2124,7 @@
             "dataIndex": 4,
             "functionSignatures": [{
                 "returnType": "Array",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2032,9 +2133,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_EQUALS",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 38,
+            "dataIndex": 39,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": true,
                         "parameterTypes": []
@@ -2047,14 +2149,53 @@
             }]
         },
         {
+            "name": "EventDeathType",
+            "displayNameSID": "ID_ARRIVAL_BLOCK_EVENTDEATHTYPE",
+            "category": "Event Payloads",
+            "deprecated": false,
+            "dataIndex": 105,
+            "eventParameter": "DeathType",
+            "functionSignatures": [{
+                "returnType": "DeathType",
+                "deprecated": false,
+                "parameterTypes": []
+            }]
+        },
+        {
+            "name": "EventDeathTypeCompare",
+            "displayNameSID": "ID_ARRIVAL_BLOCK_EVENTDEATHTYPECOMPARE",
+            "category": "Player",
+            "subCategory": "Soldier",
+            "deprecated": false,
+            "dataIndex": 107,
+            "functionSignatures": [{
+                "returnType": "Boolean",
+                "deprecated": false,
+                "parameterTypes": [{
+                        "anyType": false,
+                        "parameterTypes": [
+                            "DeathType"
+                        ]
+                    },
+                    {
+                        "anyType": false,
+                        "parameterTypes": [
+                            "Enum_PlayerDeathTypes"
+                        ]
+                    }
+                ]
+            }]
+        },
+        {
             "name": "EventOtherPlayer",
             "displayNameSID": "ID_ARRIVAL_BLOCK_EVENTOTHERPLAYER",
             "category": "Event Payloads",
             "deprecated": false,
-            "dataIndex": 90,
+            "dataIndex": 91,
             "eventParameter": "OtherPlayer",
             "functionSignatures": [{
                 "returnType": "Player",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2063,10 +2204,11 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_EVENTPLAYER",
             "category": "Event Payloads",
             "deprecated": false,
-            "dataIndex": 36,
+            "dataIndex": 37,
             "eventParameter": "Player",
             "functionSignatures": [{
                 "returnType": "Player",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2075,12 +2217,137 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_EVENTTEAM",
             "category": "Event Payloads",
             "deprecated": false,
-            "dataIndex": 92,
+            "dataIndex": 93,
             "eventParameter": "TeamId",
             "functionSignatures": [{
                 "returnType": "TeamId",
+                "deprecated": false,
                 "parameterTypes": []
             }]
+        },
+        {
+            "name": "EventWeapon",
+            "displayNameSID": "ID_ARRIVAL_BLOCK_EVENTWEAPON",
+            "category": "Event Payloads",
+            "deprecated": false,
+            "dataIndex": 104,
+            "eventParameter": "WeaponUnlock",
+            "functionSignatures": [{
+                "returnType": "WeaponUnlock",
+                "deprecated": false,
+                "parameterTypes": []
+            }]
+        },
+        {
+            "name": "EventWeaponCompare",
+            "displayNameSID": "ID_ARRIVAL_BLOCK_EVENTWEAPONCOMPARE",
+            "category": "Player",
+            "subCategory": "Soldier",
+            "deprecated": false,
+            "dataIndex": 106,
+            "functionSignatures": [{
+                    "returnType": "Boolean",
+                    "deprecated": false,
+                    "parameterTypes": [{
+                            "anyType": false,
+                            "parameterTypes": [
+                                "WeaponUnlock"
+                            ]
+                        },
+                        {
+                            "anyType": false,
+                            "parameterTypes": [
+                                "Enum_PrimaryWeapons"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "returnType": "Boolean",
+                    "deprecated": false,
+                    "parameterTypes": [{
+                            "anyType": false,
+                            "parameterTypes": [
+                                "WeaponUnlock"
+                            ]
+                        },
+                        {
+                            "anyType": false,
+                            "parameterTypes": [
+                                "Enum_SecondaryWeapons"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "returnType": "Boolean",
+                    "deprecated": false,
+                    "parameterTypes": [{
+                            "anyType": false,
+                            "parameterTypes": [
+                                "WeaponUnlock"
+                            ]
+                        },
+                        {
+                            "anyType": false,
+                            "parameterTypes": [
+                                "Enum_OpenGadgets"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "returnType": "Boolean",
+                    "deprecated": false,
+                    "parameterTypes": [{
+                            "anyType": false,
+                            "parameterTypes": [
+                                "WeaponUnlock"
+                            ]
+                        },
+                        {
+                            "anyType": false,
+                            "parameterTypes": [
+                                "Enum_CharacterGadgets"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "returnType": "Boolean",
+                    "deprecated": false,
+                    "parameterTypes": [{
+                            "anyType": false,
+                            "parameterTypes": [
+                                "WeaponUnlock"
+                            ]
+                        },
+                        {
+                            "anyType": false,
+                            "parameterTypes": [
+                                "Enum_Throwables"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "returnType": "Boolean",
+                    "deprecated": false,
+                    "parameterTypes": [{
+                            "anyType": false,
+                            "parameterTypes": [
+                                "WeaponUnlock"
+                            ]
+                        },
+                        {
+                            "anyType": false,
+                            "parameterTypes": [
+                                "Enum_MeleeWeapons"
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "name": "FactionsItem",
@@ -2089,6 +2356,7 @@
             "dataIndex": 35,
             "functionSignatures": [{
                 "returnType": "Enum_Factions",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2110,9 +2378,10 @@
             "category": "Player",
             "subCategory": "General",
             "deprecated": false,
-            "dataIndex": 94,
+            "dataIndex": 95,
             "functionSignatures": [{
                     "returnType": "Player",
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2122,6 +2391,7 @@
                 },
                 {
                     "returnType": "Player",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2146,6 +2416,7 @@
             "dataIndex": 5,
             "functionSignatures": [{
                 "returnType": "Array",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2166,6 +2437,7 @@
             "deprecated": false,
             "dataIndex": 6,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -2179,9 +2451,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_FORWARDVECTOR",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 53,
+            "dataIndex": 54,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2191,9 +2464,10 @@
             "category": "Gameplay",
             "subCategory": "Gamemode",
             "deprecated": false,
-            "dataIndex": 73,
+            "dataIndex": 74,
             "functionSignatures": [{
                     "returnType": "Number",
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2203,6 +2477,7 @@
                 },
                 {
                     "returnType": "Number",
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2218,9 +2493,10 @@
             "category": "Player",
             "subCategory": "Soldier",
             "deprecated": false,
-            "dataIndex": 96,
+            "dataIndex": 97,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2242,9 +2518,10 @@
             "category": "Player",
             "subCategory": "Soldier",
             "deprecated": false,
-            "dataIndex": 97,
+            "dataIndex": 98,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2266,9 +2543,10 @@
             "category": "Gameplay",
             "subCategory": "Gamemode",
             "deprecated": false,
-            "dataIndex": 81,
+            "dataIndex": 82,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2278,9 +2556,10 @@
             "category": "Player",
             "subCategory": "General",
             "deprecated": false,
-            "dataIndex": 91,
+            "dataIndex": 92,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -2295,9 +2574,10 @@
             "category": "Player",
             "subCategory": "General",
             "deprecated": false,
-            "dataIndex": 98,
+            "dataIndex": 99,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -2312,9 +2592,10 @@
             "category": "Gameplay",
             "subCategory": "Gamemode",
             "deprecated": false,
-            "dataIndex": 80,
+            "dataIndex": 81,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2324,9 +2605,10 @@
             "category": "Player",
             "subCategory": "Soldier",
             "deprecated": false,
-            "dataIndex": 100,
+            "dataIndex": 101,
             "functionSignatures": [{
                     "returnType": "Number",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2343,6 +2625,7 @@
                 },
                 {
                     "returnType": "Boolean",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2359,6 +2642,7 @@
                 },
                 {
                     "returnType": "Vector",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2381,9 +2665,10 @@
             "category": "Gameplay",
             "subCategory": "Gamemode",
             "deprecated": false,
-            "dataIndex": 75,
+            "dataIndex": 76,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2393,9 +2678,10 @@
             "category": "Player",
             "subCategory": "General",
             "deprecated": false,
-            "dataIndex": 40,
+            "dataIndex": 41,
             "functionSignatures": [{
                     "returnType": "TeamId",
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2405,6 +2691,7 @@
                 },
                 {
                     "returnType": "TeamId",
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2420,6 +2707,7 @@
             "deprecated": false,
             "dataIndex": 16,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -2435,6 +2723,7 @@
             "dataIndex": 17,
             "functionSignatures": [{
                 "returnType": "Variable",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -2448,9 +2737,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_GREATERTHAN",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 84,
+            "dataIndex": 85,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2471,9 +2761,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_GREATERTHANEQUALTO",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 85,
+            "dataIndex": 86,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2495,9 +2786,10 @@
             "category": "Player",
             "subCategory": "Soldier",
             "deprecated": false,
-            "dataIndex": 101,
+            "dataIndex": 102,
             "functionSignatures": [{
                     "returnType": "Boolean",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2514,6 +2806,7 @@
                 },
                 {
                     "returnType": "Boolean",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2530,6 +2823,7 @@
                 },
                 {
                     "returnType": "Boolean",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2546,6 +2840,7 @@
                 },
                 {
                     "returnType": "Boolean",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2562,6 +2857,7 @@
                 },
                 {
                     "returnType": "Boolean",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2578,6 +2874,7 @@
                 },
                 {
                     "returnType": "Boolean",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -2601,6 +2898,7 @@
             "deprecated": false,
             "dataIndex": 19,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2626,6 +2924,7 @@
             "dataIndex": 15,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2646,6 +2945,7 @@
             "dataIndex": 22,
             "functionSignatures": [{
                 "returnType": "Enum_InventorySlots",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2667,9 +2967,10 @@
             "category": "Gameplay",
             "subCategory": "Gamemode",
             "deprecated": false,
-            "dataIndex": 99,
+            "dataIndex": 100,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2691,9 +2992,10 @@
             "category": "Player",
             "subCategory": "Soldier",
             "deprecated": false,
-            "dataIndex": 102,
+            "dataIndex": 103,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2717,6 +3019,7 @@
             "dataIndex": 7,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2738,6 +3041,7 @@
             "dataIndex": 13,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2757,9 +3061,10 @@
             "category": "Player",
             "subCategory": "Soldier",
             "deprecated": false,
-            "dataIndex": 93,
+            "dataIndex": 94,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2782,6 +3087,7 @@
             "deprecated": false,
             "dataIndex": 8,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -2795,9 +3101,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_LEFTVECTOR",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 54,
+            "dataIndex": 55,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -2806,9 +3113,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_LESSTHAN",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 39,
+            "dataIndex": 40,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2829,9 +3137,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_LESSTHANEQUALTO",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 83,
+            "dataIndex": 84,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2852,9 +3161,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_LOCALPOSITIONOF",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 78,
+            "dataIndex": 79,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2875,9 +3185,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_LOCALVECTOROF",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 79,
+            "dataIndex": 80,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2901,6 +3212,7 @@
             "dataIndex": 9,
             "functionSignatures": [{
                 "returnType": "Array",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2919,9 +3231,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_MAX",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 55,
+            "dataIndex": 56,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2944,6 +3257,7 @@
             "dataIndex": 34,
             "functionSignatures": [{
                 "returnType": "Enum_MedGadgetTypes",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2966,6 +3280,7 @@
             "dataIndex": 33,
             "functionSignatures": [{
                 "returnType": "Enum_MeleeWeapons",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -2986,9 +3301,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_MESSAGE",
             "category": "UI",
             "deprecated": false,
-            "dataIndex": 82,
+            "dataIndex": 83,
             "functionSignatures": [{
                     "returnType": "Message",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -3025,6 +3341,7 @@
                 },
                 {
                     "returnType": "Message",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -3053,6 +3370,7 @@
                 },
                 {
                     "returnType": "Message",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -3073,6 +3391,7 @@
                 },
                 {
                     "returnType": "Message",
+                    "deprecated": false,
                     "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3089,9 +3408,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_MODULO",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 56,
+            "dataIndex": 57,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3112,9 +3432,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_MULTIPLY",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 57,
+            "dataIndex": 58,
             "functionSignatures": [{
                     "returnType": "Number",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -3131,6 +3452,7 @@
                 },
                 {
                     "returnType": "Vector",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -3152,9 +3474,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_NORMALIZE",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 58,
+            "dataIndex": 59,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3168,9 +3491,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_NOT",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 86,
+            "dataIndex": 87,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3184,9 +3508,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_NOTEQUALTO",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 87,
+            "dataIndex": 88,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": true,
                         "parameterTypes": []
@@ -3205,6 +3530,7 @@
             "dataIndex": 18,
             "functionSignatures": [{
                 "returnType": "Variable",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3227,6 +3553,7 @@
             "dataIndex": 30,
             "functionSignatures": [{
                 "returnType": "Enum_OpenGadgets",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3247,9 +3574,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_OR",
             "category": "Logic",
             "deprecated": false,
-            "dataIndex": 89,
+            "dataIndex": 90,
             "functionSignatures": [{
                 "returnType": "Boolean",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3266,12 +3594,36 @@
             }]
         },
         {
+            "name": "PlayerDeathTypesItem",
+            "displayNameSID": "ID_ARRIVAL_BLOCK_PLAYERDEATHTYPESITEM",
+            "deprecated": false,
+            "dataIndex": 36,
+            "functionSignatures": [{
+                "returnType": "Enum_PlayerDeathTypes",
+                "deprecated": false,
+                "parameterTypes": [{
+                        "anyType": false,
+                        "parameterTypes": [
+                            "String"
+                        ]
+                    },
+                    {
+                        "anyType": false,
+                        "parameterTypes": [
+                            "Number"
+                        ]
+                    }
+                ]
+            }]
+        },
+        {
             "name": "PrimaryWeaponsItem",
             "displayNameSID": "ID_ARRIVAL_BLOCK_PRIMARYWEAPONSITEM",
             "deprecated": false,
             "dataIndex": 28,
             "functionSignatures": [{
                 "returnType": "Enum_PrimaryWeapons",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3292,9 +3644,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_RAISETOPOWER",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 59,
+            "dataIndex": 60,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3318,6 +3671,7 @@
             "dataIndex": 10,
             "functionSignatures": [{
                 "returnType": "Array",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3331,9 +3685,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_RANDOMREAL",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 60,
+            "dataIndex": 61,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3356,6 +3711,7 @@
             "deprecated": false,
             "dataIndex": 11,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3371,6 +3727,7 @@
             "dataIndex": 21,
             "functionSignatures": [{
                 "returnType": "Enum_RestrictedInputs",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3393,6 +3750,7 @@
             "dataIndex": 23,
             "functionSignatures": [{
                 "returnType": "Enum_ResupplyTypes",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3413,9 +3771,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_RIGHTVECTOR",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 61,
+            "dataIndex": 62,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -3424,9 +3783,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_ROUNDTOINTEGER",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 62,
+            "dataIndex": 63,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3442,6 +3802,7 @@
             "dataIndex": 29,
             "functionSignatures": [{
                 "returnType": "Enum_SecondaryWeapons",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3462,9 +3823,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_SINEFROMDEGREES",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 63,
+            "dataIndex": 64,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3478,9 +3840,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_SINEFROMRADIANS",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 64,
+            "dataIndex": 65,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3496,6 +3859,7 @@
             "dataIndex": 20,
             "functionSignatures": [{
                 "returnType": "Enum_SoldierKits",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3518,6 +3882,7 @@
             "dataIndex": 25,
             "functionSignatures": [{
                 "returnType": "Enum_SoldierStateBool",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3540,6 +3905,7 @@
             "dataIndex": 26,
             "functionSignatures": [{
                 "returnType": "Enum_SoldierStateNumber",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3562,6 +3928,7 @@
             "dataIndex": 27,
             "functionSignatures": [{
                 "returnType": "Enum_SoldierStateVector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3585,6 +3952,7 @@
             "dataIndex": 14,
             "functionSignatures": [{
                 "returnType": "Array",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3605,9 +3973,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_SQUAREROOT",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 65,
+            "dataIndex": 66,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3621,9 +3990,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_SUBTRACT",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 66,
+            "dataIndex": 67,
             "functionSignatures": [{
                     "returnType": "Number",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -3640,6 +4010,7 @@
                 },
                 {
                     "returnType": "Vector",
+                    "deprecated": false,
                     "parameterTypes": [{
                             "anyType": false,
                             "parameterTypes": [
@@ -3663,6 +4034,7 @@
             "dataIndex": 32,
             "functionSignatures": [{
                 "returnType": "Enum_Throwables",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3683,9 +4055,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_UPVECTOR",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 67,
+            "dataIndex": 68,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": []
             }]
         },
@@ -3696,6 +4069,7 @@
             "deprecated": false,
             "dataIndex": 12,
             "functionSignatures": [{
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3716,9 +4090,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_VECTORTOWARDS",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 68,
+            "dataIndex": 69,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3739,9 +4114,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_WORLDPOSITIONOF",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 76,
+            "dataIndex": 77,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3762,9 +4138,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_WORLDVECTOROF",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 77,
+            "dataIndex": 78,
             "functionSignatures": [{
                 "returnType": "Vector",
+                "deprecated": false,
                 "parameterTypes": [{
                         "anyType": false,
                         "parameterTypes": [
@@ -3785,9 +4162,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_XCOMPONENTOF",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 69,
+            "dataIndex": 70,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3801,9 +4179,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_YCOMPONENTOF",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 70,
+            "dataIndex": 71,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3817,9 +4196,10 @@
             "displayNameSID": "ID_ARRIVAL_BLOCK_ZCOMPONENTOF",
             "category": "Math",
             "deprecated": false,
-            "dataIndex": 71,
+            "dataIndex": 72,
             "functionSignatures": [{
                 "returnType": "Number",
+                "deprecated": false,
                 "parameterTypes": [{
                     "anyType": false,
                     "parameterTypes": [
@@ -3832,26 +4212,32 @@
     "selectionLists": [{
             "name": "BF1942_GER",
             "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG620480178",
+            "deprecated": false,
             "listType": "SoldierKits",
             "selectionValues": [{
                     "name": "GERAntiTankGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ANTITANK"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ANTITANK",
+                    "deprecated": false
                 },
                 {
                     "name": "GERAssaultGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ASSAULT"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ASSAULT",
+                    "deprecated": false
                 },
                 {
                     "name": "GEREngineerGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ENGINEER"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ENGINEER",
+                    "deprecated": false
                 },
                 {
                     "name": "GERMedicGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_MEDIC"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_MEDIC",
+                    "deprecated": false
                 },
                 {
                     "name": "GERScoutGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_SCOUT"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_SCOUT",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierKits"
@@ -3859,26 +4245,32 @@
         {
             "name": "BF1942_UK",
             "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG929856448",
+            "deprecated": false,
             "listType": "SoldierKits",
             "selectionValues": [{
                     "name": "UKAntiTankGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ANTITANK"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ANTITANK",
+                    "deprecated": false
                 },
                 {
                     "name": "UKAssaultGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ASSAULT"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ASSAULT",
+                    "deprecated": false
                 },
                 {
                     "name": "UKEngineerGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ENGINEER"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ENGINEER",
+                    "deprecated": false
                 },
                 {
                     "name": "UKMedicGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_MEDIC"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_MEDIC",
+                    "deprecated": false
                 },
                 {
                     "name": "UKScoutGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_SCOUT"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_SCOUT",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierKits"
@@ -3886,26 +4278,32 @@
         {
             "name": "BF1942_US",
             "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG620490983",
+            "deprecated": false,
             "listType": "SoldierKits",
             "selectionValues": [{
                     "name": "USAntiTankGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ANTITANK"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ANTITANK",
+                    "deprecated": false
                 },
                 {
                     "name": "USAssaultGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ASSAULT"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ASSAULT",
+                    "deprecated": false
                 },
                 {
                     "name": "USEngineerGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ENGINEER"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_ENGINEER",
+                    "deprecated": false
                 },
                 {
                     "name": "USMedicGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_MEDIC"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_MEDIC",
+                    "deprecated": false
                 },
                 {
                     "name": "USScoutGRA",
-                    "displayNameSID": "ID_MICA_KIT_GRAFTON_SCOUT"
+                    "displayNameSID": "ID_MICA_KIT_GRAFTON_SCOUT",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierKits"
@@ -3913,38 +4311,47 @@
         {
             "name": "BF2042",
             "displayNameSID": "ID_MICA_MENU_KINGSTON",
+            "deprecated": false,
             "listType": "SoldierKits",
             "selectionValues": [{
                     "name": "Bravo",
-                    "displayNameSID": "ID_COS_BRAVO_01"
+                    "displayNameSID": "ID_COS_BRAVO_01",
+                    "deprecated": false
                 },
                 {
                     "name": "Charlie",
-                    "displayNameSID": "ID_COS_CHARLIE_01"
+                    "displayNameSID": "ID_COS_CHARLIE_01",
+                    "deprecated": false
                 },
                 {
                     "name": "Delta",
-                    "displayNameSID": "ID_COS_DELTA_01"
+                    "displayNameSID": "ID_COS_DELTA_01",
+                    "deprecated": false
                 },
                 {
                     "name": "Foxtrot",
-                    "displayNameSID": "ID_COS_FOXTROT_01"
+                    "displayNameSID": "ID_COS_FOXTROT_01",
+                    "deprecated": false
                 },
                 {
                     "name": "India",
-                    "displayNameSID": "ID_COS_INDIA_01"
+                    "displayNameSID": "ID_COS_INDIA_01",
+                    "deprecated": false
                 },
                 {
                     "name": "Juliet",
-                    "displayNameSID": "ID_COS_JULIET_01"
+                    "displayNameSID": "ID_COS_JULIET_01",
+                    "deprecated": false
                 },
                 {
                     "name": "Kilo",
-                    "displayNameSID": "ID_COS_KILO_01"
+                    "displayNameSID": "ID_COS_KILO_01",
+                    "deprecated": false
                 },
                 {
                     "name": "Lima",
-                    "displayNameSID": "ID_COS_LIMA_01"
+                    "displayNameSID": "ID_COS_LIMA_01",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierKits"
@@ -3952,22 +4359,27 @@
         {
             "name": "BF3_RU",
             "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1538019529",
+            "deprecated": false,
             "listType": "SoldierKits",
             "selectionValues": [{
                     "name": "RUAssaultALX",
-                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_ASSAULT"
+                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_ASSAULT",
+                    "deprecated": false
                 },
                 {
                     "name": "RUEngineerALX",
-                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_ENGINEER"
+                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_ENGINEER",
+                    "deprecated": false
                 },
                 {
                     "name": "RUReconALX",
-                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_RECON"
+                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_RECON",
+                    "deprecated": false
                 },
                 {
                     "name": "RUSupportALX",
-                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_SUPPORT"
+                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_SUPPORT",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierKits"
@@ -3975,22 +4387,27 @@
         {
             "name": "BF3_US",
             "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1538018332",
+            "deprecated": false,
             "listType": "SoldierKits",
             "selectionValues": [{
                     "name": "USAssaultALX",
-                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_ASSAULT"
+                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_ASSAULT",
+                    "deprecated": false
                 },
                 {
                     "name": "USEngineerALX",
-                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_ENGINEER"
+                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_ENGINEER",
+                    "deprecated": false
                 },
                 {
                     "name": "USReconALX",
-                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_RECON"
+                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_RECON",
+                    "deprecated": false
                 },
                 {
                     "name": "USSupportALX",
-                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_SUPPORT"
+                    "displayNameSID": "ID_MICA_KIT_ALEXANDRIA_SUPPORT",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierKits"
@@ -3998,22 +4415,27 @@
         {
             "name": "BFBC2_RU",
             "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1812726317",
+            "deprecated": false,
             "listType": "SoldierKits",
             "selectionValues": [{
                     "name": "RUAssaultRUM",
-                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_ASSAULT"
+                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_ASSAULT",
+                    "deprecated": false
                 },
                 {
                     "name": "RUEngineerRUM",
-                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_ENGINEER"
+                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_ENGINEER",
+                    "deprecated": false
                 },
                 {
                     "name": "RUMedicRUM",
-                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_MEDIC"
+                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_MEDIC",
+                    "deprecated": false
                 },
                 {
                     "name": "RUReconRUM",
-                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_RECON"
+                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_RECON",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierKits"
@@ -4021,22 +4443,27 @@
         {
             "name": "BFBC2_US",
             "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1812729600",
+            "deprecated": false,
             "listType": "SoldierKits",
             "selectionValues": [{
                     "name": "USAssaultRUM",
-                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_ASSAULT"
+                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_ASSAULT",
+                    "deprecated": false
                 },
                 {
                     "name": "USEngineerRUM",
-                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_ENGINEER"
+                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_ENGINEER",
+                    "deprecated": false
                 },
                 {
                     "name": "USMedicRUM",
-                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_MEDIC"
+                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_MEDIC",
+                    "deprecated": false
                 },
                 {
                     "name": "USReconRUM",
-                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_RECON"
+                    "displayNameSID": "ID_MICA_TEST_KIT_RUMNEY_RECON",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierKits"
@@ -4044,22 +4471,27 @@
         {
             "name": "CharacterGadgetsAlexandria",
             "displayNameSID": "ID_MICA_MENU_BF3",
+            "deprecated": false,
             "listType": "CharacterGadgets",
             "selectionValues": [{
                     "name": "AmmoBag_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_AMMO_BOX"
+                    "displayNameSID": "ID_MICA_ABILITY_AMMO_BOX",
+                    "deprecated": false
                 },
                 {
                     "name": "MedicBag_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_MEDKIT"
+                    "displayNameSID": "ID_MICA_ABILITY_MEDKIT",
+                    "deprecated": false
                 },
                 {
                     "name": "RepairTool_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_REPAIR_TOOL"
+                    "displayNameSID": "ID_MICA_ABILITY_REPAIR_TOOL",
+                    "deprecated": false
                 },
                 {
                     "name": "TUGS",
-                    "displayNameSID": "ID_MICA_ABILITY_TUGS"
+                    "displayNameSID": "ID_MICA_ABILITY_TUGS",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_CharacterGadgets"
@@ -4067,18 +4499,22 @@
         {
             "name": "CharacterGadgetsGrafton",
             "displayNameSID": "ID_MICA_MENU_1942",
+            "deprecated": false,
             "listType": "CharacterGadgets",
             "selectionValues": [{
                     "name": "Binoculars",
-                    "displayNameSID": "ID_MICA_ABILITY_BINOCULARS"
+                    "displayNameSID": "ID_MICA_ABILITY_BINOCULARS",
+                    "deprecated": false
                 },
                 {
                     "name": "MedKit_GRA",
-                    "displayNameSID": "ID_MICA_ABILITY_MEDKIT"
+                    "displayNameSID": "ID_MICA_ABILITY_MEDKIT",
+                    "deprecated": false
                 },
                 {
                     "name": "RepairTool_GRA",
-                    "displayNameSID": "ID_MICA_ABILITY_WRENCH"
+                    "displayNameSID": "ID_MICA_ABILITY_WRENCH",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_CharacterGadgets"
@@ -4086,42 +4522,52 @@
         {
             "name": "CharacterGadgetsKingston",
             "displayNameSID": "ID_MICA_MENU_KINGSTON",
+            "deprecated": false,
             "listType": "CharacterGadgets",
             "selectionValues": [{
                     "name": "AutoTurret",
-                    "displayNameSID": "ID_GADGETS_AUTOTURRET"
+                    "displayNameSID": "ID_GADGETS_AUTOTURRET",
+                    "deprecated": false
                 },
                 {
                     "name": "BallisticShield",
-                    "displayNameSID": "ID_ABILITY_SHIELD"
+                    "displayNameSID": "ID_ABILITY_SHIELD",
+                    "deprecated": false
                 },
                 {
                     "name": "ConstructionKit",
-                    "displayNameSID": "ID_GADGETS_CONSTRUCTIONKIT"
+                    "displayNameSID": "ID_GADGETS_CONSTRUCTIONKIT",
+                    "deprecated": false
                 },
                 {
                     "name": "GrappleGun",
-                    "displayNameSID": "ID_GADGETS_GRAPPLEGUN"
+                    "displayNameSID": "ID_GADGETS_GRAPPLEGUN",
+                    "deprecated": false
                 },
                 {
                     "name": "ReconDrone",
-                    "displayNameSID": "ID_GADGETS_RECONDRONE"
+                    "displayNameSID": "ID_GADGETS_RECONDRONE",
+                    "deprecated": false
                 },
                 {
                     "name": "SignalHacker",
-                    "displayNameSID": "ID_ABILITY_SIGNALHACKER"
+                    "displayNameSID": "ID_ABILITY_SIGNALHACKER",
+                    "deprecated": false
                 },
                 {
                     "name": "SmartExplosives",
-                    "displayNameSID": "ID_GADGETS_SMARTEXPLOSIVES"
+                    "displayNameSID": "ID_GADGETS_SMARTEXPLOSIVES",
+                    "deprecated": false
                 },
                 {
                     "name": "StimPistol",
-                    "displayNameSID": "ID_GADGETS_STIMPISTOL"
+                    "displayNameSID": "ID_GADGETS_STIMPISTOL",
+                    "deprecated": false
                 },
                 {
                     "name": "SupplyBag",
-                    "displayNameSID": "ID_GADGETS_SUPPLYBAG"
+                    "displayNameSID": "ID_GADGETS_SUPPLYBAG",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_CharacterGadgets"
@@ -4129,22 +4575,27 @@
         {
             "name": "CharacterGadgetsRumney",
             "displayNameSID": "ID_MICA_MENU_BC2",
+            "deprecated": false,
             "listType": "CharacterGadgets",
             "selectionValues": [{
                     "name": "AmmoBox_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_AMMO_BOX"
+                    "displayNameSID": "ID_MICA_ABILITY_AMMO_BOX",
+                    "deprecated": false
                 },
                 {
                     "name": "MedKit",
-                    "displayNameSID": "ID_MICA_ABILITY_MEDKIT"
+                    "displayNameSID": "ID_MICA_ABILITY_MEDKIT",
+                    "deprecated": false
                 },
                 {
                     "name": "MotionSensor",
-                    "displayNameSID": "ID_MICA_ABILITY_MOTION_SENSOR_GRENADE"
+                    "displayNameSID": "ID_MICA_ABILITY_MOTION_SENSOR_GRENADE",
+                    "deprecated": false
                 },
                 {
                     "name": "RepairTool_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_REPAIR_TOOL"
+                    "displayNameSID": "ID_MICA_ABILITY_REPAIR_TOOL",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_CharacterGadgets"
@@ -4152,26 +4603,32 @@
         {
             "name": "CustomMessages",
             "displayNameSID": "ID_ARRIVAL_BLOCK_CUSTOMMESSAGEITEM",
+            "deprecated": false,
             "listType": "CustomMessages",
             "selectionValues": [{
                     "name": "HeaderText",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_HEADERTEXT"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_HEADERTEXT",
+                    "deprecated": false
                 },
                 {
                     "name": "MessageText1",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_MESSAGETEXT1"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_MESSAGETEXT1",
+                    "deprecated": false
                 },
                 {
                     "name": "MessageText2",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_MESSAGETEXT2"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_MESSAGETEXT2",
+                    "deprecated": false
                 },
                 {
                     "name": "MessageText3",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_MESSAGETEXT3"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_MESSAGETEXT3",
+                    "deprecated": false
                 },
                 {
                     "name": "MessageText4",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_MESSAGETEXT4"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_CUSTOMMESSAGES_MESSAGETEXT4",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_CustomMessages"
@@ -4179,42 +4636,52 @@
         {
             "name": "Factions",
             "displayNameSID": "ID_ARRIVAL_BLOCK_FACTIONSITEM",
+            "deprecated": false,
             "listType": "Factions",
             "selectionValues": [{
                     "name": "Alexandria_RU",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1538019529"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1538019529",
+                    "deprecated": false
                 },
                 {
                     "name": "Alexandria_US",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1538018332"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1538018332",
+                    "deprecated": false
                 },
                 {
                     "name": "Grafton_GER",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG620480178"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG620480178",
+                    "deprecated": false
                 },
                 {
                     "name": "Grafton_UK",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG929856448"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG929856448",
+                    "deprecated": false
                 },
                 {
                     "name": "Grafton_US",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG620490983"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG620490983",
+                    "deprecated": false
                 },
                 {
                     "name": "Kingston_RU",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1345154873"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1345154873",
+                    "deprecated": false
                 },
                 {
                     "name": "Kingston_US",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_753847964"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_753847964",
+                    "deprecated": false
                 },
                 {
                     "name": "Rumney_RU",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1812726317"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1812726317",
+                    "deprecated": false
                 },
                 {
                     "name": "Rumney_US",
-                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1812729600"
+                    "displayNameSID": "ID_ARRIVAL_MUTATOR_548273204_ENTRY_NEG1812729600",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_Factions"
@@ -4222,30 +4689,37 @@
         {
             "name": "InventorySlots",
             "displayNameSID": "ID_ARRIVAL_BLOCK_INVENTORYSLOTSITEM",
+            "deprecated": false,
             "listType": "InventorySlots",
             "selectionValues": [{
                     "name": "CharacterGadget",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_CHARACTERGADGET"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_CHARACTERGADGET",
+                    "deprecated": false
                 },
                 {
                     "name": "MeleeWeapon",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_MELEEWEAPON"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_MELEEWEAPON",
+                    "deprecated": false
                 },
                 {
                     "name": "OpenGadget",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_OPENGADGET"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_OPENGADGET",
+                    "deprecated": false
                 },
                 {
                     "name": "PrimaryWeapon",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_PRIMARYWEAPON"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_PRIMARYWEAPON",
+                    "deprecated": false
                 },
                 {
                     "name": "SecondaryWeapon",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_SECONDARYWEAPON"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_SECONDARYWEAPON",
+                    "deprecated": false
                 },
                 {
                     "name": "Throwable",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_THROWABLE"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INVENTORYSLOTS_THROWABLE",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_InventorySlots"
@@ -4253,14 +4727,17 @@
         {
             "name": "MedGadgetTypes",
             "displayNameSID": "ID_ARRIVAL_BLOCK_MEDGADGETTYPESITEM",
+            "deprecated": false,
             "listType": "MedGadgetTypes",
             "selectionValues": [{
                     "name": "MedicCrate",
-                    "displayNameSID": "ID_ABILITY_MEDICCRATE"
+                    "displayNameSID": "ID_ABILITY_MEDICCRATE",
+                    "deprecated": false
                 },
                 {
                     "name": "MedKit",
-                    "displayNameSID": "ID_MICA_ABILITY_MEDKIT"
+                    "displayNameSID": "ID_MICA_ABILITY_MEDKIT",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_MedGadgetTypes"
@@ -4268,46 +4745,56 @@
         {
             "name": "MeleeAlexandria",
             "displayNameSID": "ID_MICA_MENU_BF3",
+            "deprecated": false,
             "listType": "MeleeWeapons",
             "selectionValues": [{
                 "name": "Knife_BF3",
-                "displayNameSID": "ID_COS_WEP_MELEE__BF3KNIFE_01"
+                "displayNameSID": "ID_COS_WEP_MELEE__BF3KNIFE_01",
+                "deprecated": false
             }],
             "returnType": "Enum_MeleeWeapons"
         },
         {
             "name": "MeleeGrafton",
             "displayNameSID": "ID_MICA_MENU_1942",
+            "deprecated": false,
             "listType": "MeleeWeapons",
             "selectionValues": [{
                 "name": "Knife_1942",
-                "displayNameSID": "ID_COS_WEP_MELEE__1942KNIFE_01"
+                "displayNameSID": "ID_COS_WEP_MELEE__1942KNIFE_01",
+                "deprecated": false
             }],
             "returnType": "Enum_MeleeWeapons"
         },
         {
             "name": "MeleeKingston",
             "displayNameSID": "ID_MICA_MENU_KINGSTON",
+            "deprecated": false,
             "listType": "MeleeWeapons",
             "selectionValues": [{
                     "name": "ACB90Knife",
-                    "displayNameSID": "ID_COS_MELEE_ACB90KNIFE"
+                    "displayNameSID": "ID_COS_MELEE_ACB90KNIFE",
+                    "deprecated": false
                 },
                 {
                     "name": "Hatchet",
-                    "displayNameSID": "ID_COS_MELEE_BF1HATCHET"
+                    "displayNameSID": "ID_COS_MELEE_BF1HATCHET",
+                    "deprecated": false
                 },
                 {
                     "name": "SkeletonizedKnife",
-                    "displayNameSID": "ID_COS_MELEE_SKELETONIZEDKNIFE"
+                    "displayNameSID": "ID_COS_MELEE_SKELETONIZEDKNIFE",
+                    "deprecated": false
                 },
                 {
                     "name": "SurvivalKnife",
-                    "displayNameSID": "ID_COS_MELEE_SURVIVALKNIFE"
+                    "displayNameSID": "ID_COS_MELEE_SURVIVALKNIFE",
+                    "deprecated": false
                 },
                 {
                     "name": "TacticalFoldingKnife",
-                    "displayNameSID": "ID_COS_MELEE_TACTICALFOLDINGKNIFE"
+                    "displayNameSID": "ID_COS_MELEE_TACTICALFOLDINGKNIFE",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_MeleeWeapons"
@@ -4315,60 +4802,74 @@
         {
             "name": "MeleeRumney",
             "displayNameSID": "ID_MICA_MENU_BC2",
+            "deprecated": false,
             "listType": "MeleeWeapons",
             "selectionValues": [{
                 "name": "Knife_BC2",
-                "displayNameSID": "ID_COS_WEP_MELEE__BC2KNIFE_01"
+                "displayNameSID": "ID_COS_WEP_MELEE__BC2KNIFE_01",
+                "deprecated": false
             }],
             "returnType": "Enum_MeleeWeapons"
         },
         {
             "name": "OpenGadgetsAlexandria",
             "displayNameSID": "ID_MICA_MENU_BF3",
+            "deprecated": false,
             "listType": "OpenGadgets",
             "selectionValues": [{
                     "name": "ATMine_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_AT_MINE"
+                    "displayNameSID": "ID_MICA_ABILITY_AT_MINE",
+                    "deprecated": false
                 },
                 {
                     "name": "C4_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_C4"
+                    "displayNameSID": "ID_MICA_ABILITY_C4",
+                    "deprecated": false
                 },
                 {
                     "name": "Defibrillator_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_DEFIBRILLATOR"
+                    "displayNameSID": "ID_MICA_ABILITY_DEFIBRILLATOR",
+                    "deprecated": false
                 },
                 {
                     "name": "EODBot",
-                    "displayNameSID": "ID_MICA_ABILITY_EODBOT"
+                    "displayNameSID": "ID_MICA_ABILITY_EODBOT",
+                    "deprecated": false
                 },
                 {
                     "name": "FGM148Javelin",
-                    "displayNameSID": "ID_MICA_ABILITY_JAVELIN"
+                    "displayNameSID": "ID_MICA_ABILITY_JAVELIN",
+                    "deprecated": false
                 },
                 {
                     "name": "FIM92Stinger",
-                    "displayNameSID": "ID_MICA_ABILITY_FIM92STINGER"
+                    "displayNameSID": "ID_MICA_ABILITY_FIM92STINGER",
+                    "deprecated": false
                 },
                 {
                     "name": "M18Claymore",
-                    "displayNameSID": "ID_MICA_ABILITY_M18_CLAYMORE"
+                    "displayNameSID": "ID_MICA_ABILITY_M18_CLAYMORE",
+                    "deprecated": false
                 },
                 {
                     "name": "RadioBeacon",
-                    "displayNameSID": "ID_MICA_ABILITY_RADIO_BEACON"
+                    "displayNameSID": "ID_MICA_ABILITY_RADIO_BEACON",
+                    "deprecated": false
                 },
                 {
                     "name": "SA18IGLA",
-                    "displayNameSID": "ID_MICA_ABILITY_SA-18IGLA"
+                    "displayNameSID": "ID_MICA_ABILITY_SA-18IGLA",
+                    "deprecated": false
                 },
                 {
                     "name": "SMAW",
-                    "displayNameSID": "ID_MICA_ABILITY_SMAW"
+                    "displayNameSID": "ID_MICA_ABILITY_SMAW",
+                    "deprecated": false
                 },
                 {
                     "name": "SOFLAM_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_SOFLAM"
+                    "displayNameSID": "ID_MICA_ABILITY_SOFLAM",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_OpenGadgets"
@@ -4376,60 +4877,74 @@
         {
             "name": "OpenGadgetsGrafton",
             "displayNameSID": "ID_MICA_MENU_1942",
+            "deprecated": false,
             "listType": "OpenGadgets",
             "selectionValues": [{
                 "name": "Landmine",
-                "displayNameSID": "ID_MICA_ABILITY_TELLERMINE"
+                "displayNameSID": "ID_MICA_ABILITY_TELLERMINE",
+                "deprecated": false
             }],
             "returnType": "Enum_OpenGadgets"
         },
         {
             "name": "OpenGadgetsKingston",
             "displayNameSID": "ID_MICA_MENU_KINGSTON",
+            "deprecated": false,
             "listType": "OpenGadgets",
             "selectionValues": [{
                     "name": "AmmoCrate",
-                    "displayNameSID": "ID_ABILITY_AMMOBAG"
+                    "displayNameSID": "ID_ABILITY_AMMOBAG",
+                    "deprecated": false
                 },
                 {
                     "name": "ArmorPiece",
-                    "displayNameSID": "ID_ABILITY_ARMOR"
+                    "displayNameSID": "ID_ABILITY_ARMOR",
+                    "deprecated": false
                 },
                 {
                     "name": "ATMine",
-                    "displayNameSID": "ID_ABILITY_ATMINE"
+                    "displayNameSID": "ID_ABILITY_ATMINE",
+                    "deprecated": false
                 },
                 {
                     "name": "C4",
-                    "displayNameSID": "ID_ABILITY_C4"
+                    "displayNameSID": "ID_ABILITY_C4",
+                    "deprecated": false
                 },
                 {
                     "name": "CarlGustav",
-                    "displayNameSID": "ID_ABILITY_CGMK4"
+                    "displayNameSID": "ID_ABILITY_CGMK4",
+                    "deprecated": false
                 },
                 {
                     "name": "HealthCrate",
-                    "displayNameSID": "ID_ABILITY_MEDICCRATE"
+                    "displayNameSID": "ID_ABILITY_MEDICCRATE",
+                    "deprecated": false
                 },
                 {
                     "name": "RepairTool",
-                    "displayNameSID": "ID_GADGETS_REPAIRTOOL"
+                    "displayNameSID": "ID_GADGETS_REPAIRTOOL",
+                    "deprecated": false
                 },
                 {
                     "name": "SelfHeal",
-                    "displayNameSID": "ID_ABILITY_SELFHEAL"
+                    "displayNameSID": "ID_ABILITY_SELFHEAL",
+                    "deprecated": false
                 },
                 {
                     "name": "SOFLAM",
-                    "displayNameSID": "ID_ABILITY_SOFLAM"
+                    "displayNameSID": "ID_ABILITY_SOFLAM",
+                    "deprecated": false
                 },
                 {
                     "name": "SpawnBeacon",
-                    "displayNameSID": "ID_ABILITY_SPAWNBEACON"
+                    "displayNameSID": "ID_ABILITY_SPAWNBEACON",
+                    "deprecated": false
                 },
                 {
                     "name": "Stinger",
-                    "displayNameSID": "ID_ABILITY_STINGER"
+                    "displayNameSID": "ID_ABILITY_STINGER",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_OpenGadgets"
@@ -4437,113 +4952,213 @@
         {
             "name": "OpenGadgetsRumney",
             "displayNameSID": "ID_MICA_MENU_BC2",
+            "deprecated": false,
             "listType": "OpenGadgets",
             "selectionValues": [{
                     "name": "ATMine_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_AT_MINE"
+                    "displayNameSID": "ID_MICA_ABILITY_AT_MINE",
+                    "deprecated": false
                 },
                 {
                     "name": "C4_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_C4"
+                    "displayNameSID": "ID_MICA_ABILITY_C4",
+                    "deprecated": false
                 },
                 {
                     "name": "Defibrillator_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_DEFIBRILLATOR"
+                    "displayNameSID": "ID_MICA_ABILITY_DEFIBRILLATOR",
+                    "deprecated": false
                 },
                 {
                     "name": "M136AT4",
-                    "displayNameSID": "ID_MICA_ABILITY_M136AT4"
+                    "displayNameSID": "ID_MICA_ABILITY_M136AT4",
+                    "deprecated": false
                 },
                 {
                     "name": "MortarStrike",
-                    "displayNameSID": "ID_MICA_ABILITY_MORTAR_STRIKE"
+                    "displayNameSID": "ID_MICA_ABILITY_MORTAR_STRIKE",
+                    "deprecated": false
                 },
                 {
                     "name": "RPG7_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_RPG7"
+                    "displayNameSID": "ID_MICA_ABILITY_RPG7",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_OpenGadgets"
         },
         {
+            "name": "PlayerDeathTypes",
+            "displayNameSID": "",
+            "deprecated": false,
+            "listType": "PlayerDeathTypes",
+            "selectionValues": [{
+                    "name": "Debris",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_DEBRIS",
+                    "deprecated": false
+                },
+                {
+                    "name": "Deserting",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_DESERTING",
+                    "deprecated": false
+                },
+                {
+                    "name": "Drowning",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_DROWNING",
+                    "deprecated": false
+                },
+                {
+                    "name": "Explosion",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_EXPLOSION",
+                    "deprecated": false
+                },
+                {
+                    "name": "Fall",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_FALL",
+                    "deprecated": false
+                },
+                {
+                    "name": "Fire",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_FIRE",
+                    "deprecated": false
+                },
+                {
+                    "name": "Gas",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_GAS",
+                    "deprecated": false
+                },
+                {
+                    "name": "Headshot",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_HEADSHOT",
+                    "deprecated": false
+                },
+                {
+                    "name": "Melee",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_MELEE",
+                    "deprecated": false
+                },
+                {
+                    "name": "Penetration",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_PENETRATION",
+                    "deprecated": false
+                },
+                {
+                    "name": "Redeploy",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_REDEPLOY",
+                    "deprecated": false
+                },
+                {
+                    "name": "Roadkill",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_ROADKILL",
+                    "deprecated": false
+                },
+                {
+                    "name": "Weapon",
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_PLAYERDEATHTYPES_WEAPON",
+                    "deprecated": false
+                }
+            ],
+            "returnType": "Enum_PlayerDeathTypes"
+        },
+        {
             "name": "PrimaryWeaponsAlexandria",
             "displayNameSID": "ID_MICA_MENU_BF3",
+            "deprecated": false,
             "listType": "PrimaryWeapons",
             "selectionValues": [{
                     "name": "A-91",
-                    "displayNameSID": "ID_MICA_ABILITY_A-91"
+                    "displayNameSID": "ID_MICA_ABILITY_A-91",
+                    "deprecated": false
                 },
                 {
                     "name": "ACW-R",
-                    "displayNameSID": "ID_MICA_ABILITY_ACW-R"
+                    "displayNameSID": "ID_MICA_ABILITY_ACW-R",
+                    "deprecated": false
                 },
                 {
                     "name": "AKS-74u_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_AKS74U"
+                    "displayNameSID": "ID_MICA_ABILITY_AKS74U",
+                    "deprecated": false
                 },
                 {
                     "name": "AN94_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_AN94"
+                    "displayNameSID": "ID_MICA_ABILITY_AN94",
+                    "deprecated": false
                 },
                 {
                     "name": "ASVal",
-                    "displayNameSID": "ID_MICA_ABILITY_ASVAL"
+                    "displayNameSID": "ID_MICA_ABILITY_ASVAL",
+                    "deprecated": false
                 },
                 {
                     "name": "DAO-12",
-                    "displayNameSID": "ID_MICA_ABILITY_DAO12"
+                    "displayNameSID": "ID_MICA_ABILITY_DAO12",
+                    "deprecated": false
                 },
                 {
                     "name": "G3A3",
-                    "displayNameSID": ""
+                    "displayNameSID": "",
+                    "deprecated": false
                 },
                 {
                     "name": "M16A3",
-                    "displayNameSID": "ID_MICA_ABILITY_M16A3"
+                    "displayNameSID": "ID_MICA_ABILITY_M16A3",
+                    "deprecated": false
                 },
                 {
                     "name": "M240B",
-                    "displayNameSID": "ID_MICA_ABILITY_M240B"
+                    "displayNameSID": "ID_MICA_ABILITY_M240B",
+                    "deprecated": false
                 },
                 {
                     "name": "M39EMR",
-                    "displayNameSID": "ID_MICA_ABILITY_M39EMR"
+                    "displayNameSID": "ID_MICA_ABILITY_M39EMR",
+                    "deprecated": false
                 },
                 {
                     "name": "M416_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_M416"
+                    "displayNameSID": "ID_MICA_ABILITY_M416",
+                    "deprecated": false
                 },
                 {
                     "name": "M60E4",
-                    "displayNameSID": "ID_MICA_ABILITY_M60E4"
+                    "displayNameSID": "ID_MICA_ABILITY_M60E4",
+                    "deprecated": false
                 },
                 {
                     "name": "M98B",
-                    "displayNameSID": "ID_MICA_ABILITY_M98B"
+                    "displayNameSID": "ID_MICA_ABILITY_M98B",
+                    "deprecated": false
                 },
                 {
                     "name": "P90",
-                    "displayNameSID": "ID_MICA_ABILITY_P90"
+                    "displayNameSID": "ID_MICA_ABILITY_P90",
+                    "deprecated": false
                 },
                 {
                     "name": "PP2000_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_PP2000"
+                    "displayNameSID": "ID_MICA_ABILITY_PP2000",
+                    "deprecated": false
                 },
                 {
                     "name": "SCAR-H",
-                    "displayNameSID": "ID_MICA_ABILITY_SCARH"
+                    "displayNameSID": "ID_MICA_ABILITY_SCARH",
+                    "deprecated": false
                 },
                 {
                     "name": "SPAS12_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_SPAS12"
+                    "displayNameSID": "ID_MICA_ABILITY_SPAS12",
+                    "deprecated": false
                 },
                 {
                     "name": "SVD",
-                    "displayNameSID": "ID_MICA_ABILITY_SVD"
+                    "displayNameSID": "ID_MICA_ABILITY_SVD",
+                    "deprecated": false
                 },
                 {
                     "name": "Type88_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_TYPE88"
+                    "displayNameSID": "ID_MICA_ABILITY_TYPE88",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_PrimaryWeapons"
@@ -4551,46 +5166,57 @@
         {
             "name": "PrimaryWeaponsGrafton",
             "displayNameSID": "ID_MICA_MENU_1942",
+            "deprecated": false,
             "listType": "PrimaryWeapons",
             "selectionValues": [{
                     "name": "BAR1918",
-                    "displayNameSID": "ID_MICA_ABILITY_BAR1918"
+                    "displayNameSID": "ID_MICA_ABILITY_BAR1918",
+                    "deprecated": false
                 },
                 {
                     "name": "Bazooka",
-                    "displayNameSID": "ID_MICA_ABILITY_BAZOOKA"
+                    "displayNameSID": "ID_MICA_ABILITY_BAZOOKA",
+                    "deprecated": false
                 },
                 {
                     "name": "K98",
-                    "displayNameSID": "ID_MICA_ABILITY_K98K"
+                    "displayNameSID": "ID_MICA_ABILITY_K98K",
+                    "deprecated": false
                 },
                 {
                     "name": "K98 Sniper",
-                    "displayNameSID": "ID_MICA_ABILITY_K98SNIPER"
+                    "displayNameSID": "ID_MICA_ABILITY_K98SNIPER",
+                    "deprecated": false
                 },
                 {
                     "name": "LeeEnfieldNo4",
-                    "displayNameSID": "ID_MICA_ABILITY_NO4S"
+                    "displayNameSID": "ID_MICA_ABILITY_NO4S",
+                    "deprecated": false
                 },
                 {
                     "name": "M1_GRA",
-                    "displayNameSID": "ID_MICA_ABILITY_M1GARAND"
+                    "displayNameSID": "ID_MICA_ABILITY_M1GARAND",
+                    "deprecated": false
                 },
                 {
                     "name": "MP40",
-                    "displayNameSID": "ID_MICA_ABILITY_MP40"
+                    "displayNameSID": "ID_MICA_ABILITY_MP40",
+                    "deprecated": false
                 },
                 {
                     "name": "Panzerschreck",
-                    "displayNameSID": "ID_MICA_ABILITY_PANZERSHRECK"
+                    "displayNameSID": "ID_MICA_ABILITY_PANZERSHRECK",
+                    "deprecated": false
                 },
                 {
                     "name": "STG44",
-                    "displayNameSID": "ID_MICA_ABILITY_STG44"
+                    "displayNameSID": "ID_MICA_ABILITY_STG44",
+                    "deprecated": false
                 },
                 {
                     "name": "Thompson_GRA",
-                    "displayNameSID": "ID_MICA_ABILITY_THOMPSON"
+                    "displayNameSID": "ID_MICA_ABILITY_THOMPSON",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_PrimaryWeapons"
@@ -4598,82 +5224,102 @@
         {
             "name": "PrimaryWeaponsKingston",
             "displayNameSID": "ID_MICA_MENU_KINGSTON",
+            "deprecated": false,
             "listType": "PrimaryWeapons",
             "selectionValues": [{
                     "name": "AC74",
-                    "displayNameSID": "ID_ABILITY_NBR"
+                    "displayNameSID": "ID_ABILITY_NBR",
+                    "deprecated": false
                 },
                 {
                     "name": "AK12",
-                    "displayNameSID": "ID_ABILITY_AK12"
+                    "displayNameSID": "ID_ABILITY_AK12",
+                    "deprecated": false
                 },
                 {
                     "name": "Chukavin",
-                    "displayNameSID": "ID_ABILITY_CHUKAVIN"
+                    "displayNameSID": "ID_ABILITY_CHUKAVIN",
+                    "deprecated": false
                 },
                 {
                     "name": "DDM4",
-                    "displayNameSID": "ID_ABILITY_DDM4"
+                    "displayNameSID": "ID_ABILITY_DDM4",
+                    "deprecated": false
                 },
                 {
                     "name": "DSR1",
-                    "displayNameSID": "ID_ABILITY_DSR1"
+                    "displayNameSID": "ID_ABILITY_DSR1",
+                    "deprecated": false
                 },
                 {
                     "name": "Keltec",
-                    "displayNameSID": "ID_ABILITY_KELTEC"
+                    "displayNameSID": "ID_ABILITY_KELTEC",
+                    "deprecated": false
                 },
                 {
                     "name": "KrissVector",
-                    "displayNameSID": "ID_ABILITY_KRISS_VECTOR"
+                    "displayNameSID": "ID_ABILITY_KRISS_VECTOR",
+                    "deprecated": false
                 },
                 {
                     "name": "LAMG",
-                    "displayNameSID": "ID_ABILITY_LAMG"
+                    "displayNameSID": "ID_ABILITY_LAMG",
+                    "deprecated": false
                 },
                 {
                     "name": "Marlin",
-                    "displayNameSID": "ID_ABILITY_MARLIN"
+                    "displayNameSID": "ID_ABILITY_MARLIN",
+                    "deprecated": false
                 },
                 {
                     "name": "MP9",
-                    "displayNameSID": "ID_ABILITY_MP9"
+                    "displayNameSID": "ID_ABILITY_MP9",
+                    "deprecated": false
                 },
                 {
                     "name": "NTW20",
-                    "displayNameSID": "ID_ABILITY_NTW20"
+                    "displayNameSID": "ID_ABILITY_NTW20",
+                    "deprecated": false
                 },
                 {
                     "name": "Pecheneg",
-                    "displayNameSID": "ID_ABILITY_PECHENEG"
+                    "displayNameSID": "ID_ABILITY_PECHENEG",
+                    "deprecated": false
                 },
                 {
                     "name": "PP-19 Bizon",
-                    "displayNameSID": "ID_ABILITY_BIZON"
+                    "displayNameSID": "ID_ABILITY_BIZON",
+                    "deprecated": false
                 },
                 {
                     "name": "Remington870",
-                    "displayNameSID": "ID_ABILITY_REMINGTON"
+                    "displayNameSID": "ID_ABILITY_REMINGTON",
+                    "deprecated": false
                 },
                 {
                     "name": "Saiga12",
-                    "displayNameSID": "ID_ABILITY_SAIGA12"
+                    "displayNameSID": "ID_ABILITY_SAIGA12",
+                    "deprecated": false
                 },
                 {
                     "name": "SCAR MK17",
-                    "displayNameSID": "ID_ABILITY_SCARMK17"
+                    "displayNameSID": "ID_ABILITY_SCARMK17",
+                    "deprecated": false
                 },
                 {
                     "name": "SLX Spear",
-                    "displayNameSID": "ID_ABILITY_SLXSPEAR"
+                    "displayNameSID": "ID_ABILITY_SLXSPEAR",
+                    "deprecated": false
                 },
                 {
                     "name": "SMG45",
-                    "displayNameSID": "ID_ABILITY_SMG45"
+                    "displayNameSID": "ID_ABILITY_SMG45",
+                    "deprecated": false
                 },
                 {
                     "name": "TRGM10",
-                    "displayNameSID": "ID_ABILITY_TRGM10"
+                    "displayNameSID": "ID_ABILITY_TRGM10",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_PrimaryWeapons"
@@ -4681,70 +5327,87 @@
         {
             "name": "PrimaryWeaponsRumney",
             "displayNameSID": "ID_MICA_MENU_BC2",
+            "deprecated": false,
             "listType": "PrimaryWeapons",
             "selectionValues": [{
                     "name": "AKS-74u_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_AKS74U"
+                    "displayNameSID": "ID_MICA_ABILITY_AKS74U",
+                    "deprecated": false
                 },
                 {
                     "name": "AN94_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_AN94"
+                    "displayNameSID": "ID_MICA_ABILITY_AN94",
+                    "deprecated": false
                 },
                 {
                     "name": "G3",
-                    "displayNameSID": "ID_MICA_ABILITY_G3"
+                    "displayNameSID": "ID_MICA_ABILITY_G3",
+                    "deprecated": false
                 },
                 {
                     "name": "GOL",
-                    "displayNameSID": "ID_MICA_ABILITY_GOL"
+                    "displayNameSID": "ID_MICA_ABILITY_GOL",
+                    "deprecated": false
                 },
                 {
                     "name": "M1_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_M1GARAND"
+                    "displayNameSID": "ID_MICA_ABILITY_M1GARAND",
+                    "deprecated": false
                 },
                 {
                     "name": "M16A2",
-                    "displayNameSID": "ID_MICA_ABILITY_M16A2"
+                    "displayNameSID": "ID_MICA_ABILITY_M16A2",
+                    "deprecated": false
                 },
                 {
                     "name": "M24",
-                    "displayNameSID": "ID_MICA_ABILITY_M24"
+                    "displayNameSID": "ID_MICA_ABILITY_M24",
+                    "deprecated": false
                 },
                 {
                     "name": "M416_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_M416"
+                    "displayNameSID": "ID_MICA_ABILITY_M416",
+                    "deprecated": false
                 },
                 {
                     "name": "M60",
-                    "displayNameSID": "ID_MICA_ABILITY_M60"
+                    "displayNameSID": "ID_MICA_ABILITY_M60",
+                    "deprecated": false
                 },
                 {
                     "name": "PP2000_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_PP2000"
+                    "displayNameSID": "ID_MICA_ABILITY_PP2000",
+                    "deprecated": false
                 },
                 {
                     "name": "SPAS12_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_SPAS12"
+                    "displayNameSID": "ID_MICA_ABILITY_SPAS12",
+                    "deprecated": false
                 },
                 {
                     "name": "Thompson_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_THOMPSON"
+                    "displayNameSID": "ID_MICA_ABILITY_THOMPSON",
+                    "deprecated": false
                 },
                 {
                     "name": "Type88_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_TYPE88"
+                    "displayNameSID": "ID_MICA_ABILITY_TYPE88",
+                    "deprecated": false
                 },
                 {
                     "name": "XM8",
-                    "displayNameSID": "ID_MICA_ABILITY_XM8"
+                    "displayNameSID": "ID_MICA_ABILITY_XM8",
+                    "deprecated": false
                 },
                 {
                     "name": "XM8C",
-                    "displayNameSID": "ID_MICA_ABILITY_XM8C"
+                    "displayNameSID": "ID_MICA_ABILITY_XM8C",
+                    "deprecated": false
                 },
                 {
                     "name": "XM8L",
-                    "displayNameSID": "ID_MICA_ABILITY_XM8L"
+                    "displayNameSID": "ID_MICA_ABILITY_XM8L",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_PrimaryWeapons"
@@ -4752,98 +5415,122 @@
         {
             "name": "RestrictedInputs",
             "displayNameSID": "ID_ARRIVAL_BLOCK_RESTRICTEDINPUTSITEM",
+            "deprecated": false,
             "listType": "RestrictedInputs",
             "selectionValues": [{
                     "name": "CameraPitch",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CAMERAPITCH"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CAMERAPITCH",
+                    "deprecated": false
                 },
                 {
                     "name": "CameraYaw",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CAMERAYAW"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CAMERAYAW",
+                    "deprecated": false
                 },
                 {
                     "name": "Crouch",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CROUCH"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CROUCH",
+                    "deprecated": false
                 },
                 {
                     "name": "CycleAbilityDown",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INPUTS_CYCLEABILITYDOWN"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INPUTS_CYCLEABILITYDOWN",
+                    "deprecated": false
                 },
                 {
                     "name": "CycleAbilityUp",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INPUTS_CYCLEABILITYUP"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_INPUTS_CYCLEABILITYUP",
+                    "deprecated": false
                 },
                 {
                     "name": "CycleFire",
-                    "displayNameSID": "ID_CONCEPT_CYCLEFIREMODE"
+                    "displayNameSID": "ID_CONCEPT_CYCLEFIREMODE",
+                    "deprecated": false
                 },
                 {
                     "name": "CyclePrimary",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CYCLEPRIMARY"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CYCLEPRIMARY",
+                    "deprecated": false
                 },
                 {
                     "name": "CycleSecondary",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CYCLESECONDARY"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_CYCLESECONDARY",
+                    "deprecated": false
                 },
                 {
                     "name": "FireWeapon",
-                    "displayNameSID": "ID_CONCEPT_FIRE"
+                    "displayNameSID": "ID_CONCEPT_FIRE",
+                    "deprecated": false
                 },
                 {
                     "name": "Interact",
-                    "displayNameSID": "ID_CONCEPT_INTERACT"
+                    "displayNameSID": "ID_CONCEPT_INTERACT",
+                    "deprecated": false
                 },
                 {
                     "name": "Jump",
-                    "displayNameSID": "ID_CONCEPT_JUMP"
+                    "displayNameSID": "ID_CONCEPT_JUMP",
+                    "deprecated": false
                 },
                 {
                     "name": "MoveForwardBack",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_MOVEFORWARDBACK"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_MOVEFORWARDBACK",
+                    "deprecated": false
                 },
                 {
                     "name": "MoveLeftRight",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_MOVELEFTRIGHT"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_MOVELEFTRIGHT",
+                    "deprecated": false
                 },
                 {
                     "name": "Prone",
-                    "displayNameSID": "ID_CONCEPT_PRONE"
+                    "displayNameSID": "ID_CONCEPT_PRONE",
+                    "deprecated": false
                 },
                 {
                     "name": "Reload",
-                    "displayNameSID": "ID_CONCEPT_RELOAD"
+                    "displayNameSID": "ID_CONCEPT_RELOAD",
+                    "deprecated": false
                 },
                 {
                     "name": "SelectCharacterGadget",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTCHARACTERGADGET"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTCHARACTERGADGET",
+                    "deprecated": false
                 },
                 {
                     "name": "SelectMelee",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTMELEE"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTMELEE",
+                    "deprecated": false
                 },
                 {
                     "name": "SelectOpenGadget",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTOPENGADGET"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTOPENGADGET",
+                    "deprecated": false
                 },
                 {
                     "name": "SelectPrimary",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTPRIMARY"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTPRIMARY",
+                    "deprecated": false
                 },
                 {
                     "name": "SelectSecondary",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTSECONDARY"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTSECONDARY",
+                    "deprecated": false
                 },
                 {
                     "name": "SelectThrowable",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTTHROWABLE"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_RESTRICTEDINPUTS_SELECTTHROWABLE",
+                    "deprecated": false
                 },
                 {
                     "name": "Sprint",
-                    "displayNameSID": "ID_CONCEPT_SPRINT"
+                    "displayNameSID": "ID_CONCEPT_SPRINT",
+                    "deprecated": false
                 },
                 {
                     "name": "Zoom",
-                    "displayNameSID": "ID_CONCEPT_ZOOM"
+                    "displayNameSID": "ID_CONCEPT_ZOOM",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_RestrictedInputs"
@@ -4851,18 +5538,22 @@
         {
             "name": "ResupplyTypes",
             "displayNameSID": "ID_ARRIVAL_BLOCK_RESUPPLYTYPESITEM",
+            "deprecated": false,
             "listType": "ResupplyTypes",
             "selectionValues": [{
                     "name": "AmmoBox",
-                    "displayNameSID": "ID_MICA_ABILITY_AMMO_BOX"
+                    "displayNameSID": "ID_MICA_ABILITY_AMMO_BOX",
+                    "deprecated": false
                 },
                 {
                     "name": "AmmoCrate",
-                    "displayNameSID": "ID_ABILITY_AMMOBAG"
+                    "displayNameSID": "ID_ABILITY_AMMOBAG",
+                    "deprecated": false
                 },
                 {
                     "name": "SupplyBag",
-                    "displayNameSID": "ID_GADGETS_SUPPLYBAG"
+                    "displayNameSID": "ID_GADGETS_SUPPLYBAG",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_ResupplyTypes"
@@ -4870,22 +5561,27 @@
         {
             "name": "SecondaryWeaponsAlexandria",
             "displayNameSID": "ID_MICA_MENU_BF3",
+            "deprecated": false,
             "listType": "SecondaryWeapons",
             "selectionValues": [{
                     "name": "M1911_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_COLTM1911"
+                    "displayNameSID": "ID_MICA_ABILITY_COLTM1911",
+                    "deprecated": false
                 },
                 {
                     "name": "M93R_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_M93R"
+                    "displayNameSID": "ID_MICA_ABILITY_M93R",
+                    "deprecated": false
                 },
                 {
                     "name": "MP412REX_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_MP412REX"
+                    "displayNameSID": "ID_MICA_ABILITY_MP412REX",
+                    "deprecated": false
                 },
                 {
                     "name": "MP443_ALX",
-                    "displayNameSID": "ID_MICA_ABILITY_MP443"
+                    "displayNameSID": "ID_MICA_ABILITY_MP443",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SecondaryWeapons"
@@ -4893,14 +5589,17 @@
         {
             "name": "SecondaryWeaponsGrafton",
             "displayNameSID": "ID_MICA_MENU_1942",
+            "deprecated": false,
             "listType": "SecondaryWeapons",
             "selectionValues": [{
                     "name": "M1911_GRA",
-                    "displayNameSID": "ID_MICA_ABILITY_COLTM1911"
+                    "displayNameSID": "ID_MICA_ABILITY_COLTM1911",
+                    "deprecated": false
                 },
                 {
                     "name": "P38",
-                    "displayNameSID": "ID_MICA_ABILITY_P38"
+                    "displayNameSID": "ID_MICA_ABILITY_P38",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SecondaryWeapons"
@@ -4908,18 +5607,22 @@
         {
             "name": "SecondaryWeaponsKingston",
             "displayNameSID": "ID_MICA_MENU_KINGSTON",
+            "deprecated": false,
             "listType": "SecondaryWeapons",
             "selectionValues": [{
                     "name": "Glock17",
-                    "displayNameSID": "ID_ABILITY_GLOCK17"
+                    "displayNameSID": "ID_ABILITY_GLOCK17",
+                    "deprecated": false
                 },
                 {
                     "name": "MP17",
-                    "displayNameSID": "ID_ABILITY_MP17"
+                    "displayNameSID": "ID_ABILITY_MP17",
+                    "deprecated": false
                 },
                 {
                     "name": "Taurus",
-                    "displayNameSID": "ID_ABILITY_TAURUS"
+                    "displayNameSID": "ID_ABILITY_TAURUS",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SecondaryWeapons"
@@ -4927,26 +5630,32 @@
         {
             "name": "SecondaryWeaponsRumney",
             "displayNameSID": "ID_MICA_MENU_BC2",
+            "deprecated": false,
             "listType": "SecondaryWeapons",
             "selectionValues": [{
                     "name": "M1911_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_COLTM1911"
+                    "displayNameSID": "ID_MICA_ABILITY_COLTM1911",
+                    "deprecated": false
                 },
                 {
                     "name": "M93R_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_M93R"
+                    "displayNameSID": "ID_MICA_ABILITY_M93R",
+                    "deprecated": false
                 },
                 {
                     "name": "MP412REX_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_MP412REX"
+                    "displayNameSID": "ID_MICA_ABILITY_MP412REX",
+                    "deprecated": false
                 },
                 {
                     "name": "MP443_RUM",
-                    "displayNameSID": "ID_MICA_ABILITY_MP443"
+                    "displayNameSID": "ID_MICA_ABILITY_MP443",
+                    "deprecated": false
                 },
                 {
                     "name": "TracerDart",
-                    "displayNameSID": "ID_MICA_ABILITY_TRACER_DART_GUN"
+                    "displayNameSID": "ID_MICA_ABILITY_TRACER_DART_GUN",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SecondaryWeapons"
@@ -4954,90 +5663,112 @@
         {
             "name": "SoldierStateBool",
             "displayNameSID": "ID_ARRIVAL_BLOCK_SOLDIERSTATEBOOLITEM",
+            "deprecated": false,
             "listType": "SoldierStateBool",
             "selectionValues": [{
                     "name": "IsAISoldier",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISAISOLDIER"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISAISOLDIER",
+                    "deprecated": false
                 },
                 {
                     "name": "IsAlive",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISALIVE"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISALIVE",
+                    "deprecated": false
                 },
                 {
                     "name": "IsBeingRevived",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISBEINGREVIVED"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISBEINGREVIVED",
+                    "deprecated": false
                 },
                 {
                     "name": "IsCrouching",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISCROUCHING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISCROUCHING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsDead",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISDEAD"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISDEAD",
+                    "deprecated": false
                 },
                 {
                     "name": "IsFiring",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISFIRING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISFIRING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsInAir",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISINAIR"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISINAIR",
+                    "deprecated": false
                 },
                 {
                     "name": "IsInteracting",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISINTERACTING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISINTERACTING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsInVehicle",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISINVEHICLE"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISINVEHICLE",
+                    "deprecated": false
                 },
                 {
                     "name": "IsInWater",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISINWATER"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISINWATER",
+                    "deprecated": false
                 },
                 {
                     "name": "IsJumping",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISJUMPING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISJUMPING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsManDown",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISMANDOWN"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISMANDOWN",
+                    "deprecated": false
                 },
                 {
                     "name": "IsOnGround",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISONGROUND"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISONGROUND",
+                    "deprecated": false
                 },
                 {
                     "name": "IsParachuting",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISPARACHUTING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISPARACHUTING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsProne",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISPRONE"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISPRONE",
+                    "deprecated": false
                 },
                 {
                     "name": "IsReloading",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISRELOADING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISRELOADING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsReviving",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISREVIVING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISREVIVING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsSprinting",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISSPRINTING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISSPRINTING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsStanding",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISSTANDING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISSTANDING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsVaulting",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISVAULTING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISVAULTING",
+                    "deprecated": false
                 },
                 {
                     "name": "IsZooming",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISZOOMING"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEBOOL_ISZOOMING",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierStateBool"
@@ -5045,30 +5776,37 @@
         {
             "name": "SoldierStateNumber",
             "displayNameSID": "ID_ARRIVAL_BLOCK_SOLDIERSTATENUMBERITEM",
+            "deprecated": false,
             "listType": "SoldierStateNumber",
             "selectionValues": [{
                     "name": "CurrentHealth",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_CURRENTHEALTH"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_CURRENTHEALTH",
+                    "deprecated": false
                 },
                 {
                     "name": "CurrentWeaponAmmo",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_CURRENTWEAPONAMMO"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_CURRENTWEAPONAMMO",
+                    "deprecated": false
                 },
                 {
                     "name": "CurrentWeaponMagazineAmmo",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_CURRENTWEAPONMAGAZINEAMMO"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_CURRENTWEAPONMAGAZINEAMMO",
+                    "deprecated": false
                 },
                 {
                     "name": "MaxHealth",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_MAXHEALTH"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_MAXHEALTH",
+                    "deprecated": false
                 },
                 {
                     "name": "NormalizedHealth",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_NORMALIZEDHEALTH"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_NORMALIZEDHEALTH",
+                    "deprecated": false
                 },
                 {
                     "name": "Speed",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_SPEED"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATENUMBER_SPEED",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierStateNumber"
@@ -5076,14 +5814,17 @@
         {
             "name": "SoldierStateVector",
             "displayNameSID": "ID_ARRIVAL_BLOCK_SOLDIERSTATEVECTORITEM",
+            "deprecated": false,
             "listType": "SoldierStateVector",
             "selectionValues": [{
                     "name": "GetLinearVelocity",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEVECTOR_GETLINEARVELOCITY"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEVECTOR_GETLINEARVELOCITY",
+                    "deprecated": false
                 },
                 {
                     "name": "GetPosition",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEVECTOR_GETPOSITION"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_SOLDIERSTATEVECTOR_GETPOSITION",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_SoldierStateVector"
@@ -5091,28 +5832,34 @@
         {
             "name": "ThrowablesAlexandria",
             "displayNameSID": "ID_MICA_MENU_BF3",
+            "deprecated": false,
             "listType": "Throwables",
             "selectionValues": [{
                 "name": "M67",
-                "displayNameSID": "ID_MICA_ABILITY_M67GRENADE"
+                "displayNameSID": "ID_MICA_ABILITY_M67GRENADE",
+                "deprecated": false
             }],
             "returnType": "Enum_Throwables"
         },
         {
             "name": "ThrowablesGrafton",
             "displayNameSID": "ID_MICA_MENU_1942",
+            "deprecated": false,
             "listType": "Throwables",
             "selectionValues": [{
                     "name": "Dynamite",
-                    "displayNameSID": "ID_MICA_ABILITY_DYNAMITE"
+                    "displayNameSID": "ID_MICA_ABILITY_DYNAMITE",
+                    "deprecated": false
                 },
                 {
                     "name": "FragGrenadeMkII",
-                    "displayNameSID": "ID_ABILITY_MKIIGRENADE"
+                    "displayNameSID": "ID_ABILITY_MKIIGRENADE",
+                    "deprecated": false
                 },
                 {
                     "name": "StickGrenade",
-                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_THROWABLESGRAFTON_STICKGRENADE"
+                    "displayNameSID": "ID_ARRIVAL_MODBUILDER_SELECTIONLISTS_THROWABLESGRAFTON_STICKGRENADE",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_Throwables"
@@ -5120,26 +5867,32 @@
         {
             "name": "ThrowablesKingston",
             "displayNameSID": "ID_MICA_MENU_KINGSTON",
+            "deprecated": false,
             "listType": "Throwables",
             "selectionValues": [{
                     "name": "EMPGrenade",
-                    "displayNameSID": "ID_ABILITY_EMPGRENADE"
+                    "displayNameSID": "ID_ABILITY_EMPGRENADE",
+                    "deprecated": false
                 },
                 {
                     "name": "FragGrenade",
-                    "displayNameSID": "ID_ABILITY_GRENADE"
+                    "displayNameSID": "ID_ABILITY_GRENADE",
+                    "deprecated": false
                 },
                 {
                     "name": "IncendiaryGrenade",
-                    "displayNameSID": "ID_ABILITY_INCENDIARYGRENADE"
+                    "displayNameSID": "ID_ABILITY_INCENDIARYGRENADE",
+                    "deprecated": false
                 },
                 {
                     "name": "MotionMine",
-                    "displayNameSID": "ID_ABILITY_MOTIONMINE"
+                    "displayNameSID": "ID_ABILITY_MOTIONMINE",
+                    "deprecated": false
                 },
                 {
                     "name": "SmokeGrenade",
-                    "displayNameSID": "ID_ABILITY_SMOKEGRENADE"
+                    "displayNameSID": "ID_ABILITY_SMOKEGRENADE",
+                    "deprecated": false
                 }
             ],
             "returnType": "Enum_Throwables"
@@ -5147,10 +5900,12 @@
         {
             "name": "ThrowablesRumney",
             "displayNameSID": "ID_MICA_MENU_BC2",
+            "deprecated": false,
             "listType": "Throwables",
             "selectionValues": [{
                 "name": "FragGrenade_RUM",
-                "displayNameSID": "ID_MICA_ABILITY_BC2GRENADE"
+                "displayNameSID": "ID_MICA_ABILITY_BC2GRENADE",
+                "deprecated": false
             }],
             "returnType": "Enum_Throwables"
         }

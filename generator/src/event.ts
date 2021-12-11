@@ -1,13 +1,14 @@
 import { Named } from './common'
 import * as morph from 'ts-morph'
+import { BPayload } from './payload'
 
 export class BEvent extends Named {
-    parameters: string[]
+    parameters: BPayload[]
     deprecated: boolean
 
-    constructor(json: any) {
+    constructor(json: any, payloads: BPayload[]) {
         super(json)
-        this.parameters = json.parameters
+        this.parameters = json.parameters.map(param => payloads.find(p => p.parameter == param))
         this.deprecated = json.deprecated
     }
 
@@ -23,7 +24,7 @@ export class BEvent extends Named {
                 },
                 {
                     name: 'actions',
-                    type: `(${this.parameters.map(p => p[0].toLowerCase() + p.substring(1) + ': Player').join(', ')}) => BVoid[]`,
+                    type: `(${this.parameters.map(p => p.pretty() + ': ' + p.type.wrapped).join(', ')}) => BVoid[]`,
                 }
             ]
         }
@@ -38,7 +39,7 @@ export class BEvent extends Named {
             })
         }
         const params = this.parameters
-            .map(p => p[0].toLowerCase() + p.substring(1) + ': Player')
+            .map(p => p.pretty() + ': ' + p.type.wrapped)
             .map(p => p == 'player' ? 'eventPlayer' : p)
             .join(', ')
         return {
@@ -56,7 +57,7 @@ export class BEvent extends Named {
                 }
             ],
             statements: (writer) => {
-                writer.writeLine(`const body = callback(${this.parameters.map(p => `eventPayloads.Event${p}()`).join(', ')})`)
+                writer.writeLine(`const body = callback(${this.parameters.map(p => `eventPayloads.${p.name}()`).join(', ')})`)
                     .writeLine(`this.rules.push(new BRule(ruleName, '${this.name}', ${this.name == 'Ongoing' ? 'input.objectType' : 'undefined'}, body.conditions, body.actions()))`)
             }
         }
@@ -71,7 +72,7 @@ export class BEvent extends Named {
             })
         }
         const params = this.parameters
-            .map(p => p[0].toLowerCase() + p.substring(1) + ': Player')
+            .map(p => p.pretty() + ': ' + p.type.wrapped)
             .map(p => p == 'player' ? 'eventPlayer' : p)
             .join(', ')
         return {
