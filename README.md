@@ -413,7 +413,7 @@ This will generate the `generator/portal-unleashed` folder containing the librar
 cd generator
 npm install
 npm run build
-§```
+```
 
 This will build the Chromium extension.
 
