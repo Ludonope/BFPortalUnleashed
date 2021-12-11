@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const PortalUnleashed = (function () {
+const PortalUnleashed = (function() {
     const pluginName = "portal-unleashed";
 
     const defaultMode = "splitscreen-right";
@@ -42,15 +42,15 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
             storeData.theme ? (storeData || defaultTheme) : defaultTheme,
             storeData.code ? (storeData.code[playgroundId] || defaultCode) : defaultCode
         );
-        
+
         currentRatio = storeData.ratio || defaultRatio;
-        
+
         createEditor();
         toggleEditor(storeData.mode || defaultMode);
     }
 
     function listenToEditorMessages(theme, code) {
-        window.addEventListener("message", function (event) {
+        window.addEventListener("message", function(event) {
             const message = event.data;
 
             if (message.plugin !== pluginName) {
@@ -66,7 +66,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
 
                 postMessageToEditor("init", response);
             } else if (message.type === "update-theme") {
-                updateData(function (storeData) {
+                updateData(function(storeData) {
                     storeData.theme = message.payload;
                 });
             } else if (message.type === "update-mode") {
@@ -74,13 +74,13 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
             } else if (message.type === "execute") {
                 const code = message.payload;
 
-                updateData(function (storeData) {
+                updateData(function(storeData) {
                     storeData.code = storeData.code || {};
                     storeData.code[playgroundId] = code;
                 });
 
                 let source = `import * as __portal from "${plugin.getUrl("lib/portal-unleashed/dist/unleash.js")}"\n` +
-                code.replaceAll("portal-unleashed", plugin.getUrl("lib/portal-unleashed/dist/unleash.js"));
+                    code.replaceAll("portal-unleashed", plugin.getUrl("lib/portal-unleashed/dist/unleash.js"));
                 var s = document.createElement("script");
                 s.type = "module";
                 s.innerHTML = `
@@ -98,14 +98,15 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
     s.innerHTML = \`\${code}
     
     setTimeout(function() {
-        _Blockly.Xml.clearWorkspaceAndLoadFromXml(_Blockly.Xml.textToDom(mod.toXML()), _Blockly.mainWorkspace)
+        _Blockly.Xml.clearWorkspaceAndLoadFromXml(_Blockly.Xml.textToDom(mod.toXML()), _Blockly.mainWorkspace);
+        _Blockly.getMainWorkspace().cleanUp();
     }, 0);\`
     s.onload = function() {
         this.remove()
     };
     (document.head || document.documentElement).appendChild(s);
                 `;
-                s.onload = function () {
+                s.onload = function() {
                     this.remove();
                 };
                 (document.head || document.documentElement).appendChild(s);
@@ -121,7 +122,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
         const bar = document.createElement("div");
         bar.id = "resize-bar";
         bar.setAttribute("style", `width: ${dragbarWidth}px; height: 100%; cursor: col-resize; grid-area: bar;`);
-        bar.onmousedown = function () {
+        bar.onmousedown = function() {
             isDragging = true;
             // When dragging add an invisible overlay on top of the editor iframe to prevent it
             // from capture mouse events
@@ -141,9 +142,9 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
         appElement.appendChild(editorElement);
 
         // Disable dragging, remove overlay if needed
-        appElement.onmouseup = editorElement.onmouseup = function () {
+        appElement.onmouseup = editorElement.onmouseup = function() {
             isDragging = false;
-            
+
             const overlay = document.getElementById("editor-resize-overlay");
 
             if (overlay) {
@@ -152,7 +153,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
         };
 
         // On mouse movement apply changes if dragging
-        appElement.onmousemove = editorElement.onmousemove = function (e) {
+        appElement.onmousemove = editorElement.onmousemove = function(e) {
             if (isDragging) {
                 updateRatio(1.0 - e.clientX / appElement.clientWidth);
 
@@ -174,13 +175,12 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
         const bar = document.getElementById("resize-bar");
         const iframe = document.getElementById("unleashed-editor");
 
-        if(mode === "fullscreen") {
+        if (mode === "fullscreen") {
             appElement.style.gridTemplateColumns = "0 0 1fr";
             appElement.style.gridTemplateAreas = "'blocks bar editor'";
             bar.style.display = "none";
             iframe.style.display = "block";
-        }
-        else if(mode === "splitscreen-left") {
+        } else if (mode === "splitscreen-left") {
             const width = appElement.clientWidth - dragbarWidth;
             let cols = [width * (1.0 - currentRatio), dragbarWidth, width * currentRatio];
             let newColDefn = cols.map(c => c.toString() + "px").join(" ");
@@ -189,8 +189,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
             appElement.style.gridTemplateAreas = "'editor bar blocks'";
             bar.style.display = "block";
             iframe.style.display = "block";
-        }
-        else if(mode === "splitscreen-right") {
+        } else if (mode === "splitscreen-right") {
             const width = appElement.clientWidth - dragbarWidth;
             let cols = [width * (1.0 - currentRatio), dragbarWidth, width * currentRatio];
             let newColDefn = cols.map(c => c.toString() + "px").join(" ");
@@ -199,8 +198,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
             appElement.style.gridTemplateAreas = "'blocks bar editor'";
             bar.style.display = "block";
             iframe.style.display = "block";
-        }
-        else {
+        } else {
             appElement.style.gridTemplateColumns = "1fr";
             appElement.style.gridTemplateAreas = "'blocks'";
             bar.style.display = "none";
@@ -223,7 +221,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
     }
 
     function updateMode(mode) {
-        updateData(function (storeData) {
+        updateData(function(storeData) {
             storeData.mode = mode;
         });
 
@@ -231,7 +229,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
     }
 
     function updateRatio(ratio) {
-        updateData(function (storeData) {
+        updateData(function(storeData) {
             storeData.ratio = ratio;
         });
     }
@@ -252,13 +250,13 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
         }, "*");
     }
 
-    function debugMessage(... args) {
-        if(debug) {
+    function debugMessage(...args) {
+        if (debug) {
             console.log.apply(this, args);
         }
     }
 
-    const showCodeEditor = (function () {
+    const showCodeEditor = (function() {
         function precondition() {
             return currentMode === "disable" ? "enabled" : "hidden";
         }
@@ -282,7 +280,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
         // eslint-disable-next-line no-undef
         plugin = BF2042Portal.Plugins.getPlugin(pluginName);
 
-        if(!plugin) {
+        if (!plugin) {
             // eslint-disable-next-line no-undef
             BF2042Portal.Shared.logError("Failed to load Portal Unleashed!");
         }
