@@ -4,7 +4,7 @@ A Battlefield Portal scripting tool
 
 Use pseudo-javascript in a VSCode editor straight into your browser to code the next Battlefield Portal experience.
 
-Auto-completion™️ included.
+Auto-completion™ included.
 
 ## Install
 
