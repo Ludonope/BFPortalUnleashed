@@ -35,6 +35,12 @@ export class BAction extends Named {
                 return s
             })
         this.functionSignatures.sort((a, b) => a.parameterTypes.length - b.parameterTypes.length)
+
+        if (this.functionSignatures.length == 0) {
+            this.functionSignatures.push(new BSignature({
+                parameterTypes: [],
+            }, false))
+        }
     }
 
     definition() : morph.FunctionDeclarationStructure[] {

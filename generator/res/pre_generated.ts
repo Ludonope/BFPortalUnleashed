@@ -396,14 +396,6 @@ export class ifLogic {
             new Statement(`ELSE`, param2),
         ])
     }
-
-    static Continue(): BVoid {
-        return new BVoid('Continue', [])
-}
-
-    static Break(): BVoid {
-        return new BVoid('Break', [])
-    }
 }
 
 export class RuleBody {
@@ -1112,13 +1104,18 @@ function preprocessBreakContinue(ast: any): any {
         enter(path) {
             if (path.isContinueStatement()) {
                 path.replaceWith(t.callExpression(
-                    t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('Continue')),
+                    t.memberExpression(t.identifier('__portal.logic'), t.identifier('Continue')),
                     [],
                 ))
             } else if (path.isBreakStatement()) {
                 path.replaceWith(t.callExpression(
-                    t.memberExpression(t.identifier('__portal.ifLogic'), t.identifier('Break')),
+                    t.memberExpression(t.identifier('__portal.logic'), t.identifier('Break')),
                     [],
+                ))
+            } else if (path.isReturnStatement() && path.node.argument == null) {
+                path.replaceWith(t.callExpression(
+                    t.memberExpression(t.identifier('__portal.logic'), t.identifier('Abort')),
+                    []
                 ))
             }
         }
