@@ -744,24 +744,28 @@ export class Mod {
         return xml.end({headless: true, allowEmptyTags: true})
     }
 
-    ongoing(ruleName: string, callback: () => RuleBody) {
+    ongoing(ruleName: string, callback: () => RuleBody | BVoid[]) {
         const body = callback()
-        this.rules.push(new BRule(ruleName, 'Ongoing', 'Global', body.conditions, body.actions()))
+        const isInlined = Array.isArray(body)
+        this.rules.push(new BRule(ruleName, 'Ongoing', 'Global', isInlined ? [] : body.conditions, isInlined ? body : body.actions()))
     }
 
-    ongoingPlayer(ruleName: string, callback: (eventPlayer: Player) => RuleBody) {
+    ongoingPlayer(ruleName: string, callback: (eventPlayer: Player) => RuleBody | BVoid[]) {
         const body = callback(eventPayloads.EventPlayer())
-        this.rules.push(new BRule(ruleName, 'Ongoing', 'Player', body.conditions, body.actions()))
+        const isInlined = Array.isArray(body)
+        this.rules.push(new BRule(ruleName, 'Ongoing', 'Player', isInlined ? [] : body.conditions, isInlined ? body : body.actions()))
     }
 
-    ongoingTeam(ruleName: string, callback: (eventTeam: TeamId) => RuleBody) {
+    ongoingTeam(ruleName: string, callback: (eventTeam: TeamId) => RuleBody | BVoid[]) {
         const body = callback(eventPayloads.EventTeam())
-        this.rules.push(new BRule(ruleName, 'Ongoing', 'Team', body.conditions, body.actions()))
+        const isInlined = Array.isArray(body)
+        this.rules.push(new BRule(ruleName, 'Ongoing', 'Team', isInlined ? [] : body.conditions, isInlined ? body : body.actions()))
     }
 
-    newSubroutine(name: string, callback: () => SubroutineBody) {
+    newSubroutine(name: string, callback: () => SubroutineBody | BVoid[]) {
         const body = callback()
-        this.subroutines.push(new BSubroutine(name, body.conditions, body.actions()))
+        const isRule = !Array.isArray(body)
+        this.subroutines.push(new BSubroutine(name,  isRule ? body.conditions : [], isRule ? body.actions() : body))
     }
 
     callSubroutine(name: string) {
@@ -850,13 +854,14 @@ function preprocessSubroutine(ast: any) {
                     return;
                 }
                 subroutines.push(n.id.name)
+                const isInlined = n.body.body.length != 1 || !t.isReturnStatement(n.body.body[0])
                 path.replaceWith(t.callExpression(
                     t.memberExpression(t.identifier('mod'), t.identifier('newSubroutine')),
                     [
                         t.identifier(`"${n.id.name}"`),
                         t.arrowFunctionExpression(
                             [],
-                            n.body,
+                            isInlined ? t.arrayExpression(n.body.body.map(s => s.expression)) : n.body.body[0].argument,
                         )
                     ]
                 ))
@@ -864,7 +869,6 @@ function preprocessSubroutine(ast: any) {
         },
     })
 
-    debugMessage(subroutines)
     traverse(ast, {
         enter(path) {
             if (path.isCallExpression()) {
@@ -1122,6 +1126,18 @@ function preprocessBreakContinue(ast: any): any {
     })
 }
 
+function preprocessIfElseWhile(ast: any): any {
+    traverse(ast, {
+        enter(path) {
+            if (path.isIfStatement()) { 
+                path.replaceWith(preprocessIfStatement(path.node))
+            } else if (path.isWhileStatement()) {
+                path.replaceWith(preprocessWhileStatement(path.node))
+            }
+        }
+    })
+}
+
 export function preprocess(source: string, debug: boolean): string {
     if(debug) {
         debugMessage = realDebugMessage;
@@ -1136,19 +1152,13 @@ export function preprocess(source: string, debug: boolean): string {
     })
 
     preprocessBreakContinue(ast)
+    preprocessIfElseWhile(ast)
     preprocessSubroutine(ast)
     preprocessVariables(ast)
 
 
     const done = []
     traverse(ast, {
-        enter(path) {
-            if (path.isIfStatement()) { 
-                path.replaceWith(preprocessIfStatement(path.node))
-            } else if (path.isWhileStatement()) {
-                path.replaceWith(preprocessWhileStatement(path.node))
-            }
-        },
         exit(path) {
             if (done.includes(path)) return
             done.push(path)
@@ -1254,18 +1264,19 @@ export function preprocess(source: string, debug: boolean): string {
                     ]
                 ))
             } else if (path.isArrowFunctionExpression()) {
-                if (path.parentPath.node.type == 'CallExpression' && path.parentPath.node.callee.object.name == 'mod') {
+                const pn = path.parentPath.node
+                const n = path.node
+                if (pn.type == 'CallExpression' && pn.callee.object.name == 'mod' && n.body.type == 'ObjectExpression' && n.body.extra && n.body.extra.parenthesized) {
                     return;
                 }
                 let fn;
-                if (path.parentPath.node.type == 'CallExpression' && path.parentPath.node.callee.type == 'MemberExpression') {
-                    fn = path.parentPath.node.callee.property.name
+                if (pn.type == 'CallExpression' && pn.callee.type == 'MemberExpression') {
+                    fn = pn.callee.property.name
                 }
-                const ignore = ['push', 'slice', 'filter', 'every', 'any', 'map', 'shuffled', 'randomValue', 'sorted', 'get', 'set']
+                const ignore = ['push', 'slice', 'filter', 'every', 'any', 'map', 'shuffled', 'randomValue', 'sorted', 'get', 'set', 'newSubroutine']
                 if (ignore.includes(fn)) {
                     return;
                 }
-                const n = path.node
                 path.replaceWith(t.arrowFunctionExpression(
                     n.params,
                     t.arrayExpression(n.body.body.map(s => s.expression))

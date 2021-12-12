@@ -53,12 +53,13 @@ export class BEvent extends Named {
                 ...objType,
                 {
                     name: 'callback',
-                    type: `(${params}) => RuleBody`
+                    type: `(${params}) => RuleBody | BVoid[]`
                 }
             ],
             statements: (writer) => {
                 writer.writeLine(`const body = callback(${this.parameters.map(p => `eventPayloads.${p.name}()`).join(', ')})`)
-                    .writeLine(`this.rules.push(new BRule(ruleName, '${this.name}', ${this.name == 'Ongoing' ? 'input.objectType' : 'undefined'}, body.conditions, body.actions()))`)
+                    .writeLine(`const isRule = !Array.isArray(body)`)
+                    .writeLine(`this.rules.push(new BRule(ruleName, '${this.name}', ${this.name == 'Ongoing' ? 'input.objectType' : 'undefined'}, isRule ? body.conditions : [], isRule ? body.actions() : body))`)
             }
         }
     }
@@ -86,7 +87,7 @@ export class BEvent extends Named {
                 ...objType,
                 {
                     name: 'callback',
-                    type: `(${params}) => RuleBody`
+                    type: `(${params}) => RuleBody | void`
                 }
             ],
         }

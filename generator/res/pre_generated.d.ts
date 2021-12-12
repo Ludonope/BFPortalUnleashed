@@ -36,9 +36,9 @@ declare module "portal-unleashed" {
     class Mod {
         constructor();
         init();
-        ongoing(ruleName: string, callback: () => RuleBody);
-        ongoingPlayer(ruleName: string, callback: (eventPlayer: Player) => RuleBody);
-        ongoingTeam(ruleName: string, callback: (eventTeam: TeamId) => RuleBody);
+        ongoing(ruleName: string, callback: () => RuleBody | void);
+        ongoingPlayer(ruleName: string, callback: (eventPlayer: Player) => RuleBody | void);
+        ongoingTeam(ruleName: string, callback: (eventTeam: TeamId) => RuleBody | void);
         newGlobalVar(): any;
         newArrayGlobalVar(): any;
         newTeamVar(): any;
