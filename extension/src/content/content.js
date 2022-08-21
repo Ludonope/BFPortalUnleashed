@@ -24,7 +24,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
     let currentRatio;
     let plugin = undefined;
     let playgroundId = "empty";
-    let debug = false;
+    let debug = true;
 
     function prepareEditorLaunch() {
         let url = window.location.toString();
