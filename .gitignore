@@ -1,2 +1,5 @@
 package-lock.json
 /generator/generator
+.replit
+replit.nix
+/.config
