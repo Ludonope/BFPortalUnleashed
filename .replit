@@ -1,0 +1,4 @@
+run = "cd generator && npm run build && cd ../extension && npm run build"
+
+[nix]
+channel = "stable-21_11"
