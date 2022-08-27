@@ -8,7 +8,7 @@ export class BEvent extends Named {
 
     constructor(json: any, payloads: BPayload[]) {
         super(json)
-        this.parameters = json.parameters.map(param => payloads.find(p => p.parameter == param))
+        this.parameters = json.parameters.map(param => payloads.find(p => p.parameter == param.name))
         this.deprecated = json.deprecated
     }
 

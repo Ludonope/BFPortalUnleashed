@@ -36,9 +36,9 @@ declare module "portal-unleashed" {
     class Mod {
         constructor();
         init();
-        ongoing(ruleName: string, callback: () => RuleBody);
-        ongoingPlayer(ruleName: string, callback: (eventPlayer: Player) => RuleBody);
-        ongoingTeam(ruleName: string, callback: (eventTeam: TeamId) => RuleBody);
+        ongoing(ruleName: string, callback: () => RuleBody | void);
+        ongoingPlayer(ruleName: string, callback: (eventPlayer: Player) => RuleBody | void);
+        ongoingTeam(ruleName: string, callback: (eventTeam: TeamId) => RuleBody | void);
         newGlobalVar(): any;
         newArrayGlobalVar(): any;
         newTeamVar(): any;
@@ -51,17 +51,26 @@ declare module "portal-unleashed" {
         newTrackableArrayTeamVar(name: string): any;
         newTrackablePlayerVar(name: string): any;
         newTrackableArrayPlayerVar(name: string): any;
-        onGameModeEnding(ruleName: string, callback: () => RuleBody);
-        onGameModeStarted(ruleName: string, callback: () => RuleBody);
-        onMandown(ruleName: string, callback: (player: Player, otherPlayer: Player) => RuleBody);
-        onPlayerDeployed(ruleName: string, callback: (player: Player) => RuleBody);
-        onPlayerDied(ruleName: string, callback: (player: Player, otherPlayer: Player) => RuleBody);
-        onPlayerEarnedKill(ruleName: string, callback: (player: Player, otherPlayer: Player) => RuleBody);
-        onPlayerIrreversiblyDead(ruleName: string, callback: (player: Player) => RuleBody);
-        onPlayerJoinGame(ruleName: string, callback: (player: Player) => RuleBody);
-        onPlayerLeaveGame(ruleName: string, callback: () => RuleBody);
-        onRevived(ruleName: string, callback: (player: Player, otherPlayer: Player) => RuleBody);
-        onTimeLimitReached(ruleName: string, callback: () => RuleBody);
+        onCapturePointCaptured(ruleName: string, callback: (capturePoint: CapturePoint) => RuleBody | void);
+        onCapturePointCapturing(ruleName: string, callback: (capturePoint: CapturePoint) => RuleBody | void);
+        onCapturePointLost(ruleName: string, callback: (capturePoint: CapturePoint) => RuleBody | void);
+        onGameModeEnding(ruleName: string, callback: () => RuleBody | void);
+        onGameModeStarted(ruleName: string, callback: () => RuleBody | void);
+        onMandown(ruleName: string, callback: (player: Player, otherPlayer: Player) => RuleBody | void);
+        onPlayerDeployed(ruleName: string, callback: (player: Player) => RuleBody | void);
+        onPlayerDied(ruleName: string, callback: (player: Player, otherPlayer: Player, deathType: DeathType, weaponUnlock: WeaponUnlock) => RuleBody | void);
+        onPlayerEarnedKill(ruleName: string, callback: (player: Player, otherPlayer: Player, deathType: DeathType, weaponUnlock: WeaponUnlock) => RuleBody | void);
+        onPlayerEnterVehicle(ruleName: string, callback: (player: Player, vehicle: Vehicle) => RuleBody | void);
+        onPlayerEnterVehicleSeat(ruleName: string, callback: (player: Player, vehicle: Vehicle, seat: ABNumber) => RuleBody | void);
+        onPlayerExitVehicle(ruleName: string, callback: (player: Player, vehicle: Vehicle) => RuleBody | void);
+        onPlayerExitVehicleSeat(ruleName: string, callback: (player: Player, vehicle: Vehicle, seat: ABNumber) => RuleBody | void);
+        onPlayerIrreversiblyDead(ruleName: string, callback: (player: Player) => RuleBody | void);
+        onPlayerJoinGame(ruleName: string, callback: (player: Player) => RuleBody | void);
+        onPlayerLeaveGame(ruleName: string, callback: () => RuleBody | void);
+        onRevived(ruleName: string, callback: (player: Player, otherPlayer: Player) => RuleBody | void);
+        onTimeLimitReached(ruleName: string, callback: () => RuleBody | void);
+        onVehicleDestroyed(ruleName: string, callback: (vehicle: Vehicle) => RuleBody | void);
+        onVehicleSpawned(ruleName: string, callback: (vehicle: Vehicle) => RuleBody | void);
     }
 
     export const mod: Mod;
@@ -124,11 +133,19 @@ declare module "portal-unleashed" {
         constructor(children: any[]);
     }
 
+    class Vehicle {
+        constructor(children: any[]);
+    }
+
     class Message {
         constructor(children: any[]);
     }
 
     class Enum_RestrictedInputs {
+        constructor(children: any[]);
+    }
+
+    class CapturePoint {
         constructor(children: any[]);
     }
 
@@ -148,6 +165,30 @@ declare module "portal-unleashed" {
         constructor(children: any[]);
     }
 
+    class Enum_CapturePoints {
+        constructor(children: any[]);
+    }
+
+    class Enum_Vehicles {
+        constructor(children: any[]);
+    }
+
+    class Enum_VehicleTypes {
+        constructor(children: any[]);
+    }
+
+    class DeathType {
+        constructor(children: any[]);
+    }
+
+    class Enum_PlayerDeathTypes {
+        constructor(children: any[]);
+    }
+
+    class WeaponUnlock {
+        constructor(children: any[]);
+    }
+
     class Enum_SoldierStateNumber {
         constructor(children: any[]);
     }
@@ -160,6 +201,14 @@ declare module "portal-unleashed" {
         constructor(children: any[]);
     }
 
+    class Enum_VehicleStateVector {
+        constructor(children: any[]);
+    }
+
+    class Enum_Maps {
+        constructor(children: any[]);
+    }
+
     class Enum_Factions {
         constructor(children: any[]);
     }
@@ -169,13 +218,21 @@ declare module "portal-unleashed" {
     }
 
     export namespace logic {
+        export function Abort(): void;
+
         export function AbortIf(param0: boolean): void;
+
+        export function Break(): void;
 
         export function CallSubroutine(param0: number): void;
 
         export function ChaseVariableAtRate(param0: any, param1: number, param2: number): void;
 
         export function ChaseVariableOverTime(param0: any, param1: number, param2: number): void;
+
+        export function Continue(): void;
+
+        export function End(): void;
 
         export function ForVariable(param0: any, param1: number, param2: number, param3: number, param4: void): void;
 
@@ -210,6 +267,8 @@ declare module "portal-unleashed" {
         export function NotEqualTo(param0: any, param1: any): boolean;
 
         export function Or(param0: boolean, param1: boolean): boolean;
+
+        export function Xor(param0: boolean, param1: boolean): boolean;
     }
 
     export namespace player {
@@ -259,11 +318,27 @@ declare module "portal-unleashed" {
 
         export function Teleport(param0: Player, param1: Vector, param2: number): void;
 
+        export function Teleport(param0: Vehicle, param1: Vector, param2: number): void;
+
         export function AllPlayers(): Array;
 
         export function ClosestPlayerTo(param0: Vector): Player;
 
         export function ClosestPlayerTo(param0: Vector, param1: TeamId): Player;
+
+        export function EventDeathTypeCompare(param0: DeathType, param1: Enum_PlayerDeathTypes): boolean;
+
+        export function EventWeaponCompare(param0: WeaponUnlock, param1: Enum_PrimaryWeapons): boolean;
+
+        export function EventWeaponCompare(param0: WeaponUnlock, param1: Enum_SecondaryWeapons): boolean;
+
+        export function EventWeaponCompare(param0: WeaponUnlock, param1: Enum_OpenGadgets): boolean;
+
+        export function EventWeaponCompare(param0: WeaponUnlock, param1: Enum_CharacterGadgets): boolean;
+
+        export function EventWeaponCompare(param0: WeaponUnlock, param1: Enum_Throwables): boolean;
+
+        export function EventWeaponCompare(param0: WeaponUnlock, param1: Enum_MeleeWeapons): boolean;
 
         export function FarthestPlayerFrom(param0: Vector): Player;
 
@@ -301,6 +376,8 @@ declare module "portal-unleashed" {
 
         export function IsInventorySlotActive(param0: Player, param1: Enum_InventorySlots): boolean;
 
+        export function IsPlayerValid(param0: Player): boolean;
+
         export function IsUsingKit(param0: Player, param1: Enum_SoldierKits): boolean;
     }
 
@@ -320,6 +397,8 @@ declare module "portal-unleashed" {
         export function DisplayCustomNotificationMessage(param0: Message, param1: Enum_CustomMessages, param2: number): void;
 
         export function DisplayCustomNotificationMessage(param0: Message, param1: Enum_CustomMessages, param2: number, param3: Player | TeamId): void;
+
+        export function SendErrorReport(param0: Message): void;
 
         export function ShowEventGameModeMessage(param0: Message): void;
 
@@ -342,6 +421,42 @@ declare module "portal-unleashed" {
         export function Message(param0: string | number | Player, param1: string | number | Player, param2: string | number | Player, param3: string | number | Player): Message;
     }
 
+    export namespace vehicle {
+        export function DestroyVehicle(param0: Vehicle): void;
+
+        export function ForceExitAllPlayerInVehicle(param0: Vehicle): void;
+
+        export function ForcePlayerExitVehicle(param0: Player, param1: Vehicle): void;
+
+        export function ForcePlayerToSeat(param0: Player, param1: Vehicle, param2: number): void;
+
+        export function SetVehicleMaxHealthMultiplier(param0: Vehicle, param1: number): void;
+
+        export function AllVehicles(): Array;
+
+        export function CompareVehicleName(param0: Vehicle, param1: Enum_Vehicles): boolean;
+
+        export function CompareVehicleName(param0: Vehicle, param1: Enum_VehicleTypes): boolean;
+
+        export function GetAllPlayersInVehicle(param0: Vehicle): Array;
+
+        export function GetPlayerFromVehicleSeat(param0: Vehicle, param1: number): Player;
+
+        export function GetPlayerVehicleSeat(param0: Player): number;
+
+        export function GetVehicleFromPlayer(param0: Player): Vehicle;
+
+        export function GetVehicleSeatCount(param0: Vehicle): number;
+
+        export function GetVehicleState(param0: Vehicle, param1: Enum_VehicleStateVector): Vector;
+
+        export function GetVehicleTeamId(param0: Vehicle): TeamId;
+
+        export function IsVehicleOccupied(param0: Vehicle): boolean;
+
+        export function IsVehicleSeatOccupied(param0: Vehicle, param1: number): boolean;
+    }
+
     export namespace gameplay {
         export function EnableDefaultScoring(param0: boolean): void;
 
@@ -355,9 +470,13 @@ declare module "portal-unleashed" {
 
         export function EndRound(param0: Player): void;
 
+        export function ForceSpawnAllPlayers(): void;
+
         export function Kill(param0: Player): void;
 
         export function PauseRoundTime(param0: boolean): void;
+
+        export function ResetRoundTime(): void;
 
         export function SetGamemodeScore(param0: TeamId, param1: number): void;
 
@@ -373,7 +492,13 @@ declare module "portal-unleashed" {
 
         export function SetTeam(param0: Player, param1: TeamId): void;
 
+        export function SpawnPlayer(param0: Player): void;
+
         export function SpotTarget(param0: Player, param1: number): void;
+
+        export function SpotTargetForPlayer(param0: Player, param1: Player, param2: number): void;
+
+        export function UnspawnAllPlayers(): void;
 
         export function UnspawnPlayer(param0: Player): void;
 
@@ -383,17 +508,41 @@ declare module "portal-unleashed" {
 
         export function GetGamemodeScore(param0: TeamId): number;
 
+        export function GetGameModeTimeElapsed(): number;
+
         export function GetMatchTimeElapsed(): number;
 
         export function GetRoundTime(): number;
 
         export function GetTargetScore(): number;
 
+        export function IsCurrentMap(param0: Enum_Maps): boolean;
+
         export function IsFaction(param0: TeamId, param1: Enum_Factions): boolean;
+    }
+
+    export namespace objectives {
+        export function EnableObjective(param0: CapturePoint, param1: boolean): void;
+
+        export function AllCapturePoints(): Array;
+
+        export function CompareCapturePoint(param0: CapturePoint, param1: Enum_CapturePoints): boolean;
+
+        export function GetCapturePoint(param0: Enum_CapturePoints): CapturePoint;
+
+        export function GetCaptureProgress(param0: CapturePoint): number;
+
+        export function GetCurrentOwnerTeamID(param0: CapturePoint): TeamId;
+
+        export function GetOwnerProgressTeamID(param0: CapturePoint): TeamId;
+
+        export function GetPreviousOwnerTeamID(param0: CapturePoint): TeamId;
     }
 
     export namespace other {
         export function SetVariable(param0: any, param1: any): void;
+
+        export function CapturePointsItem(param0: string, param1: string): Enum_CapturePoints;
 
         export function CharacterGadgetsItem(param0: string, param1: string): Enum_CharacterGadgets;
 
@@ -401,11 +550,15 @@ declare module "portal-unleashed" {
 
         export function FactionsItem(param0: string, param1: string): Enum_Factions;
 
+        export function GetPlayersOnPoint(param0: CapturePoint): Array;
+
         export function GetVariable(param0: any): void;
 
         export function GlobalVariable(param0: number): any;
 
         export function InventorySlotsItem(param0: string, param1: string): Enum_InventorySlots;
+
+        export function MapsItem(param0: string, param1: string): Enum_Maps;
 
         export function MedGadgetTypesItem(param0: string, param1: string): Enum_MedGadgetTypes;
 
@@ -414,6 +567,8 @@ declare module "portal-unleashed" {
         export function ObjectVariable(param0: Object, param1: number): any;
 
         export function OpenGadgetsItem(param0: string, param1: string): Enum_OpenGadgets;
+
+        export function PlayerDeathTypesItem(param0: string, param1: string): Enum_PlayerDeathTypes;
 
         export function PrimaryWeaponsItem(param0: string, param1: string): Enum_PrimaryWeapons;
 
@@ -432,6 +587,12 @@ declare module "portal-unleashed" {
         export function SoldierStateVectorItem(param0: string, param1: string): Enum_SoldierStateVector;
 
         export function ThrowablesItem(param0: string, param1: string): Enum_Throwables;
+
+        export function VehiclesItem(param0: string, param1: string): Enum_Vehicles;
+
+        export function VehicleStateVectorItem(param0: string, param1: string): Enum_VehicleStateVector;
+
+        export function VehicleTypesItem(param0: string, param1: string): Enum_VehicleTypes;
     }
 
     export namespace arrays {
@@ -477,7 +638,21 @@ declare module "portal-unleashed" {
 
         export function Add(param0: Vector, param1: Vector): Vector;
 
+        export function AngleBetweenVectors(param0: Vector, param1: Vector): number;
+
         export function AngleDifference(param0: number, param1: number): number;
+
+        export function ArccosineInDegrees(param0: number): number;
+
+        export function ArccosineInRadians(param0: number): number;
+
+        export function ArcsineInDegrees(param0: number): number;
+
+        export function ArcsineInRadians(param0: number): number;
+
+        export function ArctangentInDegrees(param0: number): number;
+
+        export function ArctangentInRadians(param0: number): number;
 
         export function BackwardVector(): Vector;
 
@@ -539,6 +714,10 @@ declare module "portal-unleashed" {
 
         export function Subtract(param0: Vector, param1: Vector): Vector;
 
+        export function TangentFromDegrees(param0: number): number;
+
+        export function TangentFromRadians(param0: number): number;
+
         export function UpVector(): Vector;
 
         export function VectorTowards(param0: Vector, param1: Vector): Vector;
@@ -555,14 +734,35 @@ declare module "portal-unleashed" {
     }
 
     export namespace eventPayloads {
+        export function EventCapturePoint(): CapturePoint;
+
+        export function EventDeathType(): DeathType;
+
         export function EventOtherPlayer(): Player;
 
         export function EventPlayer(): Player;
 
+        export function EventSeat(): number;
+
         export function EventTeam(): TeamId;
+
+        export function EventVehicle(): Vehicle;
+
+        export function EventWeapon(): WeaponUnlock;
     }
 
     export namespace enums {
+        export namespace Airplane {
+            export const B_17Bomber: Enum_Vehicles;
+            export const BF109: Enum_Vehicles;
+            export const F35B: Enum_Vehicles;
+            export const FA18Hornet: Enum_Vehicles;
+            export const Spitfire: Enum_Vehicles;
+            export const Stuka: Enum_Vehicles;
+            export const SU35BME: Enum_Vehicles;
+            export const SU57: Enum_Vehicles;
+        }
+
         export namespace BF1942_GER {
             export const GERAntiTankGRA: Enum_SoldierKits;
             export const GERAssaultGRA: Enum_SoldierKits;
@@ -626,6 +826,14 @@ declare module "portal-unleashed" {
             export const USReconRUM: Enum_SoldierKits;
         }
 
+        export namespace CapturePoints {
+            export const A1: Enum_CapturePoints;
+            export const B1: Enum_CapturePoints;
+            export const C1: Enum_CapturePoints;
+            export const D1: Enum_CapturePoints;
+            export const E1: Enum_CapturePoints;
+        }
+
         export namespace CharacterGadgetsBF3 {
             export const AmmoBag_ALX: Enum_CharacterGadgets;
             export const MedicBag_ALX: Enum_CharacterGadgets;
@@ -640,6 +848,7 @@ declare module "portal-unleashed" {
         }
 
         export namespace CharacterGadgetsBF2042 {
+            export const ARScanner: Enum_CharacterGadgets;
             export const AutoTurret: Enum_CharacterGadgets;
             export const BallisticShield: Enum_CharacterGadgets;
             export const ConstructionKit: Enum_CharacterGadgets;
@@ -649,6 +858,7 @@ declare module "portal-unleashed" {
             export const SmartExplosives: Enum_CharacterGadgets;
             export const StimPistol: Enum_CharacterGadgets;
             export const SupplyBag: Enum_CharacterGadgets;
+            export const TVMissile: Enum_CharacterGadgets;
         }
 
         export namespace CharacterGadgetsBFBC2 {
@@ -678,6 +888,31 @@ declare module "portal-unleashed" {
             export const Rumney_US: Enum_Factions;
         }
 
+        export namespace Heavy {
+            export const AAV_7A1: Enum_Vehicles;
+            export const M1_Abrams: Enum_Vehicles;
+            export const M10Wolverine: Enum_Vehicles;
+            export const M1A2Abrams: Enum_Vehicles;
+            export const T14Armata: Enum_Vehicles;
+            export const T90: Enum_Vehicles;
+            export const Tiger_I: Enum_Vehicles;
+        }
+
+        export namespace Helicopter {
+            export const AH6: Enum_Vehicles;
+            export const AH64D: Enum_Vehicles;
+            export const Apache: Enum_Vehicles;
+            export const Condor: Enum_Vehicles;
+            export const KA_X_Hannibal: Enum_Vehicles;
+            export const KA52_Alligator: Enum_Vehicles;
+            export const LittleBird: Enum_Vehicles;
+            export const Mi24_KIN: Enum_Vehicles;
+            export const Mi28: Enum_Vehicles;
+            export const Shoshone: Enum_Vehicles;
+            export const UH60: Enum_Vehicles;
+            export const Z11W: Enum_Vehicles;
+        }
+
         export namespace InventorySlots {
             export const CharacterGadget: Enum_InventorySlots;
             export const MeleeWeapon: Enum_InventorySlots;
@@ -687,9 +922,58 @@ declare module "portal-unleashed" {
             export const Throwable: Enum_InventorySlots;
         }
 
+        export namespace Light {
+            export const GAZ_Vodnik: Enum_Vehicles;
+            export const GrowlerITV: Enum_Vehicles;
+            export const HDTStorm: Enum_Vehicles;
+            export const Kubelwagen: Enum_Vehicles;
+            export const M1114_ALX: Enum_Vehicles;
+            export const M1114_RUM: Enum_Vehicles;
+            export const Pickup: Enum_Vehicles;
+            export const Polaris: Enum_Vehicles;
+            export const Quad_RUM: Enum_Vehicles;
+            export const RHIB: Enum_Vehicles;
+            export const TukTuk: Enum_Vehicles;
+            export const VDV_Buggy: Enum_Vehicles;
+            export const WillysJeep: Enum_Vehicles;
+        }
+
+        export namespace Maps {
+            export const Discarded: Enum_Maps;
+            export const Frost: Enum_Maps;
+            export const Harbor: Enum_Maps;
+            export const Hourglass: Enum_Maps;
+            export const Irreversible: Enum_Maps;
+            export const Kaleidoscope: Enum_Maps;
+            export const Lighthouse: Enum_Maps;
+            export const LongHaul: Enum_Maps;
+            export const Oasis: Enum_Maps;
+            export const Orbital: Enum_Maps;
+            export const Port: Enum_Maps;
+            export const Ridge: Enum_Maps;
+            export const Rural: Enum_Maps;
+            export const TheWall: Enum_Maps;
+        }
+
         export namespace MedGadgetTypes {
             export const MedicCrate: Enum_MedGadgetTypes;
             export const MedKit: Enum_MedGadgetTypes;
+        }
+
+        export namespace Medium {
+            export const _9k22Tunguska: Enum_Vehicles;
+            export const BMP_2: Enum_Vehicles;
+            export const Bolte: Enum_Vehicles;
+            export const Christy_Hovercraft: Enum_Vehicles;
+            export const FNSS_ZAHA: Enum_Vehicles;
+            export const Halftrack_Hanomag: Enum_Vehicles;
+            export const HalftrackM3: Enum_Vehicles;
+            export const Jaguar: Enum_Vehicles;
+            export const LAV25: Enum_Vehicles;
+            export const LAVAD: Enum_Vehicles;
+            export const M3A3: Enum_Vehicles;
+            export const M4Sherman: Enum_Vehicles;
+            export const Panzer__IV: Enum_Vehicles;
         }
 
         export namespace MeleeBF3 {
@@ -736,6 +1020,7 @@ declare module "portal-unleashed" {
             export const ATMine: Enum_OpenGadgets;
             export const C4: Enum_OpenGadgets;
             export const CarlGustav: Enum_OpenGadgets;
+            export const CZ805G1: Enum_OpenGadgets;
             export const HealthCrate: Enum_OpenGadgets;
             export const RepairTool: Enum_OpenGadgets;
             export const SelfHeal: Enum_OpenGadgets;
@@ -751,6 +1036,22 @@ declare module "portal-unleashed" {
             export const M136AT4: Enum_OpenGadgets;
             export const MortarStrike: Enum_OpenGadgets;
             export const RPG7_RUM: Enum_OpenGadgets;
+        }
+
+        export namespace PlayerDeathTypes {
+            export const Debris: Enum_PlayerDeathTypes;
+            export const Deserting: Enum_PlayerDeathTypes;
+            export const Drowning: Enum_PlayerDeathTypes;
+            export const Explosion: Enum_PlayerDeathTypes;
+            export const Fall: Enum_PlayerDeathTypes;
+            export const Fire: Enum_PlayerDeathTypes;
+            export const Gas: Enum_PlayerDeathTypes;
+            export const Headshot: Enum_PlayerDeathTypes;
+            export const Melee: Enum_PlayerDeathTypes;
+            export const Penetration: Enum_PlayerDeathTypes;
+            export const Redeploy: Enum_PlayerDeathTypes;
+            export const Roadkill: Enum_PlayerDeathTypes;
+            export const Weapon: Enum_PlayerDeathTypes;
         }
 
         export namespace PrimaryWeaponsBF3 {
@@ -792,6 +1093,7 @@ declare module "portal-unleashed" {
             export const AC74: Enum_PrimaryWeapons;
             export const AK12: Enum_PrimaryWeapons;
             export const Chukavin: Enum_PrimaryWeapons;
+            export const CobraR9: Enum_PrimaryWeapons;
             export const DDM4: Enum_PrimaryWeapons;
             export const DSR1: Enum_PrimaryWeapons;
             export const Keltec: Enum_PrimaryWeapons;
@@ -808,6 +1110,7 @@ declare module "portal-unleashed" {
             export const SLX_Spear: Enum_PrimaryWeapons;
             export const SMG45: Enum_PrimaryWeapons;
             export const TRGM10: Enum_PrimaryWeapons;
+            export const VSSVintorez: Enum_PrimaryWeapons;
         }
 
         export namespace PrimaryWeaponsBFBC2 {
@@ -921,8 +1224,22 @@ declare module "portal-unleashed" {
         }
 
         export namespace SoldierStateVector {
+            export const EyePosition: Enum_SoldierStateVector;
+            export const GetFacingDirection: Enum_SoldierStateVector;
             export const GetLinearVelocity: Enum_SoldierStateVector;
             export const GetPosition: Enum_SoldierStateVector;
+        }
+
+        export namespace Stationary {
+            export const _40MM_Bofors: Enum_Vehicles;
+            export const Centurion_CRAM: Enum_Vehicles;
+            export const Flak38: Enum_Vehicles;
+            export const KORD: Enum_Vehicles;
+            export const Kornet: Enum_Vehicles;
+            export const M2_Browning: Enum_Vehicles;
+            export const M220_TOW: Enum_Vehicles;
+            export const MG42: Enum_Vehicles;
+            export const Pantsir_S1: Enum_Vehicles;
         }
 
         export namespace ThrowablesBF3 {
@@ -945,6 +1262,21 @@ declare module "portal-unleashed" {
 
         export namespace ThrowablesBFBC2 {
             export const FragGrenade_RUM: Enum_Throwables;
+        }
+
+        export namespace VehicleStateVector {
+            export const FacingDirection: Enum_VehicleStateVector;
+            export const LinearVelocity: Enum_VehicleStateVector;
+            export const VehiclePosition: Enum_VehicleStateVector;
+        }
+
+        export namespace VehicleTypes {
+            export const Airplane: Enum_VehicleTypes;
+            export const Heavy: Enum_VehicleTypes;
+            export const Helicopter: Enum_VehicleTypes;
+            export const Light: Enum_VehicleTypes;
+            export const Medium: Enum_VehicleTypes;
+            export const Stationary: Enum_VehicleTypes;
         }
     }
 }

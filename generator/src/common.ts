@@ -9,7 +9,13 @@ export class Named {
 }
 
 export function sanitize(s: string): string {
-  return s.replace("-", "_").replace(" ", "_")
+  let str = s.replace("-", "_").replace(" ", "_")
+
+  if (str.length >= 1 && "0123456789".includes(str[0])) {
+    str = "_" + str
+  }
+  
+  return str
 }
 
 export function category(s: string): string {
