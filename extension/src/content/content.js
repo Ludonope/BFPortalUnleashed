@@ -5,12 +5,14 @@ const PortalUnleashed = (function() {
     const defaultMode = "splitscreen-right";
     const defaultRatio = 0.5;
     const defaultTheme = "vs-dark";
-    const defaultCode = `import { mod, gameplay, player, ui } from "portal-unleashed"
+    const defaultCode = `// Portal Unleashed
+    
+import { mod, gameplay, player, ui } from "portal-unleashed"
 
 // Always call mod.init before anything else
 mod.init()
 
-mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
+mod.onPlayerJoinGame("player joined", (eventPlayer) => ({
     conditions: [],
     actions: () => {
         ui.ShowEventGameModeMessage(ui.Message("Welcome", eventPlayer))
@@ -24,7 +26,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
     let currentRatio;
     let plugin = undefined;
     let playgroundId = "empty";
-    let debug = true;
+    let debug = false;
 
     function prepareEditorLaunch() {
         let url = window.location.toString();
@@ -279,7 +281,7 @@ mod.onPlayerJoinGame("Welcome new player", (eventPlayer) => ({
     function init() {
         // eslint-disable-next-line no-undef
         plugin = BF2042Portal.Plugins.getPlugin(pluginName);
-
+        
         if (!plugin) {
             // eslint-disable-next-line no-undef
             BF2042Portal.Shared.logError("Failed to load Portal Unleashed!");

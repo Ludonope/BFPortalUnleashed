@@ -18,6 +18,8 @@
     "homepage": "https://github.com/Ludonope/BFPortalUnleashed#readme",
     "dependencies": {
         "monaco-editor": "~0.20.0",
+        "npm": "^8.18.0",
+        "open": "^8.4.0",
         "portal-unleashed": "../generator/portal-unleashed/",
         "requirejs": "^2.3.6"
     },
@@ -30,7 +32,7 @@
         "gulp-prettier": "^3.0.0",
         "gulp-zip": "^5.0.2",
         "jasmine": "^3.6.1",
-        "live-server": "1.2.1",
+        "live-server": "^1.2.2",
         "sinon-chrome": "^3.0.1"
     },
     "scripts": {
